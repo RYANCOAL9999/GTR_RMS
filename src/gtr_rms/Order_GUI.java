@@ -16,25 +16,20 @@ import javax.swing.JScrollPane;
 import entities.Restaurant;
 import entities.Order;
 import entities.MenuItem;
-import java.awt.event.ActionEvent;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
  * @author W22079254
  */
-public class Restaurant_GUI extends JFrame{
+public class Order_GUI extends JFrame{
     
     private Restaurant restaurant;
     
     private JList<String> orderList;
     private DefaultListModel<String> menuItems;
     private DefaultListModel<String> orderItems;
-    
-    private final String restaurntName = "";
-    private final String restaurntAddress = "";
-    private final String restaurntPhone = "";
-    
-    
+        
     public void addMenuItem(String name) {
         orderItems.addElement(name);
     }
@@ -88,27 +83,24 @@ public class Restaurant_GUI extends JFrame{
         clearOrder();
     }
     
-    public void placeTable(ActionEvent event) {
-        // Logic to process the order and notify the kitchen, etc.
-        restaurant.addOrderNumber();
-        String[] splited = event.getActionCommand().split(" ");
-        //Need to handle save table with Order 1
-        restaurant.addOrder(Integer.parseInt(splited[1]));
-    }
-    
     private void initializeMenu() {
-        
-        restaurant = new Restaurant(restaurntName, restaurntAddress, restaurntPhone);
-    
         menuItems = new DefaultListModel<>();
-        
-        
         List<MenuItem> resMenuItem = restaurant.getMenuItem();
-        
         for (int i = 0; i < resMenuItem.size(); i++){
             menuItems.addElement(resMenuItem.get(i).getName());
         }
     }
+    
+    private void menuListEventList(ListSelectionEvent e, JList<String> menuList){
+        if (!e.getValueIsAdjusting()) {
+            String selectedMenuItem = menuList.getSelectedValue();
+            if (selectedMenuItem != null) {
+                addMenuItem(selectedMenuItem);
+            }
+        }
+    }
+    
+    
 
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
@@ -119,16 +111,6 @@ public class Restaurant_GUI extends JFrame{
         JPanel menuPanel = new JPanel(new BorderLayout());
         JButton placeOrderBtn = new JButton("Place Order");
         
-//        JButton Table1 = new JButton("Table 1");
-//        JButton Table2 = new JButton("Table 2");
-//        JButton Table3 = new JButton("Table 3");
-//        JButton Table4 = new JButton("Table 4");
-//        JButton Table5 = new JButton("Table 5");
-//        JButton Table6 = new JButton("Table 6");
-//        JButton Table7 = new JButton("Table 7");
-//        JButton Table8 = new JButton("Table 8");
-//        JButton Table9 = new JButton("Table 9");
-        
         JButton clearOrderBtn = new JButton("Clear Order");
         
         // Order List
@@ -136,16 +118,6 @@ public class Restaurant_GUI extends JFrame{
         JScrollPane orderScrollPane = new JScrollPane(orderList);
         orderPanel.add(orderScrollPane, BorderLayout.CENTER);
         orderPanel.add(placeOrderBtn, BorderLayout.SOUTH);
-        
-//        orderPanel.add(Table1, BorderLayout.WEST);
-//        orderPanel.add(Table2, BorderLayout.CENTER);
-//        orderPanel.add(Table3, BorderLayout.EAST);
-//        orderPanel.add(Table4, BorderLayout.WEST);
-//        orderPanel.add(Table5, BorderLayout.WEST);
-//        orderPanel.add(Table6, BorderLayout.WEST);
-//        orderPanel.add(Table7, BorderLayout.WEST);
-//        orderPanel.add(Table8, BorderLayout.WEST);
-//        orderPanel.add(Table9, BorderLayout.WEST);
         orderPanel.add(clearOrderBtn, BorderLayout.NORTH);
 
         // Menu List
@@ -158,37 +130,20 @@ public class Restaurant_GUI extends JFrame{
         mainPanel.add(menuPanel, BorderLayout.CENTER);
 
         // Action Listeners
-        menuList.addListSelectionListener(e -> {
-            if (!e.getValueIsAdjusting()) {
-                String selectedMenuItem = menuList.getSelectedValue();
-                if (selectedMenuItem != null) {
-                    addMenuItem(selectedMenuItem);
-                }
-            }
-        });
-
-        placeOrderBtn.addActionListener(e -> placeOrder());
-//        Table1.addActionListener(e -> placeTable(e));
-//        Table2.addActionListener(e -> placeTable(e));
-//        Table3.addActionListener(e -> placeTable(e));
-//        Table4.addActionListener(e -> placeTable(e));
-//        Table5.addActionListener(e -> placeTable(e));
-//        Table6.addActionListener(e -> placeTable(e));
-//        Table7.addActionListener(e -> placeTable(e));
-//        Table8.addActionListener(e -> placeTable(e));
-//        Table9.addActionListener(e -> placeTable(e));
-        
+        menuList.addListSelectionListener(e -> menuListEventList(e, menuList));
+        placeOrderBtn.addActionListener(e -> placeOrder());    
         clearOrderBtn.addActionListener(e -> clearOrder());
 
         // Set up the main frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);
     }
     
-    public Restaurant_GUI(){
-        super("Restaurant Management System");
+    public Order_GUI(Restaurant res){
+        super("Restaurant Management System Order");
+        this.restaurant = res;
         initializeMenu();
         initializeGUI();
     }
