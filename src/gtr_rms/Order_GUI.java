@@ -100,8 +100,6 @@ public class Order_GUI extends JFrame{
         }
     }
     
-    
-
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
 

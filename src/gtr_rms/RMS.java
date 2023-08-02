@@ -27,9 +27,7 @@ public class RMS {
         restaurant = new Restaurant(restaurntName, restaurntAddress, restaurntPhone);
         
         javax.swing.SwingUtilities.invokeLater(()->{
-//            Table_GUI gui = new Table_GUI(restaurant);
-//            gui.setVisible(true);
-            Ingredients_GUI gui = new Ingredients_GUI();
+            Ingredients_GUI gui = new Ingredients_GUI(restaurant);
             gui.setVisible(true);
         });
     }

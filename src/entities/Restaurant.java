@@ -18,7 +18,9 @@ public class Restaurant {
     private String phone;
     
     private int OrderNumber;
-    
+
+    private Inventory inventory;
+
     private List<Order> order;
     
     private List<MenuItem> menuItem;
@@ -35,14 +37,18 @@ public class Restaurant {
         this.order = new ArrayList<Order>();
         
         this.menuItem = new ArrayList<MenuItem>();
-        this.addMenuItem();
+
+        this.inventory = new Inventory();
+
+        // this.addMenuItem();
+
     }
     
-    private void addMenuItem(){
-        this.menuItem.add(new MenuItem("Pasta", "", 0));
-        this.menuItem.add(new MenuItem("Pizza", "", 0));
-        this.menuItem.add(new MenuItem("Salad", "", 0));
-    }
+    // private void addMenuItem(){
+    //     this.menuItem.add(new MenuItem("Pasta", "", 0));
+    //     this.menuItem.add(new MenuItem("Pizza", "", 0));
+    //     this.menuItem.add(new MenuItem("Salad", "", 0));
+    // }
 
     public String getName() {
         return name;
@@ -111,4 +117,19 @@ public class Restaurant {
             }
         }
     }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
+    public void addInventoryByIngredients(String key, int number){
+        this.inventory.addIngredients(key, number);
+    }
+
+    public void deleteInventoryByIngredients(String key){
+        this.inventory.getIngredients().remove(key);
+    }
+
+
+
 }

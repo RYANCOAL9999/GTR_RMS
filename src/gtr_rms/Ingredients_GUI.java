@@ -4,54 +4,69 @@
  */
 package gtr_rms;
 
-import entities.Inventory;
 import java.awt.BorderLayout;
-import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import entities.Restaurant;
 
 /**
  *
  * @author W22079254
  */
 public class Ingredients_GUI extends JFrame{
+
+    private Restaurant restaurant;
     
-//    private List<Inventory> InventroyItems;
-    
-    private JList<String> InventoryList;
-    private DefaultListModel<String> InventoryItems;
-    
+    private JList<String> inventoryList;
+    private DefaultListModel<String> inventoryItems;
+
+    private void finishEvent(){
+        JOptionPane.showMessageDialog(this, "Ingredients food action finished!");
+        Menu_GUI gui = new Menu_GUI(restaurant);
+        gui.setVisible(true);
+        this.dispose();
+    }
+
+    private void addFoodEvent(DefaultListModel<String> inventoryItems){
+        Food_GUI gui = new Food_GUI(restaurant, inventoryItems);
+        gui.setVisible(true);
+    }
+
     private void initializeGUI() {
-        InventoryItems = new DefaultListModel<>();
+        inventoryItems = new DefaultListModel<>();
         
         JPanel mainPanel = new JPanel(new BorderLayout());
-        JPanel TablePanel_North = new JPanel(new BorderLayout());
-        JPanel TablePanel_Center = new JPanel(new BorderLayout());
-        JPanel TablePanel_South = new JPanel(new BorderLayout());
+        JPanel tablePanel_North = new JPanel(new BorderLayout());
+        JPanel tablePanel_Center = new JPanel(new BorderLayout());
+        JPanel tablePanel_South = new JPanel(new BorderLayout());
         
         JLabel labelShowHeader = new JLabel("Ingredients:");
         JButton add_food = new JButton("add food");
         
-        
-        TablePanel_North.add(labelShowHeader, BorderLayout.WEST);
-        TablePanel_North.add(add_food, BorderLayout.EAST);
-        
-        InventoryList = new JList<>(InventoryItems);
-        JScrollPane orderScrollPane = new JScrollPane(InventoryList);
-        TablePanel_Center.add(orderScrollPane, BorderLayout.CENTER);
+        tablePanel_North.add(labelShowHeader, BorderLayout.WEST);
+        tablePanel_North.add(add_food, BorderLayout.EAST);
+
+        inventoryList = new JList<>(inventoryItems);
+        JScrollPane orderScrollPane = new JScrollPane(inventoryList);
+        tablePanel_Center.add(orderScrollPane, BorderLayout.CENTER);
         
         JButton finish = new JButton("finish");
-        TablePanel_South.add(finish, BorderLayout.EAST);
+        tablePanel_South.add(finish, BorderLayout.EAST);
         
-        
-        mainPanel.add(TablePanel_North, BorderLayout.NORTH);
-        mainPanel.add(TablePanel_Center, BorderLayout.CENTER);
-        mainPanel.add(TablePanel_South, BorderLayout.SOUTH);
+        mainPanel.add(tablePanel_North, BorderLayout.NORTH);
+        mainPanel.add(tablePanel_Center, BorderLayout.CENTER);
+        mainPanel.add(tablePanel_South, BorderLayout.SOUTH);
+
+        // Action Listeners
+        add_food.addActionListener(e -> addFoodEvent(inventoryItems));    
+        finish.addActionListener(e -> finishEvent());
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(270, 400);
@@ -59,8 +74,9 @@ public class Ingredients_GUI extends JFrame{
         this.add(mainPanel);
     }
     
-    Ingredients_GUI(){
+    Ingredients_GUI(Restaurant res){
         super("Restaurant Management System Ingredients");
+        this.restaurant = res;
         initializeGUI();
     }
     
