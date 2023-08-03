@@ -50,7 +50,7 @@ public class Order_GUI extends JFrame{
         Order saveOrder = restaurant.getOrder().get(restaurant.getOrderNumber()-1);
         for(Object orderItems: orderItems.toArray()){
             for(MenuItem item: resMenuItem){
-                if(orderItems == null ? item.getName() == null : orderItems.equals(item.getName())){
+                if(orderItems == null ? item.getName().equals(null) : orderItems.equals(item.getName())){
                     saveOrder.addItem(item);
                 }
             }
@@ -180,7 +180,8 @@ public class Order_GUI extends JFrame{
         JScrollPane orderScrollPane = new JScrollPane(orderList);
         orderPanel.add(orderScrollPane, BorderLayout.CENTER);
         orderPanel.add(placeOrderBtn, BorderLayout.SOUTH);
-        if(this.order.getSubmitted()){
+        
+        if(this.order != null && this.order.getSubmitted()){
             orderPanel.add(paidOrderBtn, BorderLayout.NORTH);
         }
         else{

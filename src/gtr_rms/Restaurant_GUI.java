@@ -55,7 +55,7 @@ public class Restaurant_GUI extends JFrame{
             JOptionPane.showMessageDialog(this, "Preparation is not ready! Please Check");
             return;
         }
-        JOptionPane.showMessageDialog(this, "Ingredients food action finished!");
+        JOptionPane.showMessageDialog(this, "Preparation finished, Everything is ready");
         restaurant.setAllReady(true);
     }
 

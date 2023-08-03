@@ -47,23 +47,23 @@ public class Dish_GUI extends JFrame{
      * @param inventoryItems
      */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
+
+        String price = dishPrice.getText();
+
+        if(!Helper.checkStringIsNumber(price)){
+            JOptionPane.showMessageDialog(this, "Your Dish is setting error");
+            return;
+        }
+
+        String name = dishName.getText();
+
         restaurant.addMenuItem(
-            dishName.getText(), 
+            name, 
             dishDescription.getText(), 
-            Double.parseDouble(dishPrice.getText())
+            Double.parseDouble(price)
         );
         inventoryItems.addElement(dishName.getText());
         this.dispose();
-    }
-
-    /**
-     * 
-     * @param i
-     * @param number
-     * @return
-     */
-    private String getCheckBoxConstraints(int i, int number){
-        return i % number == 0 ? BorderLayout.WEST : i % number == 1 ? BorderLayout.CENTER : BorderLayout.EAST;
     }
 
     /**
@@ -128,7 +128,7 @@ public class Dish_GUI extends JFrame{
         for(int i=0; i<foodItems.size(); i++){
             JCheckBox item = foodItems.get(i);
             item.setPreferredSize(new Dimension( 20, 24 ));
-            tablePanel_Center.add(item, getCheckBoxConstraints(i, constantsNumber));
+            tablePanel_Center.add(item, Helper.getCheckBoxConstraints(i, constantsNumber));
         }
 
         tablePanel_South.add(confirmButton, BorderLayout.CENTER);

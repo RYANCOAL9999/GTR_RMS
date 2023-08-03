@@ -39,10 +39,22 @@ public class Food_GUI extends JFrame {
      * @param inventoryItems
      */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
+
+        String quantity = foodQuantity.getText();
+        String weight = foodWeight.getText();
+
+        if(
+            !Helper.checkStringIsNumber(quantity) ||
+            !Helper.checkStringIsNumber(weight)
+        ){
+            JOptionPane.showMessageDialog(this, "Your food is setting error");
+            return;
+        }
+
         Food newFood = new Food(
             foodName.getText(),
-            Integer.parseInt(foodQuantity.getText()),
-            Double.parseDouble(foodWeight.getText())
+            Integer.parseInt(quantity),
+            Double.parseDouble(weight)
         );
         /* add to inventory */
         restaurant.addInventoryByIngredients(newFood);

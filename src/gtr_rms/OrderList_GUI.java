@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entities.Order;
@@ -22,8 +23,18 @@ public class OrderList_GUI extends JFrame{
 
     private List<JButton> orderItem;
 
-    private void orderSingleItemClick(int number) {
+    private final int constantsNumber = 3;
 
+    private void cancelEvent(){
+        JOptionPane.showMessageDialog(this, "Cancel Order Show");
+        this.dispose();
+    }
+
+    /**
+     * 
+     * @param number
+     */
+    private void orderSingleItemClick(int number) {
        Order order = restaurant.getOrder().get(number-1);
        Order_GUI gui = new Order_GUI(restaurant, order);
        gui.setVisible(true);
@@ -50,7 +61,6 @@ public class OrderList_GUI extends JFrame{
             orderItem.add(orderButton);
         }
 
-        JButton confirmButton = new JButton("confirm Button");
         JButton cancelButton = new JButton("cancel Button");
 
         tablePanel_North.add(labelShowName, BorderLayout.WEST);
@@ -62,10 +72,10 @@ public class OrderList_GUI extends JFrame{
         //  */  
         for(int i=0; i<orderItem.size(); i++){
             JButton item = orderItem.get(i);
-            tablePanel_Center.add(item, BorderLayout.CENTER);
+            tablePanel_Center.add(item, Helper.getCheckBoxConstraints(i, constantsNumber));
         }
 
-        tablePanel_South.add(confirmButton, BorderLayout.CENTER);
+        // tablePanel_South.add(confirmButton, BorderLayout.CENTER);
         tablePanel_South.add(cancelButton, BorderLayout.EAST);
 
         mainPanel.add(tablePanel_North, BorderLayout.NORTH);
@@ -73,14 +83,11 @@ public class OrderList_GUI extends JFrame{
         mainPanel.add(tablePanel_South, BorderLayout.SOUTH);
 
         // Action Listeners
-        // confirmButton.addActionListener(e -> confirmEvent(inventoryItems));    
-        // cancelButton.addActionListener(e -> cancelEvent());
         for(JButton item: orderItem){
             item.addActionListener(e -> orderSingleItemClick(Integer.parseInt(item.getText())));
         }
 
-        // confirmButton.addActionListener(e -> confirmEvent(inventoryItems));    
-        // cancelButton.addActionListener(e -> cancelEvent());
+        cancelButton.addActionListener(e -> cancelEvent());
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(270, 120);
