@@ -23,7 +23,7 @@ public class Table_GUI extends JFrame{
     /**
      * 
      */
-    private void showOrderGUIWithSingleTable(int tableSeat){
+    private void showOrderGUIWithSingleTable(String tableSeat){
         Order order = null;
         for(Order item : restaurant.getOrder()){
             if(item.getTableNumber() == tableSeat){
@@ -48,7 +48,7 @@ public class Table_GUI extends JFrame{
      */
     private void placeTable(ActionEvent event) {
         String[] splited = event.getActionCommand().split(" ");
-        showOrderGUIWithSingleTable(Integer.parseInt(splited[1]));
+        showOrderGUIWithSingleTable(splited[1]);
     }
 
     /**

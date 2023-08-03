@@ -143,7 +143,7 @@ public class Restaurant {
      * 
      * @param tableNumber
      */
-    public void addOrder(int tableNumber){
+    public void addOrder(String tableNumber){
         this.order.add(new Order(this.OrderNumber, tableNumber));
     }
     

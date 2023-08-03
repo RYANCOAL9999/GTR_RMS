@@ -12,7 +12,7 @@ import java.util.List;
 public class Order {
     
     private int orderId;
-    private int tableNumber;
+    private String tableNumber;
     private List<MenuItem> menuItems;
     
     /**
@@ -43,7 +43,7 @@ public class Order {
      * 
      * @return
      */
-    public int getTableNumber() {
+    public String getTableNumber() {
         return tableNumber;
     }
 
@@ -51,7 +51,7 @@ public class Order {
      * 
      * @param tableNumber
      */
-    public void setTableNumber(int tableNumber) {
+    public void setTableNumber(String tableNumber) {
         this.tableNumber = tableNumber;
     }
 
@@ -68,7 +68,7 @@ public class Order {
      * @param orderId
      * @param tableNumber
      */
-    public Order(int orderId, int tableNumber) {
+    public Order(int orderId, String tableNumber) {
         this.orderId = orderId;
         this.tableNumber = tableNumber;
         this.menuItems = new java.util.ArrayList<>();
