@@ -152,9 +152,9 @@ public class Restaurant {
      * @param orderId
      */
     public void removeOrder(int orderId) {
-        for (int i = 0; i < this.order.size(); i++){
-            if(this.order.get(i).getOrderId() == orderId){
-                this.order.remove(i);
+        for(Order orderItem : this.order){
+            if(orderItem.getOrderId() == orderId){
+                this.order.remove(orderItem);
             }
         }
     }
@@ -178,9 +178,9 @@ public class Restaurant {
      * @param name
      */
     public void removeMenuItem(String name) {
-        for (int i = 0; i < this.menuItem.size(); i++){
-            if(this.menuItem.get(i).getName() == null ? name == null : this.menuItem.get(i).getName().equals(name)){
-                this.menuItem.remove(i);
+        for(MenuItem menu : this.menuItem){
+            if(menu.getName().equals(name)){
+                this.menuItem.remove(menu);
             }
         }
     }

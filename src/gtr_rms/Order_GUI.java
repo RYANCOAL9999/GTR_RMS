@@ -54,19 +54,11 @@ public class Order_GUI extends JFrame{
      * @return
      */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
-        // Order newOrder = new Order(restaurant.getOrderNumber(), 0);        
-        // for(int i = 0; i < orderItems.getSize();i++){
-        //     for(int j = 0; j < resMenuItem.size();j++){
-        //         if(orderItems.get(i) == null ? resMenuItem.get(j).getName() == null : orderItems.get(i).equals(resMenuItem.get(j).getName())){
-        //             newOrder.addItem(resMenuItem.get(j));
-        //         }
-        //     }
-        // }
         Order saveOrder = restaurant.getOrder().get(restaurant.getOrderNumber()-1);
-        for(int i = 0; i < orderItems.getSize();i++){
-            for(int j = 0; j < resMenuItem.size();j++){
-                if(orderItems.get(i) == null ? resMenuItem.get(j).getName() == null : orderItems.get(i).equals(resMenuItem.get(j).getName())){
-                    saveOrder.addItem(resMenuItem.get(j));
+        for(Object orderItems: orderItems.toArray()){
+            for(MenuItem item: resMenuItem){
+                if(orderItems == null ? item.getName() == null : orderItems.equals(item.getName())){
+                    saveOrder.addItem(item);
                 }
             }
         }
@@ -100,8 +92,8 @@ public class Order_GUI extends JFrame{
     public void makeBill(Order order){
         List<MenuItem> resMenuItem = order.getMenuItems();
         int sum = 0;
-        for(int i = 0 ; i < resMenuItem.size();i++){
-            sum += resMenuItem.get(i).getPrice();
+        for(MenuItem menu : resMenuItem){
+            sum += menu.getPrice();
         }
         makeReceipt(resMenuItem, sum);        
     }
@@ -127,9 +119,8 @@ public class Order_GUI extends JFrame{
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
         List<MenuItem> resMenuItem = restaurant.getMenuItem();
-        System.out.println("Hello 222" + resMenuItem.size());
-        for (int i = 0; i < resMenuItem.size(); i++){
-            menuItems.addElement(resMenuItem.get(i).getName());
+        for(MenuItem menu : resMenuItem){
+            menuItems.addElement(menu.getName());
         }
     }
     

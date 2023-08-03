@@ -46,7 +46,7 @@ public class OrderList_GUI extends JFrame{
 
         List<Order> orderList = restaurant.getOrder();
         for(Order order : orderList) {
-            JButton orderButton = new JButton(order.getOrderId()+"");
+            JButton orderButton = new JButton(String.valueOf(order.getOrderId()));
             orderItem.add(orderButton);
         }
 
@@ -78,9 +78,6 @@ public class OrderList_GUI extends JFrame{
         for(JButton item: orderItem){
             item.addActionListener(e -> orderSingleItemClick(Integer.parseInt(item.getText())));
         }
-
-
-
 
         // confirmButton.addActionListener(e -> confirmEvent(inventoryItems));    
         // cancelButton.addActionListener(e -> cancelEvent());
