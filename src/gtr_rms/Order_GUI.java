@@ -26,6 +26,8 @@ import entities.MenuItem;
 public class Order_GUI extends JFrame{
     
     private Restaurant restaurant;
+
+    private Order order;
     
     private JList<String> orderList;
     private DefaultListModel<String> menuItems;
@@ -52,15 +54,23 @@ public class Order_GUI extends JFrame{
      * @return
      */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
-        Order newOrder = new Order(restaurant.getOrderNumber(), 0);        
+        // Order newOrder = new Order(restaurant.getOrderNumber(), 0);        
+        // for(int i = 0; i < orderItems.getSize();i++){
+        //     for(int j = 0; j < resMenuItem.size();j++){
+        //         if(orderItems.get(i) == null ? resMenuItem.get(j).getName() == null : orderItems.get(i).equals(resMenuItem.get(j).getName())){
+        //             newOrder.addItem(resMenuItem.get(j));
+        //         }
+        //     }
+        // }
+        Order saveOrder = restaurant.getOrder().get(restaurant.getOrderNumber()-1);
         for(int i = 0; i < orderItems.getSize();i++){
             for(int j = 0; j < resMenuItem.size();j++){
                 if(orderItems.get(i) == null ? resMenuItem.get(j).getName() == null : orderItems.get(i).equals(resMenuItem.get(j).getName())){
-                    newOrder.addItem(resMenuItem.get(j));
+                    saveOrder.addItem(resMenuItem.get(j));
                 }
             }
         }
-        return newOrder;
+        return saveOrder;
     }
     
     /**
@@ -88,7 +98,7 @@ public class Order_GUI extends JFrame{
      * @param order
      */
     public void makeBill(Order order){
-        List<MenuItem> resMenuItem = order.getOrderItems();
+        List<MenuItem> resMenuItem = order.getMenuItems();
         int sum = 0;
         for(int i = 0 ; i < resMenuItem.size();i++){
             sum += resMenuItem.get(i).getPrice();
@@ -102,7 +112,10 @@ public class Order_GUI extends JFrame{
     public void placeOrder() {
         // Logic to process the order and notify the kitchen, etc.
         JOptionPane.showMessageDialog(this, "Order placed successfully!");
-        Order order = prepareFoodOrder(restaurant.getMenuItem());
+        if(order == null){
+            order = prepareFoodOrder(restaurant.getMenuItem());
+        }
+        System.out.println("Hello" + order.getMenuItems().size());
         //bill & receipt printing
         makeBill(order);
         clearOrder();
@@ -114,6 +127,7 @@ public class Order_GUI extends JFrame{
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
         List<MenuItem> resMenuItem = restaurant.getMenuItem();
+        System.out.println("Hello 222" + resMenuItem.size());
         for (int i = 0; i < resMenuItem.size(); i++){
             menuItems.addElement(resMenuItem.get(i).getName());
         }
@@ -132,12 +146,23 @@ public class Order_GUI extends JFrame{
             }
         }
     }
+
+    private void addMenuItemWithSaved(){
+        if(this.order != null){
+            List<MenuItem> menuItems = this.order.getMenuItems();
+            System.out.println(menuItems.size());
+            for(MenuItem menuSingleItem : menuItems){
+                orderItems.addElement(menuSingleItem.getName());
+            }
+        }
+    }
     
     /**
      * 
      */
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
+        addMenuItemWithSaved();
 
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -178,10 +203,14 @@ public class Order_GUI extends JFrame{
     /**
      * 
      * @param res
+     * @param order
      */
-    public Order_GUI(Restaurant res){
+    public Order_GUI(Restaurant res, Order order) {
         super("Restaurant Management System Order");
         this.restaurant = res;
+        if(order != null){
+            this.order = order;
+        }
         initializeMenu();
         initializeGUI();
     }

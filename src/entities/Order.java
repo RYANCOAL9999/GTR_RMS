@@ -13,14 +13,14 @@ public class Order {
     
     private int orderId;
     private int tableNumber;
-    private List<MenuItem> orderItems;
+    private List<MenuItem> menuItems;
     
     /**
      * 
      * @param item
      */
     public void addItem(MenuItem item) {
-        orderItems.add(item);
+        menuItems.add(item);
     }
 
     /**
@@ -59,8 +59,8 @@ public class Order {
      * 
      * @return
      */
-    public List<MenuItem> getOrderItems() {
-        return orderItems;
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
     }
 
     /**
@@ -71,7 +71,7 @@ public class Order {
     public Order(int orderId, int tableNumber) {
         this.orderId = orderId;
         this.tableNumber = tableNumber;
-        this.orderItems = new java.util.ArrayList<>();
+        this.menuItems = new java.util.ArrayList<>();
     }
     
 }

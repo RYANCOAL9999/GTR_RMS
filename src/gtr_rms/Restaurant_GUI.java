@@ -98,8 +98,8 @@ public class Restaurant_GUI extends JFrame{
         /**
          * List out All Order
          */
-        // Order_GUI gui = new Order_GUI(restaurant);
-        // gui.setVisible(true);
+        OrderList_GUI gui = new OrderList_GUI(restaurant);
+        gui.setVisible(true);
     }
 
     /**

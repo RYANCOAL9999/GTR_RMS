@@ -77,7 +77,7 @@ public class Ingredients_GUI extends JFrame{
         add_food.addActionListener(e -> addFoodEvent(inventoryItems));    
         finish.addActionListener(e -> finishEvent());
         
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(270, 400);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);

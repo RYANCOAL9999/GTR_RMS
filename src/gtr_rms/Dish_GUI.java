@@ -145,7 +145,7 @@ public class Dish_GUI extends JFrame{
         confirmButton.addActionListener(e -> confirmEvent(inventoryItems));    
         cancelButton.addActionListener(e -> cancelEvent());
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(300, 200);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);

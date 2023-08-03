@@ -4,6 +4,7 @@
  */
 package gtr_rms;
 
+import entities.Order;
 import entities.Restaurant;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -22,8 +23,22 @@ public class Table_GUI extends JFrame{
     /**
      * 
      */
-    private void showOrderGUIWithSingleTable(){
-        Order_GUI gui = new Order_GUI(restaurant);
+    private void showOrderGUIWithSingleTable(int tableSeat){
+        Order order = null;
+        for(Order item : restaurant.getOrder()){
+            if(item.getTableNumber() == tableSeat){
+                order = item;
+            }
+        }
+        /**
+         * Logic to process the order and notify the kitchen, etc.
+         * Need to handle save table with Order 1
+         */
+        if(order == null){
+            restaurant.addOrderNumber();
+            restaurant.addOrder(tableSeat);
+        }
+        Order_GUI gui = new Order_GUI(restaurant, order);
         gui.setVisible(true);
     }
     
@@ -32,12 +47,8 @@ public class Table_GUI extends JFrame{
      * @param event
      */
     private void placeTable(ActionEvent event) {
-        // Logic to process the order and notify the kitchen, etc.
-        restaurant.addOrderNumber();
         String[] splited = event.getActionCommand().split(" ");
-        //Need to handle save table with Order 1
-        restaurant.addOrder(Integer.parseInt(splited[1]));
-        showOrderGUIWithSingleTable();
+        showOrderGUIWithSingleTable(Integer.parseInt(splited[1]));
     }
 
     /**
@@ -46,7 +57,6 @@ public class Table_GUI extends JFrame{
     private void initializeGUI() {
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());
-
         /*
          * add JButton with forEach with Inventory table to tablePanel
          * need to think about how to make it with 2d array without adding tablePanel
@@ -95,7 +105,7 @@ public class Table_GUI extends JFrame{
         table9.addActionListener(e -> placeTable(e));
         
         // Set up the main frame
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(270, 120);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);
