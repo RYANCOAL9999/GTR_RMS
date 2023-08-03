@@ -13,10 +13,11 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+
 import entities.Restaurant;
 import entities.Order;
 import entities.MenuItem;
-import javax.swing.event.ListSelectionEvent;
 
 /**
  *
@@ -29,15 +30,27 @@ public class Order_GUI extends JFrame{
     private JList<String> orderList;
     private DefaultListModel<String> menuItems;
     private DefaultListModel<String> orderItems;
-        
+    
+    /**
+     * 
+     * @param name
+     */
     public void addMenuItem(String name) {
         orderItems.addElement(name);
     }
     
+    /**
+     * 
+     */
     public void clearOrder() {
         orderItems.clear();
     }
     
+    /**
+     * 
+     * @param resMenuItem
+     * @return
+     */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
         Order newOrder = new Order(restaurant.getOrderNumber(), 0);        
         for(int i = 0; i < orderItems.getSize();i++){
@@ -50,6 +63,11 @@ public class Order_GUI extends JFrame{
         return newOrder;
     }
     
+    /**
+     * 
+     * @param resMenuItem
+     * @param sum
+     */
     public void makeReceipt(List<MenuItem> resMenuItem, int sum){
         System.out.println(restaurant.getName());
         System.out.println(restaurant.getAddress());
@@ -65,6 +83,10 @@ public class Order_GUI extends JFrame{
         System.out.println("Total"+ "      "+sum);   
     }
     
+    /**
+     * 
+     * @param order
+     */
     public void makeBill(Order order){
         List<MenuItem> resMenuItem = order.getOrderItems();
         int sum = 0;
@@ -74,6 +96,9 @@ public class Order_GUI extends JFrame{
         makeReceipt(resMenuItem, sum);        
     }
 
+    /**
+     * 
+     */
     public void placeOrder() {
         // Logic to process the order and notify the kitchen, etc.
         JOptionPane.showMessageDialog(this, "Order placed successfully!");
@@ -83,6 +108,9 @@ public class Order_GUI extends JFrame{
         clearOrder();
     }
     
+    /**
+     * 
+     */
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
         List<MenuItem> resMenuItem = restaurant.getMenuItem();
@@ -91,6 +119,11 @@ public class Order_GUI extends JFrame{
         }
     }
     
+    /**
+     * 
+     * @param e
+     * @param menuList
+     */
     private void menuListEventList(ListSelectionEvent e, JList<String> menuList){
         if (!e.getValueIsAdjusting()) {
             String selectedMenuItem = menuList.getSelectedValue();
@@ -100,6 +133,9 @@ public class Order_GUI extends JFrame{
         }
     }
     
+    /**
+     * 
+     */
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
 
@@ -139,6 +175,10 @@ public class Order_GUI extends JFrame{
         this.add(mainPanel);
     }
     
+    /**
+     * 
+     * @param res
+     */
     public Order_GUI(Restaurant res){
         super("Restaurant Management System Order");
         this.restaurant = res;

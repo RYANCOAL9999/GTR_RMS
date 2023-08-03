@@ -2,7 +2,6 @@ package gtr_rms;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +13,10 @@ import javax.swing.JTextField;
 import entities.Food;
 import entities.Restaurant;
 
+/**
+ *
+ * @author W22079254
+ */
 public class Food_GUI extends JFrame {
 
     private Restaurant restaurant;
@@ -23,11 +26,18 @@ public class Food_GUI extends JFrame {
     private JTextField foodQuantity;
     private JTextField foodWeight;
 
+    /**
+     * 
+     */
     private void cancelEvent() {
         JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
         this.dispose();
     }
 
+    /**
+     * 
+     * @param inventoryItems
+     */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
         Food newFood = new Food(
             foodName.getText(),
@@ -35,11 +45,14 @@ public class Food_GUI extends JFrame {
             Double.parseDouble(foodWeight.getText())
         );
         /* add to inventory */
-        restaurant.addInventoryByIngredients(newFood.getName(), newFood.getQuantity());
+        restaurant.addInventoryByIngredients(newFood);
         inventoryItems.addElement(newFood.getName());
         this.dispose();
     }
 
+    /**
+     * 
+     */
     private void initializeGUI() {
 
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -97,6 +110,11 @@ public class Food_GUI extends JFrame {
         this.add(mainPanel);
     }
 
+    /**
+     * 
+     * @param res
+     * @param inventoryItems
+     */
     Food_GUI(Restaurant res, DefaultListModel<String> inventoryItems){
         super("Restaurant Management System Food");
         this.restaurant = res;

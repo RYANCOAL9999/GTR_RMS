@@ -15,34 +15,63 @@ public class Order {
     private int tableNumber;
     private List<MenuItem> orderItems;
     
-    public Order(int orderId, int tableNumber) {
-        this.orderId = orderId;
-        this.tableNumber = tableNumber;
-        this.orderItems = new java.util.ArrayList<>();
-    }
-    
+    /**
+     * 
+     * @param item
+     */
     public void addItem(MenuItem item) {
         orderItems.add(item);
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getOrderId() {
         return orderId;
     }
 
+    /**
+     * 
+     * @param orderId
+     */
     public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
+    /**
+     * 
+     * @return
+     */
     public int getTableNumber() {
         return tableNumber;
     }
 
+    /**
+     * 
+     * @param tableNumber
+     */
     public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
     }
 
+    /**
+     * 
+     * @return
+     */
     public List<MenuItem> getOrderItems() {
         return orderItems;
+    }
+
+    /**
+     * 
+     * @param orderId
+     * @param tableNumber
+     */
+    public Order(int orderId, int tableNumber) {
+        this.orderId = orderId;
+        this.tableNumber = tableNumber;
+        this.orderItems = new java.util.ArrayList<>();
     }
     
 }

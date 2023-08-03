@@ -21,79 +21,136 @@ public class Restaurant {
 
     private Inventory inventory;
 
+    private boolean menuReady;
+
+    private boolean allReady;
+
     private List<Order> order;
     
     private List<MenuItem> menuItem;
     
-    public Restaurant(){
-    }
-    
-    public Restaurant(String name, String address, String phone){
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-        
-        this.OrderNumber = 0;
-        this.order = new ArrayList<Order>();
-        
-        this.menuItem = new ArrayList<MenuItem>();
-
-        this.inventory = new Inventory();
-
-        // this.addMenuItem();
-
-    }
-    
-    // private void addMenuItem(){
-    //     this.menuItem.add(new MenuItem("Pasta", "", 0));
-    //     this.menuItem.add(new MenuItem("Pizza", "", 0));
-    //     this.menuItem.add(new MenuItem("Salad", "", 0));
-    // }
-
+    /**
+     * 
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * 
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getPhone() {
         return phone;
     }
 
+    /**
+     * 
+     * @param phone
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    /**
+     * 
+     * @param ready
+     */
+    public void setMenuReady(Boolean ready) {
+        this.menuReady = ready;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public boolean getMenuReady(){
+        return this.menuReady;
+    }
+
+    /**
+     * 
+     * @param ready
+     */
+    public void setAllReady(Boolean ready) {
+        this.allReady = ready;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public boolean getAllReady(){
+        return this.allReady;
+    }
     
+    /**
+     * 
+     * @return
+     */
     public int getOrderNumber() {
         return OrderNumber;
     }
 
+    /**
+     * 
+     */
     public void addOrderNumber() {
         this.OrderNumber += 1;
     }
     
+    /**
+     * 
+     */
     public void removeOrderNumber() {
         this.OrderNumber -= 1;
     }
     
+    /**
+     * 
+     * @return
+     */
     public List<Order> getOrder() {
         return order;
     }
     
+    /**
+     * 
+     * @param tableNumber
+     */
     public void addOrder(int tableNumber){
         this.order.add(new Order(this.OrderNumber, tableNumber));
     }
     
+    /**
+     * 
+     * @param orderId
+     */
     public void removeOrder(int orderId) {
         for (int i = 0; i < this.order.size(); i++){
             if(this.order.get(i).getOrderId() == orderId){
@@ -106,10 +163,20 @@ public class Restaurant {
         return menuItem;
     }
 
+    /**
+     * 
+     * @param name
+     * @param description
+     * @param price
+     */
     public void addMenuItem(String name, String description, double price) {
         this.menuItem.add(new MenuItem(name, description, price));
     }
     
+    /**
+     * 
+     * @param name
+     */
     public void removeMenuItem(String name) {
         for (int i = 0; i < this.menuItem.size(); i++){
             if(this.menuItem.get(i).getName() == null ? name == null : this.menuItem.get(i).getName().equals(name)){
@@ -122,14 +189,94 @@ public class Restaurant {
         return this.inventory;
     }
 
-    public void addInventoryByIngredients(String key, int number){
-        this.inventory.addIngredients(key, number);
+    /**
+     * 
+     * @param foodItem
+     */
+    public void addInventoryByIngredients(Food foodItem){
+        this.inventory.addIngredients(foodItem.getName(), foodItem);
     }
 
+    /**
+     * 
+     * @param key
+     */
     public void deleteInventoryByIngredients(String key){
         this.inventory.getIngredients().remove(key);
     }
 
+    /**
+     * 
+     * @param name
+     * @param quantity
+     * @param weight
+     * @param noEffect
+     * @return
+     */
+    private Food createFood(String name,int quantity, double weight, Boolean noEffect){
+        return new Food(name, quantity, weight, noEffect);
+    }
 
+    /**
+     * 
+     */
+    private void addDefaultIngredients(){
+        this.addInventoryByIngredients(createFood("rice", 10, 10, true));
+        this.addInventoryByIngredients(createFood("salt", 10, 10, true));
+        this.addInventoryByIngredients(createFood("sugar", 10, 10, true));
+        this.addInventoryByIngredients(createFood("garlic", 10, 10, true));
+        this.addInventoryByIngredients(createFood("ginger", 10, 10, true));
+        this.addInventoryByIngredients(createFood("mustard", 10, 10, true));
+        this.addInventoryByIngredients(createFood("wasabi", 10, 10, true));
+        this.addInventoryByIngredients(createFood("sesame oil", 10, 10, true));
+        this.addInventoryByIngredients(createFood("ponzu sauce", 10, 10, true));
+        this.addInventoryByIngredients(createFood("tabasco", 10, 10, true));
+        this.addInventoryByIngredients(createFood("soy sauce", 10, 10, true));
+        this.addInventoryByIngredients(createFood("worcester sauce", 10, 10, true));
+        this.addInventoryByIngredients(createFood("cooking wine", 10, 10, true));
+        this.addInventoryByIngredients(createFood("ketchup", 10, 10, true));
+        this.addInventoryByIngredients(createFood("sweet sake", 10, 10, true));
+        this.addInventoryByIngredients(createFood("vinegar", 10, 10, true));
+        this.addInventoryByIngredients(createFood("mayonnaise", 10, 10, true));
+        this.addInventoryByIngredients(createFood("pepper", 10, 10, true));
+        this.addInventoryByIngredients(createFood("flour", 10, 10, true));
+        this.addInventoryByIngredients(createFood("potato starch", 10, 10, true));
+        this.addInventoryByIngredients(createFood("miso", 10, 10, true));
+        this.addInventoryByIngredients(createFood("oil", 10, 10, true));
+        this.addInventoryByIngredients(createFood("a Japanese soup base", 10, 10, true));
+    }
+
+    /**
+     * 
+     */
+    private void addDefaultMenuItems(){
+
+    }
+
+    /**
+     * 
+     * @param name
+     * @param address
+     * @param phone
+     */
+    public Restaurant(String name, String address, String phone){
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        
+        this.menuReady = false;
+        this.allReady = false;
+        this.OrderNumber = 0;
+        this.order = new ArrayList<Order>();
+        this.menuItem = new ArrayList<MenuItem>();
+        this.inventory = new Inventory();
+
+        /**
+         * add Default items with food and Menu
+         */
+        this.addDefaultIngredients();
+        this.addDefaultMenuItems();
+
+    }
 
 }

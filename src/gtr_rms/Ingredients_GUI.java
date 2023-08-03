@@ -27,18 +27,27 @@ public class Ingredients_GUI extends JFrame{
     private JList<String> inventoryList;
     private DefaultListModel<String> inventoryItems;
 
+    /**
+     * 
+     */
     private void finishEvent(){
         JOptionPane.showMessageDialog(this, "Ingredients food action finished!");
-        Menu_GUI gui = new Menu_GUI(restaurant);
-        gui.setVisible(true);
+        restaurant.getInventory().setIngredientsReady(true);
         this.dispose();
     }
 
+    /**
+     * 
+     * @param inventoryItems
+     */
     private void addFoodEvent(DefaultListModel<String> inventoryItems){
         Food_GUI gui = new Food_GUI(restaurant, inventoryItems);
         gui.setVisible(true);
     }
 
+    /**
+     * 
+     */
     private void initializeGUI() {
         inventoryItems = new DefaultListModel<>();
         
@@ -74,6 +83,10 @@ public class Ingredients_GUI extends JFrame{
         this.add(mainPanel);
     }
     
+    /**
+     * 
+     * @param res
+     */
     Ingredients_GUI(Restaurant res){
         super("Restaurant Management System Ingredients");
         this.restaurant = res;

@@ -5,7 +5,6 @@
 package entities;
 
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *
@@ -17,47 +16,91 @@ public class MenuItem {
     private String description;
     private double price; 
     private HashMap<String, Boolean> usedIngredients;
+
+    /**
+     * 
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * 
+     * @param description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public double getPrice() {
+        return price;
+    }
+
+    /**
+     * 
+     * @param price
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public HashMap<String, Boolean> getUsedIngredients() {
+        return this.usedIngredients;
+    }
+
+    /**
+     * 
+     * @param key
+     * @param value
+     */
+    public void addIngredients(String key, Boolean value) {
+        this.usedIngredients.put(key, value);
+    }
     
+    /**
+     * 
+     * @param key
+     */
+    public void removeIngredients(String key) {
+        this.usedIngredients.remove(key);
+    }
+
+    /**
+     * 
+     * @param name
+     * @param description
+     * @param price
+     */
     public MenuItem(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.usedIngredients = new HashMap<>();
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public HashMap<String, Boolean> getUsedIngredients() {
-        return this.usedIngredients;
-    }
-
-    public void addIngredients(String key, Boolean value) {
-        this.usedIngredients.put(key, value);
-    }
     
-    public void removeIngredients(String key) {
-        this.usedIngredients.remove(key);
-    }
 }

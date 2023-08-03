@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -16,8 +15,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import entities.Food;
 import entities.Restaurant;
 
+/**
+ *
+ * @author W22079254
+ */
 public class Dish_GUI extends JFrame{
 
     private Restaurant restaurant;
@@ -30,11 +34,18 @@ public class Dish_GUI extends JFrame{
 
     private final int constantsNumber = 3;
 
+    /**
+     * 
+     */
     private void cancelEvent() {
         JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
         this.dispose();
     }
 
+    /**
+     * 
+     * @param inventoryItems
+     */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
         restaurant.addMenuItem(
             dishName.getText(), 
@@ -45,10 +56,19 @@ public class Dish_GUI extends JFrame{
         this.dispose();
     }
 
+    /**
+     * 
+     * @param i
+     * @param number
+     * @return
+     */
     private String getCheckBoxConstraints(int i, int number){
         return i % number == 0 ? BorderLayout.WEST : i % number == 1 ? BorderLayout.CENTER : BorderLayout.EAST;
     }
 
+    /**
+     * 
+     */
     private void initializeGUI() {
 
         foodItems = new ArrayList<JCheckBox>();
@@ -79,10 +99,12 @@ public class Dish_GUI extends JFrame{
          * Center
          * Generate the coding with forEach with food items
          */
-        HashMap<String, Integer> ingredients = restaurant.getInventory().getIngredients();
-        for(Entry<String, Integer> ingredientItem: ingredients.entrySet()){
-            JCheckBox box = new JCheckBox(ingredientItem.getKey());
-            foodItems.add(box);
+        HashMap<String, Food> ingredients = restaurant.getInventory().getIngredients();
+        for(Entry<String, Food> ingredientItem: ingredients.entrySet()){
+            if(!ingredientItem.getValue().getNoEffect()){
+                JCheckBox box = new JCheckBox(ingredientItem.getKey());
+                foodItems.add(box);
+            }
         }
         /**
          * South
@@ -101,7 +123,7 @@ public class Dish_GUI extends JFrame{
         /*
          * Center
          * add tictBox with forEach with food items to tablePanel_Center
-         * need to thing about how to make it with 2d array without adding tablePanel
+         * need to think about how to make it with 2d array without adding tablePanel
          */  
         for(int i=0; i<foodItems.size(); i++){
             JCheckBox item = foodItems.get(i);
@@ -129,7 +151,11 @@ public class Dish_GUI extends JFrame{
         this.add(mainPanel);
     }
 
-
+    /**
+     * 
+     * @param res
+     * @param inventoryItems
+     */
     Dish_GUI(Restaurant res, DefaultListModel<String> inventoryItems){
         super("Restaurant Management System Food");
         this.restaurant = res;

@@ -5,7 +5,6 @@
 package gtr_rms;
 
 import java.awt.BorderLayout;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,18 +27,27 @@ public class Menu_GUI extends JFrame{
     private JList<String> menuList;
     private DefaultListModel<String> menuItems;
 
+    /**
+     * 
+     */
     private void finishEvent(){
         JOptionPane.showMessageDialog(this, "Menu item action finished!");
-        Table_GUI gui = new Table_GUI(restaurant);
-        gui.setVisible(true);
+        restaurant.setMenuReady(true);
         this.dispose();
     }
 
+    /**
+     * 
+     * @param inventoryItems
+     */
     private void addMenu(DefaultListModel<String> inventoryItems){
         Dish_GUI gui = new Dish_GUI(restaurant, inventoryItems);
         gui.setVisible(true);
     }
 
+    /**
+     * 
+     */
     private void initializeGUI() {
         menuItems = new DefaultListModel<>();
         
@@ -75,6 +83,10 @@ public class Menu_GUI extends JFrame{
         this.add(mainPanel);
     }
     
+    /**
+     * 
+     * @param res
+     */
     Menu_GUI(Restaurant res){
         super("Restaurant Management System Menu");
         this.restaurant = res;

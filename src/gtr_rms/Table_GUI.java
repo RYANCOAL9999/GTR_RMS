@@ -19,65 +19,80 @@ public class Table_GUI extends JFrame{
     
     private Restaurant restaurant;
     
-    private void showMenuGUI(){
+    /**
+     * 
+     */
+    private void showOrderGUIWithSingleTable(){
         Order_GUI gui = new Order_GUI(restaurant);
         gui.setVisible(true);
     }
     
+    /**
+     * 
+     * @param event
+     */
     private void placeTable(ActionEvent event) {
         // Logic to process the order and notify the kitchen, etc.
         restaurant.addOrderNumber();
         String[] splited = event.getActionCommand().split(" ");
         //Need to handle save table with Order 1
         restaurant.addOrder(Integer.parseInt(splited[1]));
-        showMenuGUI();
+        showOrderGUIWithSingleTable();
     }
 
+    /**
+     * 
+     */
     private void initializeGUI() {
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());
-        JPanel TablePanel_North = new JPanel(new BorderLayout());
-        JPanel TablePanel_Center = new JPanel(new BorderLayout());
-        JPanel TablePanel_South = new JPanel(new BorderLayout());
-        
-        JButton Table1 = new JButton("Table 1");
-        JButton Table2 = new JButton("Table 2");
-        JButton Table3 = new JButton("Table 3");
 
-        TablePanel_North.add(Table1, BorderLayout.WEST);
-        TablePanel_North.add(Table2, BorderLayout.CENTER);
-        TablePanel_North.add(Table3, BorderLayout.EAST);
+        /*
+         * add JButton with forEach with Inventory table to tablePanel
+         * need to think about how to make it with 2d array without adding tablePanel
+         */  
+        JPanel tablePanel_North = new JPanel(new BorderLayout());
+        JPanel tablePanel_Center = new JPanel(new BorderLayout());
+        JPanel tablePanel_South = new JPanel(new BorderLayout());
         
-        JButton Table4 = new JButton("Table 4");
-        JButton Table5 = new JButton("Table 5");
-        JButton Table6 = new JButton("Table 6");
+        JButton table1 = new JButton("Table 1");
+        JButton table2 = new JButton("Table 2");
+        JButton table3 = new JButton("Table 3");
 
-        TablePanel_Center.add(Table4, BorderLayout.WEST);
-        TablePanel_Center.add(Table5, BorderLayout.CENTER);
-        TablePanel_Center.add(Table6, BorderLayout.EAST);
+        tablePanel_North.add(table1, BorderLayout.WEST);
+        tablePanel_North.add(table2, BorderLayout.CENTER);
+        tablePanel_North.add(table3, BorderLayout.EAST);
+        
+        JButton table4 = new JButton("Table 4");
+        JButton table5 = new JButton("Table 5");
+        JButton table6 = new JButton("Table 6");
+
+        tablePanel_Center.add(table4, BorderLayout.WEST);
+        tablePanel_Center.add(table5, BorderLayout.CENTER);
+        tablePanel_Center.add(table6, BorderLayout.EAST);
                 
-        JButton Table7 = new JButton("Table 7");
-        JButton Table8 = new JButton("Table 8");
-        JButton Table9 = new JButton("Table 9");
+        JButton table7 = new JButton("Table 7");
+        JButton table8 = new JButton("Table 8");
+        JButton table9 = new JButton("Table 9");
 
-        TablePanel_South.add(Table7, BorderLayout.WEST);
-        TablePanel_South.add(Table8, BorderLayout.CENTER);
-        TablePanel_South.add(Table9, BorderLayout.EAST);
+        tablePanel_South.add(table7, BorderLayout.WEST);
+        tablePanel_South.add(table8, BorderLayout.CENTER);
+        tablePanel_South.add(table9, BorderLayout.EAST);
         
-        mainPanel.add(TablePanel_North, BorderLayout.NORTH);
-        mainPanel.add(TablePanel_Center, BorderLayout.CENTER);
-        mainPanel.add(TablePanel_South, BorderLayout.SOUTH);
+        mainPanel.add(tablePanel_North, BorderLayout.NORTH);
+        mainPanel.add(tablePanel_Center, BorderLayout.CENTER);
+        mainPanel.add(tablePanel_South, BorderLayout.SOUTH);
 
         // Action Listeners
-        Table1.addActionListener(e -> placeTable(e));    
-        Table2.addActionListener(e -> placeTable(e));
-        Table3.addActionListener(e -> placeTable(e));    
-        Table4.addActionListener(e -> placeTable(e));
-        Table5.addActionListener(e -> placeTable(e));    
-        Table6.addActionListener(e -> placeTable(e));
-        Table7.addActionListener(e -> placeTable(e));    
-        Table8.addActionListener(e -> placeTable(e));
-        Table9.addActionListener(e -> placeTable(e));
+        table1.addActionListener(e -> placeTable(e));    
+        table2.addActionListener(e -> placeTable(e));
+        table3.addActionListener(e -> placeTable(e));    
+        table4.addActionListener(e -> placeTable(e));
+        table5.addActionListener(e -> placeTable(e));    
+        table6.addActionListener(e -> placeTable(e));
+        table7.addActionListener(e -> placeTable(e));    
+        table8.addActionListener(e -> placeTable(e));
+        table9.addActionListener(e -> placeTable(e));
         
         // Set up the main frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,6 +101,10 @@ public class Table_GUI extends JFrame{
         this.add(mainPanel);
     }
     
+    /**
+     * 
+     * @param res
+     */
     public Table_GUI(Restaurant res){
         super("Restaurant Management System Table");
         this.restaurant = res;
