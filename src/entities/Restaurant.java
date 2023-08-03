@@ -21,6 +21,8 @@ public class Restaurant {
 
     private Inventory inventory;
 
+    private double todayWage;
+
     private boolean menuReady;
 
     private boolean allReady;
@@ -146,6 +148,22 @@ public class Restaurant {
     public void addOrder(String tableNumber){
         this.order.add(new Order(this.OrderNumber, tableNumber));
     }
+
+    /**
+     * 
+     * @return
+     */
+    public double getTodayWage() {
+        return todayWage;
+    }
+    
+    /**
+     * 
+     * @param tableNumber
+     */
+    public void addTodayWage(double todayWage){
+        this.todayWage += todayWage;
+    }
     
     /**
      * 
@@ -267,6 +285,7 @@ public class Restaurant {
         this.menuReady = false;
         this.allReady = false;
         this.OrderNumber = 0;
+        this.todayWage = 0;
         this.order = new ArrayList<Order>();
         this.menuItem = new ArrayList<MenuItem>();
         this.inventory = new Inventory();

@@ -43,13 +43,6 @@ public class Order_GUI extends JFrame{
     
     /**
      * 
-     */
-    public void clearOrder() {
-        orderItems.clear();
-    }
-    
-    /**
-     * 
      * @param resMenuItem
      * @return
      */
@@ -70,7 +63,9 @@ public class Order_GUI extends JFrame{
      * @param resMenuItem
      * @param sum
      */
-    public void makeReceipt(List<MenuItem> resMenuItem, int sum){
+    public void makeReceipt(List<MenuItem> resMenuItem, double sum){
+        this.order.setTotal(sum);
+        this.order.setSubmitted(true);
         System.out.println(restaurant.getName());
         System.out.println(restaurant.getAddress());
         System.out.println(restaurant.getPhone());
@@ -82,7 +77,7 @@ public class Order_GUI extends JFrame{
         for (MenuItem menu : resMenuItem) {
             System.out.println(menu.getName()+ "      " +menu.getPrice());   
         }
-        System.out.println("Total"+ "      "+sum);   
+        System.out.println("Total"+ "      "+sum);    
     }
     
     /**
@@ -91,11 +86,19 @@ public class Order_GUI extends JFrame{
      */
     public void makeBill(Order order){
         List<MenuItem> resMenuItem = order.getMenuItems();
-        int sum = 0;
+        double sum = 0;
         for(MenuItem menu : resMenuItem){
             sum += menu.getPrice();
         }
         makeReceipt(resMenuItem, sum);        
+    }
+
+    /**
+     * 
+     */
+    public void clearOrder() {
+        orderItems.clear();
+        this.dispose();
     }
 
     /**
@@ -107,10 +110,18 @@ public class Order_GUI extends JFrame{
         if(order == null){
             order = prepareFoodOrder(restaurant.getMenuItem());
         }
-        System.out.println("Hello" + order.getMenuItems().size());
         //bill & receipt printing
         makeBill(order);
         clearOrder();
+    }
+
+    /**
+     * 
+     */
+    public void paidEvent(){
+        this.order.setTableNumber("paid");
+        restaurant.addTodayWage(this.order.getTotal());
+        this.dispose();
     }
     
     /**
@@ -159,17 +170,22 @@ public class Order_GUI extends JFrame{
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel orderPanel = new JPanel(new BorderLayout());
         JPanel menuPanel = new JPanel(new BorderLayout());
+
         JButton placeOrderBtn = new JButton("Place Order");
-        
         JButton clearOrderBtn = new JButton("Clear Order");
+        JButton paidOrderBtn = new JButton("Paid Order");
         
         // Order List
         orderList = new JList<>(orderItems);
         JScrollPane orderScrollPane = new JScrollPane(orderList);
         orderPanel.add(orderScrollPane, BorderLayout.CENTER);
         orderPanel.add(placeOrderBtn, BorderLayout.SOUTH);
-        orderPanel.add(clearOrderBtn, BorderLayout.NORTH);
-
+        if(this.order.getSubmitted()){
+            orderPanel.add(paidOrderBtn, BorderLayout.NORTH);
+        }
+        else{
+            orderPanel.add(clearOrderBtn, BorderLayout.NORTH);
+        }
         // Menu List
         JList<String> menuList = new JList<>(menuItems);
         JScrollPane menuScrollPane = new JScrollPane(menuList);
@@ -183,6 +199,7 @@ public class Order_GUI extends JFrame{
         menuList.addListSelectionListener(e -> menuListEventList(e, menuList));
         placeOrderBtn.addActionListener(e -> placeOrder());    
         clearOrderBtn.addActionListener(e -> clearOrder());
+        paidOrderBtn.addActionListener(e -> paidEvent());
 
         // Set up the main frame
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

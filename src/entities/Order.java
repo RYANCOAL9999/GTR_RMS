@@ -14,6 +14,8 @@ public class Order {
     private int orderId;
     private String tableNumber;
     private List<MenuItem> menuItems;
+    private double total;
+    private Boolean submitted;
     
     /**
      * 
@@ -65,13 +67,47 @@ public class Order {
 
     /**
      * 
+     * @param submitted
+     */
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public double getTotal() {
+        return total;
+    }
+
+    /**
+     * 
+     * @param total
+     */
+    public void setSubmitted(Boolean submitted) {
+        this.submitted = submitted;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Boolean getSubmitted() {
+        return this.submitted;
+    }
+
+    /**
+     * 
      * @param orderId
      * @param tableNumber
      */
     public Order(int orderId, String tableNumber) {
         this.orderId = orderId;
         this.tableNumber = tableNumber;
+        this.submitted = false;
         this.menuItems = new java.util.ArrayList<>();
+        this.total = 0;
     }
     
 }
