@@ -42,7 +42,7 @@ public class Authentication_GUI extends JFrame{
             user.addBackTowork();
         }
 
-        Restaurant_GUI gui = new Restaurant_GUI(restaurant);
+        Restaurant_GUI gui = new Restaurant_GUI(restaurant, user);
         gui.setVisible(true);
         this.dispose();
     }

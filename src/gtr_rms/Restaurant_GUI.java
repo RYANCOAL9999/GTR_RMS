@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import java.util.Date;
 
 import entities.Restaurant;
+import entities.Staff;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Restaurant_GUI extends JFrame{
 
     private static Restaurant restaurant;
     private static Date today;
+    private static Staff user;
 
     /**
      * print out 
@@ -59,6 +61,10 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void salesRecordGUIEvent() {
+        if(user.getRole() != "manager"){
+            JOptionPane.showMessageDialog(this, "Your role is not Manager !");
+            return;
+        }
         SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, null, "Sales Record:");
         gui.setVisible(true);
     }
@@ -67,6 +73,10 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void staffRecordGUIEvent() {
+        if(user.getRole() != "manager"){
+            JOptionPane.showMessageDialog(this, "Your role is not Manager !");
+            return;
+        }
         StaffRecord_GUI gui = new StaffRecord_GUI(restaurant);
         gui.setVisible(true);
     }
@@ -95,6 +105,10 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void menuGUIEvent() {
+        if(user.getRole() == "staff"){
+            JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
+            return;
+        }
         Menu_GUI gui = new Menu_GUI(restaurant);
         gui.setVisible(true);
     }
@@ -103,6 +117,10 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void initializeGUIEvent() {
+        if(user.getRole() == "staff"){
+            JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
+            return;
+        }
         Ingredients_GUI gui = new Ingredients_GUI(restaurant);
         gui.setVisible(true);
     }
@@ -172,8 +190,9 @@ public class Restaurant_GUI extends JFrame{
     /**
      * 
      */
-    public Restaurant_GUI(Restaurant res){
+    public Restaurant_GUI(Restaurant res, Staff userSession){
         restaurant = res;
+        user = userSession;
         today = new Date();
         this.initializeGUI();
     }
