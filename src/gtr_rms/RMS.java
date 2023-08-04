@@ -13,7 +13,7 @@ public class RMS {
     public static void main(String[] args) {
         // TODO code application logic here
         javax.swing.SwingUtilities.invokeLater(()->{
-            Restaurant_GUI gui = new Restaurant_GUI();
+            Authentication_GUI gui = new Authentication_GUI();
             gui.setVisible(true);
         });
     }    

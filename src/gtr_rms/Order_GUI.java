@@ -47,7 +47,7 @@ public class Order_GUI extends JFrame{
      * @return
      */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
-        Order saveOrder = restaurant.getOrder().get(restaurant.getOrderNumber()-1);
+        Order saveOrder = restaurant.getOrderList().get(restaurant.getOrderNumber()-1);
         for(Object orderItems: orderItems.toArray()){
             for(MenuItem item: resMenuItem){
                 if(orderItems == null ? item.getName().equals(null) : orderItems.equals(item.getName())){
@@ -108,7 +108,7 @@ public class Order_GUI extends JFrame{
         // Logic to process the order and notify the kitchen, etc.
         JOptionPane.showMessageDialog(this, "Order placed successfully!");
         if(order == null){
-            order = prepareFoodOrder(restaurant.getMenuItem());
+            order = prepareFoodOrder(restaurant.getMenuItemList());
         }
         //bill & receipt printing
         makeBill(order);
@@ -129,7 +129,7 @@ public class Order_GUI extends JFrame{
      */
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
-        List<MenuItem> resMenuItem = restaurant.getMenuItem();
+        List<MenuItem> resMenuItem = restaurant.getMenuItemList();
         for(MenuItem menu : resMenuItem){
             menuItems.addElement(menu.getName());
         }

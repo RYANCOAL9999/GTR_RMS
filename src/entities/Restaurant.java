@@ -4,8 +4,12 @@
  */
 package entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import gtr_rms.Helper;
 
 /**
  *
@@ -27,9 +31,13 @@ public class Restaurant {
 
     private boolean allReady;
 
-    private List<Order> order;
+    private int[] weekends;
+
+    private List<Order> orderList;
     
-    private List<MenuItem> menuItem;
+    private List<MenuItem> menuItemList;
+
+    private List<Staff> staffList;
     
     /**
      * 
@@ -137,8 +145,8 @@ public class Restaurant {
      * 
      * @return
      */
-    public List<Order> getOrder() {
-        return order;
+    public List<Order> getOrderList() {
+        return orderList;
     }
     
     /**
@@ -146,7 +154,7 @@ public class Restaurant {
      * @param tableNumber
      */
     public void addOrder(String tableNumber){
-        this.order.add(new Order(this.OrderNumber, tableNumber));
+        this.orderList.add(new Order(this.OrderNumber, tableNumber));
     }
 
     /**
@@ -170,15 +178,15 @@ public class Restaurant {
      * @param orderId
      */
     public void removeOrder(int orderId) {
-        for(Order orderItem : this.order){
+        for(Order orderItem : this.orderList){
             if(orderItem.getOrderId() == orderId){
-                this.order.remove(orderItem);
+                this.orderList.remove(orderItem);
             }
         }
     }
     
-    public List<MenuItem> getMenuItem() {
-        return menuItem;
+    public List<MenuItem> getMenuItemList() {
+        return menuItemList;
     }
 
     /**
@@ -188,7 +196,7 @@ public class Restaurant {
      * @param price
      */
     public void addMenuItem(String name, String description, double price) {
-        this.menuItem.add(new MenuItem(name, description, price));
+        this.menuItemList.add(new MenuItem(name, description, price));
     }
     
     /**
@@ -196,9 +204,9 @@ public class Restaurant {
      * @param name
      */
     public void removeMenuItem(String name) {
-        for(MenuItem menu : this.menuItem){
+        for(MenuItem menu : this.menuItemList){
             if(menu.getName().equals(name)){
-                this.menuItem.remove(menu);
+                this.menuItemList.remove(menu);
             }
         }
     }
@@ -223,6 +231,60 @@ public class Restaurant {
         this.inventory.getIngredients().remove(key);
     }
 
+    public Staff getStaff(String name){
+        Staff staffSingle = null;
+        for(Staff staff : this.staffList){
+            if(staff.getUsername().equals(name)){
+                staffSingle = staff;
+            }
+        }
+        return staffSingle;
+    }
+
+    public void addStaff(String userName, String password, String role, String contact){
+        this.staffList.add(new Staff(userName, password, role, contact));
+    }
+
+    public void deleteStaff(String name){
+        for(Staff staff : this.staffList){
+            if(staff.getUsername().equals(name)){
+                this.staffList.remove(staff);
+            }
+        }
+    }
+
+    public List<Date> getStaffWorkScheduled(String name){
+        List<Date> scheduled = null;
+        for(Staff staff : this.staffList){
+            if(staff.getUsername().equals(name)){
+                scheduled = staff.getWorkSchedule();
+            }
+        }
+        return scheduled;
+    }
+
+    public void addStaffWorkScheduled(String name, Date date){
+        for(Staff staff : this.staffList){
+            if(staff.getUsername().equals(name)){
+                staff.addWorkSchedule(date);
+            }
+        }
+    }
+
+    public void deleteStaffWorkScheduled(String name, Date date){
+        for(Staff staff : this.staffList){
+            if(staff.getUsername().equals(name)){
+                staff.deleteWorkSchedule(date);
+            }
+        }
+    }
+
+    public void setTodayFirstTimeLoginForAllStaff(boolean b){
+        for(Staff staff : this.staffList){
+            staff.setTodayFirstTimeLogin(b);
+        }
+    }
+
     /**
      * 
      * @param name
@@ -237,8 +299,34 @@ public class Restaurant {
 
     /**
      * 
+     * @param staff
+     * @param schedules
+     */
+    private void addDefaultStaffSchedule(Staff staff, List<Date> schedules){
+        for(Date date: schedules){
+            if(Helper.checkDateIsWeekDay(date, this.weekends)){
+                staff.deleteWorkSchedule(date);
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param schedules
+     */
+    private void addDefaultStaffListSchedule(List<Date> schedules){
+        for(Staff staffSingle : this.staffList){
+            addDefaultStaffSchedule(staffSingle, schedules);
+        }
+    }
+
+    /**
+     * 
      */
     private void addDefaultIngredients(){
+        /**
+         * need to using json file with import
+         */
         this.addInventoryByIngredients(createFood("rice", 10, 10, true));
         this.addInventoryByIngredients(createFood("salt", 10, 10, true));
         this.addInventoryByIngredients(createFood("sugar", 10, 10, true));
@@ -271,6 +359,36 @@ public class Restaurant {
 
     }
 
+    private void addDefaultStaff(){
+        /**
+         * need to using json file with import
+         */
+        this.addStaff("staff123", "123", "staff", "987654321");
+        this.addStaff("staff456", "456", "staff", "987654321");
+        this.addStaff("chef123", "123", "chef", "987654321");
+        this.addStaff("chef456", "456", "chef", "987654321");
+        this.addStaff("manager123", "123", "Manager", "987654321");
+
+        /**
+         * need to using json file with import
+         * need to search the first object Date = today for the user
+         */
+        LocalDate currentDate = LocalDate.now();
+        /**
+         * need to using json file with import
+         */
+        this.addDefaultStaffListSchedule(
+            Helper.getMonthList(
+                Helper.generalDateStr(currentDate), 
+                Helper.generalDateStr(
+                    currentDate.plusDays(
+                        currentDate.lengthOfYear() - currentDate.getDayOfYear()
+                    )
+                )
+            )
+        );
+    }
+
     /**
      * 
      * @param name
@@ -282,17 +400,20 @@ public class Restaurant {
         this.address = address;
         this.phone = phone;
         
+        this.weekends = new int[]{6, 7};
         this.menuReady = false;
         this.allReady = false;
         this.OrderNumber = 0;
         this.todayWage = 0;
-        this.order = new ArrayList<Order>();
-        this.menuItem = new ArrayList<MenuItem>();
+        this.orderList = new ArrayList<Order>();
+        this.menuItemList = new ArrayList<MenuItem>();
+        this.staffList = new ArrayList<Staff>();
         this.inventory = new Inventory();
 
         /**
-         * add Default items with food and Menu
+         * add Default items with staff, food, and Menu
          */
+        this.addDefaultStaff();
         this.addDefaultIngredients();
         this.addDefaultMenuItems();
 

@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.util.Date;
 
 import entities.Restaurant;
 
@@ -14,14 +15,8 @@ import entities.Restaurant;
  */
 public class Restaurant_GUI extends JFrame{
 
-    /**
-     * @param args the command line arguments
-     */
-    private final static String restaurntName = "";
-    private final static String restaurntAddress = "";
-    private final static String restaurntPhone = "";
-
     private static Restaurant restaurant;
+    private static Date today;
 
     /**
      * print out 
@@ -30,13 +25,14 @@ public class Restaurant_GUI extends JFrame{
      * and Tomorrow's Food ingrediention
      */
     private void printOutTodayEvent(){
-
+        
     }
 
     /**
      * 
      */
-    private void CloseEvent() {
+    private void closeEvent() {
+        restaurant.setTodayFirstTimeLoginForAllStaff(false);
         restaurant.getInventory().setIngredientsReady(false);
         restaurant.setMenuReady(false);
         restaurant.setAllReady(false);
@@ -62,21 +58,17 @@ public class Restaurant_GUI extends JFrame{
     /**
      * 
      */
-    private void salesGUIEvent() {
-        /**
-         * List out sales staff
-         */
-        // gui.setVisible(true);
+    private void salesRecordGUIEvent() {
+        SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, null, "Sales Record:");
+        gui.setVisible(true);
     }
 
     /**
      * 
      */
-    private void staffGUIEvent() {
-        /**
-         * List out All staff
-         */
-        // gui.setVisible(true);
+    private void staffRecordGUIEvent() {
+        StaffRecord_GUI gui = new StaffRecord_GUI(restaurant);
+        gui.setVisible(true);
     }
 
     /**
@@ -95,10 +87,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void orderGUIEvent() {
-        /**
-         * List out All Order
-         */
-        OrderList_GUI gui = new OrderList_GUI(restaurant);
+        SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, today, "Orders:");
         gui.setVisible(true);
     }
 
@@ -116,6 +105,12 @@ public class Restaurant_GUI extends JFrame{
     private void initializeGUIEvent() {
         Ingredients_GUI gui = new Ingredients_GUI(restaurant);
         gui.setVisible(true);
+    }
+
+    private void logoutEvent() {
+        Authentication_GUI gui = new Authentication_GUI();
+        gui.setVisible(true);
+        this.dispose();
     }
 
     /**
@@ -138,18 +133,18 @@ public class Restaurant_GUI extends JFrame{
         tablePanel_North.add(orderGUIControl, BorderLayout.EAST);
         
         JButton tableGUIControl = new JButton("Table");
-        JButton staffGUIControl = new JButton("Staff");
-        JButton salesGUIControl = new JButton("Sales");
+        JButton staffRecordGUIControl = new JButton("Staff Record");
+        JButton salesRecordGUIControl = new JButton("Sales Record");
 
         tablePanel_Center.add(tableGUIControl, BorderLayout.WEST);
-        tablePanel_Center.add(staffGUIControl, BorderLayout.CENTER);
-        tablePanel_Center.add(salesGUIControl, BorderLayout.EAST);
+        tablePanel_Center.add(staffRecordGUIControl, BorderLayout.CENTER);
+        tablePanel_Center.add(salesRecordGUIControl, BorderLayout.EAST);
         
-        JButton loginUser  = new JButton(" ");
+        JButton logout  = new JButton("Logout");
         JButton preparedFinished = new JButton("Ready");
         JButton closeOfBusiness = new JButton("Close");
 
-        tablePanel_South.add(loginUser, BorderLayout.EAST);
+        tablePanel_South.add(logout, BorderLayout.WEST);
         tablePanel_South.add(preparedFinished, BorderLayout.CENTER);
         tablePanel_South.add(closeOfBusiness, BorderLayout.EAST);
         
@@ -162,14 +157,14 @@ public class Restaurant_GUI extends JFrame{
         menuGUIControl.addActionListener(e -> menuGUIEvent());
         orderGUIControl.addActionListener(e -> orderGUIEvent());    
         tableGUIControl.addActionListener(e -> tableGUIEvent());
-        staffGUIControl.addActionListener(e -> staffGUIEvent());    
-        salesGUIControl.addActionListener(e -> salesGUIEvent());
-        // loginUser.addActionListener(e -> placeTable());    
+        staffRecordGUIControl.addActionListener(e -> staffRecordGUIEvent());    
+        salesRecordGUIControl.addActionListener(e -> salesRecordGUIEvent());
+        logout.addActionListener(e -> logoutEvent());    
         preparedFinished.addActionListener(e -> ReadyEvent());
-        closeOfBusiness.addActionListener(e -> CloseEvent());
+        closeOfBusiness.addActionListener(e -> closeEvent());
         // Set up the main frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(270, 120);
+        this.setSize(300, 120);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);
     }
@@ -177,8 +172,9 @@ public class Restaurant_GUI extends JFrame{
     /**
      * 
      */
-    public Restaurant_GUI(){
-        restaurant = new Restaurant(restaurntName, restaurntAddress, restaurntPhone);
+    public Restaurant_GUI(Restaurant res){
+        restaurant = res;
+        today = new Date();
         this.initializeGUI();
     }
 

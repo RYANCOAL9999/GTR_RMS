@@ -25,7 +25,7 @@ public class Table_GUI extends JFrame{
      */
     private void showOrderGUIWithSingleTable(String tableSeat){
         Order order = null;
-        for(Order item : restaurant.getOrder()){
+        for(Order item : restaurant.getOrderList()){
             if(item.getTableNumber().equals(tableSeat)){
                 order = item;
             }

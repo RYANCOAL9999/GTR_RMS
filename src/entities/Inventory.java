@@ -249,6 +249,9 @@ public class Inventory {
      * 
      */
     public Inventory() {
+        /**
+         * need to using json file with import
+         */
         this.addDefaultInventory(
             36, 
             9, 

@@ -4,6 +4,7 @@
  */
 package entities;
 
+import java.util.Date;
 import java.util.List;
 /**
  *
@@ -16,6 +17,7 @@ public class Order {
     private List<MenuItem> menuItems;
     private double total;
     private Boolean submitted;
+    private Date orderDate;
     
     /**
      * 
@@ -99,6 +101,22 @@ public class Order {
 
     /**
      * 
+     * @return
+     */
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Long getOrderTime() {
+        return orderDate.getTime();
+    }
+
+    /**
+     * 
      * @param orderId
      * @param tableNumber
      */
@@ -108,6 +126,7 @@ public class Order {
         this.submitted = false;
         this.menuItems = new java.util.ArrayList<>();
         this.total = 0;
+        this.orderDate = new Date();
     }
     
 }
