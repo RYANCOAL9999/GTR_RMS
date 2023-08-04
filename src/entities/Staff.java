@@ -2,6 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class Staff {
@@ -10,7 +11,7 @@ public class Staff {
     private String password;
     private String role;
     private String contact;
-    private List<Date> workSchedule;
+    private HashMap<String, Boolean> workSchedule;
     private List<Date> backTowork;
     private boolean todayFirstTimeLogin;
 
@@ -82,7 +83,7 @@ public class Staff {
      * 
      * @return
      */
-    public List<Date> getWorkSchedule() {
+    public HashMap<String, Boolean> getWorkSchedule() {
         return workSchedule;
     }
 
@@ -90,15 +91,15 @@ public class Staff {
      * 
      * @param name
      */
-    public void addWorkSchedule(Date date) {
-        this.workSchedule.add(date);
+    public void addWorkSchedule(String date, Boolean b) {
+        this.workSchedule.put(date, b);
     }
 
     /**
      * 
-     * @param name
+     * @param date
      */
-    public void deleteWorkSchedule(Date date) {
+    public void deleteWorkSchedule(String date) {
         this.workSchedule.remove(date);
     }
 
@@ -145,13 +146,28 @@ public class Staff {
         String username,
         String password,
         String role,
-        String contact
+        String contact,
+        HashMap<String, Boolean> workSchedule
     ){
         this.username = username;
         this.password = password;
         this.role = role;
         this.contact = contact;
-        this.workSchedule = new ArrayList<Date>();
+        this.workSchedule = workSchedule;
+        this.todayFirstTimeLogin = false;
+        this.backTowork = new ArrayList<Date>();
+    }
+
+    public Staff(
+        String username,
+        String role,
+        String contact
+    ){
+        this.username = username;
+        this.password = "";
+        this.role = role;
+        this.contact = contact;
+        this.workSchedule = null;
         this.todayFirstTimeLogin = false;
         this.backTowork = new ArrayList<Date>();
     }

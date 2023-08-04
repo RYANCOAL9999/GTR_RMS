@@ -40,6 +40,7 @@ public class Food_GUI extends JFrame {
      */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
 
+        String name = foodName.getText();
         String quantity = foodQuantity.getText();
         String weight = foodWeight.getText();
 
@@ -50,15 +51,16 @@ public class Food_GUI extends JFrame {
             JOptionPane.showMessageDialog(this, "Your food is setting error");
             return;
         }
-
-        Food newFood = new Food(
-            foodName.getText(),
-            Integer.parseInt(quantity),
-            Double.parseDouble(weight)
-        );
+        
         /* add to inventory */
-        restaurant.addInventoryByIngredients(newFood);
-        inventoryItems.addElement(newFood.getName());
+        restaurant.addInventoryByIngredients(
+            new Food(
+                name,
+                Integer.parseInt(quantity),
+                Double.parseDouble(weight)
+            )   
+        );
+        inventoryItems.addElement(name);
         this.dispose();
     }
 

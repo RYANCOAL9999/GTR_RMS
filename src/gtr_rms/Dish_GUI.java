@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import entities.Food;
+import entities.MenuItem;
 import entities.Restaurant;
 
 /**
@@ -58,11 +59,14 @@ public class Dish_GUI extends JFrame{
         String name = dishName.getText();
 
         restaurant.addMenuItem(
-            name, 
-            dishDescription.getText(), 
-            Double.parseDouble(price)
+            new MenuItem(
+                name, 
+                dishDescription.getText(), 
+                Double.parseDouble(price)
+            )
         );
-        inventoryItems.addElement(dishName.getText());
+
+        inventoryItems.addElement(name);
         this.dispose();
     }
 
