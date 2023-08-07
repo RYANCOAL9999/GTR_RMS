@@ -4,7 +4,8 @@
  */
 package entities;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Inventory {
     private int tablecloths;
     private int napkins;
     private int kitchenSupplies;
-    private HashMap<String, Food> ingredients;
+    private List<Food> ingredients;
     private Boolean ingredientsReady;
 
     /**
@@ -188,25 +189,24 @@ public class Inventory {
      * 
      * @return
      */
-    public HashMap<String, Food> getIngredients() {
+    public List<Food> getIngredients() {
         return ingredients;
     }
 
     /**
      * 
-     * @param key
      * @param foodItem
      */
-    public void addIngredients(String key, Food foodItem) {
-        this.ingredients.put(key, foodItem);
+    public void addIngredients(Food foodItem) {
+        this.ingredients.add(foodItem);
     }
 
-    /**
-     * 
-     * @param key
-     */
-    public void removeIngredients(String key) {
-        this.ingredients.remove(key);
+    /*
+    * 
+    * @param foodItem
+    */
+    public void removeIngredients(Food foodItem){
+        this.ingredients.remove(foodItem);
     }
 
     /**
@@ -220,6 +220,7 @@ public class Inventory {
      * @param tablecloths
      * @param napkins
      * @param kitchenSupplies
+     * @param foodList
      */
     public Inventory(
            int chairs, 
@@ -230,7 +231,8 @@ public class Inventory {
            int spoons,
            int tablecloths,
            int napkins,
-           int kitchenSupplies
+           int kitchenSupplies,
+           ArrayList<Food> foodList
     ) {
         this.chairs = chairs;
         this.tables = tables;
@@ -241,7 +243,7 @@ public class Inventory {
         this.tablecloths = tablecloths;
         this.napkins = napkins;
         this.kitchenSupplies = kitchenSupplies;
-        this.ingredients = new HashMap<>();
+        this.ingredients = foodList;
         this.ingredientsReady = false;
     }
     

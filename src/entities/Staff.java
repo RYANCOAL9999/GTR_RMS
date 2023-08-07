@@ -41,7 +41,7 @@ public class Staff {
 
     /**
      * 
-     * @param name
+     * @param password
      */
     public void setPassword(String password) {
         this.password = password;
@@ -57,7 +57,7 @@ public class Staff {
 
     /**
      * 
-     * @param name
+     * @param role
      */
     public void setRole(String role) {
         this.role = role;

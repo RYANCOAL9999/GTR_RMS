@@ -221,15 +221,15 @@ public class Restaurant {
      * @param foodItem
      */
     public void addInventoryByIngredients(Food foodItem){
-        this.inventory.addIngredients(foodItem.getName(), foodItem);
+        this.inventory.addIngredients(foodItem);
     }
 
     /**
      * 
-     * @param key
+     * @param foodItem
      */
-    public void deleteInventoryByIngredients(String key){
-        this.inventory.getIngredients().remove(key);
+    public void deleteInventoryByIngredients(Food foodItem){
+        this.inventory.getIngredients().remove(foodItem);
     }
 
     public List<Staff> getStaffList(){

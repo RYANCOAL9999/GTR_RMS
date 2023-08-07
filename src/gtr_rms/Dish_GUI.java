@@ -3,9 +3,7 @@ package gtr_rms;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -103,13 +101,14 @@ public class Dish_GUI extends JFrame{
          * Center
          * Generate the coding with forEach with food items
          */
-        HashMap<String, Food> ingredients = restaurant.getInventory().getIngredients();
-        for(Entry<String, Food> ingredientItem: ingredients.entrySet()){
-            if(!ingredientItem.getValue().getNoEffect()){
-                JCheckBox box = new JCheckBox(ingredientItem.getKey());
+        List<Food> ingredients = restaurant.getInventory().getIngredients();
+        for(Food food: ingredients){
+            if(!food.getNoEffect()){
+                JCheckBox box = new JCheckBox(food.getName());
                 foodItems.add(box);
             }
         }
+        
         /**
          * South
          */

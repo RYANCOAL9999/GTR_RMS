@@ -1,0 +1,345 @@
+{
+    "restaurntName": "",
+    "restaurntAddress": "",
+    "restaurntPhone": "",
+    "inventory": {
+        "chairs": 36,
+        "tables": 9,
+        "dishes": 500,
+        "glasses": 100,
+        "chopsticks": 500,
+        "spoons": 100,
+        "tablecloths": 100,
+        "napkins": 100,
+        "kitchenSupplies": 500,
+        "ingredientList": [
+            {
+                "name": "rice",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "salt",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "sugar",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "garlic",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "ginger",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "mustard",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "wasabi",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "sesame oil",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "ponzu sauce",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "tabasco",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "soy sauce",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "worcester sauce",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "cooking wine",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "ketchup",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "sweet sake",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "vinegar",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "pepper",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+              "name": "flour",
+              "quantity": 10,
+              "weight": 10,
+              "noEffect": true
+            },
+            {
+                "name": "mayonnaise",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+                "name": "potato starch",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true 
+            },
+            {
+                "name": "miso",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            },
+            {
+              "name": "oil",
+              "quantity": 10,
+              "weight": 10,
+              "noEffect": true
+            },
+            {
+                "name": "a Japanese soup base",
+                "quantity": 10,
+                "weight": 10,
+                "noEffect": true
+            }            
+        ]
+    },
+    "dishList": [
+        {
+            "name": "rice",
+            "description": "white rice",
+            "price": 1
+        }
+    ],
+    "staffList": [
+        {
+            "username": "staff123",
+            "password": 123,
+            "role": "staff",
+            "contact": 987654321,
+            "workSchedule": {
+                "04-08-2023": false,
+                "05-08-2023": false,
+                "06-08-2023": false,
+                "07-08-2023": false,
+                "08-08-2023": false,
+                "09-08-2023": false,
+                "10-08-2023": false,
+                "11-08-2023": false,
+                "12-08-2023": false,
+                "13-08-2023": false,
+                "14-08-2023": false,
+                "15-08-2023": false,
+                "16-08-2023": false,
+                "17-08-2023": false,
+                "18-08-2023": false,
+                "19-08-2023": false,
+                "20-08-2023": false,
+                "21-08-2023": false,
+                "22-08-2023": false,
+                "23-08-2023": false,
+                "24-08-2023": false,
+                "25-08-2023": false,
+                "26-08-2023": false,
+                "27-08-2023": false,
+                "28-08-2023": false,
+                "29-08-2023": false,
+                "30-08-2023": false,
+                "31-08-2023": false
+            }   
+        },
+        {
+            "username": "staff456",
+            "password": 456,
+            "role": "staff",
+            "contact": 987654321,
+            "workSchedule": {
+                "04-08-2023": false,
+                "05-08-2023": false,
+                "06-08-2023": false,
+                "07-08-2023": false,
+                "08-08-2023": false,
+                "09-08-2023": false,
+                "10-08-2023": false,
+                "11-08-2023": false,
+                "12-08-2023": false,
+                "13-08-2023": false,
+                "14-08-2023": false,
+                "15-08-2023": false,
+                "16-08-2023": false,
+                "17-08-2023": false,
+                "18-08-2023": false,
+                "19-08-2023": false,
+                "20-08-2023": false,
+                "21-08-2023": false,
+                "22-08-2023": false,
+                "23-08-2023": false,
+                "24-08-2023": false,
+                "25-08-2023": false,
+                "26-08-2023": false,
+                "27-08-2023": false,
+                "28-08-2023": false,
+                "29-08-2023": false,
+                "30-08-2023": false,
+                "31-08-2023": false
+            } 
+        },
+        {
+            "username": "chef123",
+            "password": 123,
+            "role": "chef",
+            "contact": 987654321,
+            "workSchedule": {
+                "04-08-2023": false,
+                "05-08-2023": false,
+                "06-08-2023": false,
+                "07-08-2023": false,
+                "08-08-2023": false,
+                "09-08-2023": false,
+                "10-08-2023": false,
+                "11-08-2023": false,
+                "12-08-2023": false,
+                "13-08-2023": false,
+                "14-08-2023": false,
+                "15-08-2023": false,
+                "16-08-2023": false,
+                "17-08-2023": false,
+                "18-08-2023": false,
+                "19-08-2023": false,
+                "20-08-2023": false,
+                "21-08-2023": false,
+                "22-08-2023": false,
+                "23-08-2023": false,
+                "24-08-2023": false,
+                "25-08-2023": false,
+                "26-08-2023": false,
+                "27-08-2023": false,
+                "28-08-2023": false,
+                "29-08-2023": false,
+                "30-08-2023": false,
+                "31-08-2023": false
+            } 
+        },
+        {
+            "username": "chef456",
+            "password": 456,
+            "role": "chef",
+            "contact": 987654321,
+            "workSchedule": {
+                "04-08-2023": false,
+                "05-08-2023": false,
+                "06-08-2023": false,
+                "07-08-2023": false,
+                "08-08-2023": false,
+                "09-08-2023": false,
+                "10-08-2023": false,
+                "11-08-2023": false,
+                "12-08-2023": false,
+                "13-08-2023": false,
+                "14-08-2023": false,
+                "15-08-2023": false,
+                "16-08-2023": false,
+                "17-08-2023": false,
+                "18-08-2023": false,
+                "19-08-2023": false,
+                "20-08-2023": false,
+                "21-08-2023": false,
+                "22-08-2023": false,
+                "23-08-2023": false,
+                "24-08-2023": false,
+                "25-08-2023": false,
+                "26-08-2023": false,
+                "27-08-2023": false,
+                "28-08-2023": false,
+                "29-08-2023": false,
+                "30-08-2023": false,
+                "31-08-2023": false
+            } 
+        },
+        {
+            "username": "manager789",
+            "password": 789,
+            "role": "manager",
+            "contact": 987654321,
+            "workSchedule": {
+                "04-08-2023": false,
+                "05-08-2023": false,
+                "06-08-2023": false,
+                "07-08-2023": false,
+                "08-08-2023": false,
+                "09-08-2023": false,
+                "10-08-2023": false,
+                "11-08-2023": false,
+                "12-08-2023": false,
+                "13-08-2023": false,
+                "14-08-2023": false,
+                "15-08-2023": false,
+                "16-08-2023": false,
+                "17-08-2023": false,
+                "18-08-2023": false,
+                "19-08-2023": false,
+                "20-08-2023": false,
+                "21-08-2023": false,
+                "22-08-2023": false,
+                "23-08-2023": false,
+                "24-08-2023": false,
+                "25-08-2023": false,
+                "26-08-2023": false,
+                "27-08-2023": false,
+                "28-08-2023": false,
+                "29-08-2023": false,
+                "30-08-2023": false,
+                "31-08-2023": false
+            } 
+        }
+    ]
+}
