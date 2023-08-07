@@ -202,6 +202,14 @@ public class Restaurant {
 
     /**
      * 
+     * @return 
+     */
+    public MenuItem getMenuItem(int number) {
+        return this.menuItemList.get(number);
+    }
+
+    /**
+     * 
      * @param item
      */
     public void addMenuItem(MenuItem item) {

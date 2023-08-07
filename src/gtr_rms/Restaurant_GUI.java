@@ -1,13 +1,33 @@
 package gtr_rms;
 
 import java.awt.BorderLayout;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import java.util.Date;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
+
+import entities.Food;
+import entities.Inventory;
+import entities.MenuItem;
 import entities.Restaurant;
 import entities.Staff;
 
@@ -23,6 +43,108 @@ public class Restaurant_GUI extends JFrame{
     
     private static Staff user;
 
+    private void exportTomorrowData(){
+
+        try{
+            
+            Writer writer = new FileWriter(
+                restaurant.getExportPath(), 
+                StandardCharsets.UTF_8
+            );
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            HashMap<String, Object> data = new HashMap<>();
+
+            data.put("restaurntName", restaurant.getName());
+            data.put("restaurntAddress", restaurant.getAddress());
+            data.put("restaurntPhone", restaurant.getAddress());
+
+            /**
+             * only get the no Effect
+             */
+            Inventory inventory = restaurant.getInventory();
+
+            List<HashMap<String, Object>> newFoodList = new ArrayList<>();
+            for(Food newFood : inventory.getIngredients()){
+                if(newFood.getNoEffect()){
+                    HashMap<String, Object> FoodMap = new HashMap<>();
+                    FoodMap.put("name", newFood.getName());
+                    FoodMap.put("quantity", newFood.getQuantity());
+                    FoodMap.put("weight", newFood.getWeight());
+                    FoodMap.put("startingWeight", newFood.getStartingWeight());
+                    FoodMap.put("noEffect", newFood.getNoEffect());
+                    newFoodList.add(FoodMap);
+                }
+            }
+            
+            HashMap<String, Object> inventoryMap = new HashMap<>();
+            inventoryMap.put("chairs", 36);
+            inventoryMap.put("tables", 9);
+            inventoryMap.put("dishes", 500);
+            inventoryMap.put("glasses", 100);
+            inventoryMap.put("chopsticks", 500);
+            inventoryMap.put("spoons", 100);
+            inventoryMap.put("tablecloths", 100);
+            inventoryMap.put("napkins", 100);
+            inventoryMap.put("kitchenSupplies", 500);
+            inventoryMap.put("ingredientList", newFoodList);
+
+            data.put("inventory", inventoryMap);
+
+            /**
+             * only get the first one
+             */
+            List<HashMap<String, Object>> newMenuItemList = new ArrayList<>();
+            MenuItem menuItem = restaurant.getMenuItem(0);
+            // for (MenuItem menuItemSingle : restaurant.getMenuItemList()){
+            HashMap<String, Object> menuItemMap = new HashMap<>();
+            menuItemMap.put("name", menuItem.getName());
+            menuItemMap.put("description", menuItem.getDescription());
+            menuItemMap.put("price", menuItem.getPrice());
+            newMenuItemList.add(menuItemMap);
+            // }
+
+            data.put("dishList", newMenuItemList);
+
+            /**
+             * 
+             *  
+             */
+            List<HashMap<String, Object>> staffList = new ArrayList<>();
+
+            for (Staff staffSingle : restaurant.getStaffList()){
+                HashMap<String, Boolean> workScheduleMap = new HashMap<>();
+                for(Map.Entry<String, Boolean> workSchedule:staffSingle.getWorkSchedule().entrySet()){
+                    workScheduleMap.put(workSchedule.getKey(), workSchedule.getValue());
+                }
+
+                HashMap<String, Object> staffMap = new HashMap<>();
+                staffMap.put("username", staffSingle.getUsername()); 
+                staffMap.put("password", staffSingle.getPassword());
+                staffMap.put("role", staffSingle.getRole());
+                staffMap.put("contact", staffSingle.getContact());
+                staffMap.put("workSchedule", workScheduleMap);
+                staffList.add(staffMap);
+            }
+
+            data.put("staffList", staffList);
+
+            /**
+             * HashMap to Json String
+             */
+            String jsonString = gson.toJson(data);
+            
+            writer.write(jsonString);
+
+            writer.close();
+            
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
     /**
      * print out 
      * food remainder, 
@@ -30,7 +152,6 @@ public class Restaurant_GUI extends JFrame{
      * and Tomorrow's Food ingredients
      */
     private void printOutTodayEvent(){
-        
     }
 
     /**
@@ -41,7 +162,8 @@ public class Restaurant_GUI extends JFrame{
         restaurant.getInventory().setIngredientsReady(false);
         restaurant.setMenuReady(false);
         restaurant.setAllReady(false);
-        printOutTodayEvent();
+        this.printOutTodayEvent();
+        this.exportTomorrowData();
         System.exit(0);
     }
 
