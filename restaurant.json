@@ -163,9 +163,9 @@
     "staffList": [
         {
             "username": "staff123",
-            "password": 123,
+            "password": "123",
             "role": "staff",
-            "contact": 987654321,
+            "contact": "987654321",
             "workSchedule": {
                 "04-08-2023": false,
                 "05-08-2023": false,
@@ -199,9 +199,9 @@
         },
         {
             "username": "staff456",
-            "password": 456,
+            "password": "456",
             "role": "staff",
-            "contact": 987654321,
+            "contact": "987654321",
             "workSchedule": {
                 "04-08-2023": false,
                 "05-08-2023": false,
@@ -235,9 +235,9 @@
         },
         {
             "username": "chef123",
-            "password": 123,
+            "password": "123",
             "role": "chef",
-            "contact": 987654321,
+            "contact": "987654321",
             "workSchedule": {
                 "04-08-2023": false,
                 "05-08-2023": false,
@@ -271,9 +271,9 @@
         },
         {
             "username": "chef456",
-            "password": 456,
+            "password": "456",
             "role": "chef",
-            "contact": 987654321,
+            "contact": "987654321",
             "workSchedule": {
                 "04-08-2023": false,
                 "05-08-2023": false,
@@ -307,9 +307,9 @@
         },
         {
             "username": "manager789",
-            "password": 789,
+            "password": "789",
             "role": "manager",
-            "contact": 987654321,
+            "contact": "987654321",
             "workSchedule": {
                 "04-08-2023": false,
                 "05-08-2023": false,

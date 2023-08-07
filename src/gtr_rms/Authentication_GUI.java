@@ -23,6 +23,7 @@ import entities.Staff;
 import entities.MenuItem;
 import entities.Inventory;
 import entities.Food;
+import java.util.Map;
 
 /**
  *
@@ -141,13 +142,31 @@ public class Authentication_GUI extends JFrame{
     public Authentication_GUI(){
         
         HashMap<String, Object> data = this.getRestaurantBYJson();
-         
                 
         if(data == null){
             return;
         }
         
+        /**
+         * handle Inventory
+         */
         LinkedTreeMap<String, Object> inventoryTreeMap = (LinkedTreeMap<String, Object>) data.get("inventory");
+        
+        ArrayList<LinkedTreeMap> ingredientArrayList = (ArrayList<LinkedTreeMap>) inventoryTreeMap.get("ingredientList");
+        
+        ArrayList<Food> foodList = new ArrayList<>();
+        
+        for(LinkedTreeMap ingredientTreeMap :ingredientArrayList){
+            Food new_Food = new Food(
+                (String) ingredientTreeMap.get("name"),
+                "",
+                0.0,
+                Integer.parseInt(ingredientTreeMap.get("quantity").toString()),
+                Integer.parseInt(ingredientTreeMap.get("weight").toString()),
+                ingredientTreeMap.get("noEffect") == "true"
+            );
+            foodList.add(new_Food);
+        }
         
         Inventory inventory = new Inventory(
             Integer.parseInt(inventoryTreeMap.get("chairs").toString()),
@@ -159,15 +178,56 @@ public class Authentication_GUI extends JFrame{
             Integer.parseInt(inventoryTreeMap.get("tablecloths").toString()),
             Integer.parseInt(inventoryTreeMap.get("napkins").toString()),
             Integer.parseInt(inventoryTreeMap.get("kitchenSupplies").toString()),
-            (ArrayList<Food>) data.get("ingredientList")
-        );        
+            foodList
+        );
+        
+        /*
+        * handle Menu
+        */
+        ArrayList<LinkedTreeMap> dishListArrayList = (ArrayList<LinkedTreeMap>) data.get("dishList");
+        
+        ArrayList<MenuItem> menuItemList = new ArrayList<>();
+        
+        for(LinkedTreeMap dishTreeMap :dishListArrayList){
+            MenuItem new_Menu = new MenuItem(
+               (String) dishTreeMap.get("name"),
+               (String) dishTreeMap.get("description"),
+               Double.parseDouble(dishTreeMap.get("price").toString())
+            );
+            menuItemList.add(new_Menu);
+        }
+        
+        /*
+        * handle Staff
+        */
+        ArrayList<LinkedTreeMap> staffListArrayList = (ArrayList<LinkedTreeMap>) data.get("staffList");
+        
+        ArrayList<Staff> staffList = new ArrayList<>();
+        
+        for(LinkedTreeMap staffTreeMap :staffListArrayList){
+            HashMap<String, Boolean> workScheduleMap = new HashMap<>();
+            LinkedTreeMap<String, Object> workScheduleTreepMap = (LinkedTreeMap<String, Object>) staffTreeMap.get("workSchedule");
+            for(Map.Entry<String, Object> workSchedule:workScheduleTreepMap.entrySet()){
+                workScheduleMap.put(workSchedule.getKey(), workSchedule.getValue() == "true" );
+            }
+            
+            Staff new_staff = new Staff(
+                (String) staffTreeMap.get("username"),
+                (String) staffTreeMap.get("password"),
+                (String) staffTreeMap.get("role"),
+                (String) staffTreeMap.get("contact"),
+                workScheduleMap
+            );
+            staffList.add(new_staff);
+        }
+        
         
         restaurant = new Restaurant(
             (String) data.get("restaurntName"),
             (String) data.get("restaurntAddress"), 
             (String) data.get("restaurntPhone"),
-            (ArrayList<MenuItem>) data.get("distList"),
-            (ArrayList<Staff>) data.get("staffList"),
+            menuItemList,
+            staffList,
             inventory
         );
         this.initializeGUI();
