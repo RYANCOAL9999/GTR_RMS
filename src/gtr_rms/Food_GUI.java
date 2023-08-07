@@ -61,6 +61,7 @@ public class Food_GUI extends JFrame {
                 Integer.parseInt(quantity),
                 0,
                 Double.parseDouble(weight),
+                Double.parseDouble(weight),
                 false
             )   
         );

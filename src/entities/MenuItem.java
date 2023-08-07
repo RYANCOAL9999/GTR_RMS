@@ -18,7 +18,9 @@ public class MenuItem {
     
     private double price; 
     
-    private HashMap<String, Boolean> usedIngredients;
+    private HashMap<String, Double> usedIngredients;
+    
+    private Boolean sumPlus; 
 
     /**
      * 
@@ -72,7 +74,7 @@ public class MenuItem {
      * 
      * @return
      */
-    public HashMap<String, Boolean> getUsedIngredients() {
+    public HashMap<String, Double> getUsedIngredients() {
         return this.usedIngredients;
     }
 
@@ -81,7 +83,7 @@ public class MenuItem {
      * @param key
      * @param value
      */
-    public void addIngredients(String key, Boolean value) {
+    public void addIngredients(String key, Double value) {
         this.usedIngredients.put(key, value);
     }
     
@@ -91,6 +93,22 @@ public class MenuItem {
      */
     public void removeIngredients(String key) {
         this.usedIngredients.remove(key);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Boolean getSumPlus() {
+        return sumPlus;
+    }
+
+    /**
+     * 
+     * @param sumPlus
+     */
+    public void setSumPlus(Boolean sumPlus) {
+        this.sumPlus = sumPlus;
     }
 
     /**
@@ -104,6 +122,7 @@ public class MenuItem {
         this.description = description;
         this.price = price;
         this.usedIngredients = new HashMap<>();
+        this.sumPlus = true;
     }
     
 }

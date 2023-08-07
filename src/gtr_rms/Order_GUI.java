@@ -7,6 +7,8 @@ package gtr_rms;
 import java.awt.BorderLayout;
 
 import java.util.List;
+import java.util.Map;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +21,7 @@ import javax.swing.event.ListSelectionEvent;
 import entities.Restaurant;
 import entities.Order;
 import entities.MenuItem;
+import entities.Food;
 
 /**
  *
@@ -90,8 +93,27 @@ public class Order_GUI extends JFrame{
     public void makeBill(Order order){
         List<MenuItem> resMenuItem = order.getMenuItems();
         double sum = 0;
-        for(MenuItem menu : resMenuItem){
-            sum += menu.getPrice();
+        /*
+         * need to think about ingredients have or have not
+         */
+        for(MenuItem menu : resMenuItem){ 
+            for(Map.Entry<String, Double> usedIngredient:menu.getUsedIngredients().entrySet()){
+                Double value = Double.parseDouble(usedIngredient.getValue().toString());
+                Food food = restaurant.getInventory().getIngredientsByKey(usedIngredient.getKey());
+                if(!food.getQuantityWeightEqualTooZero()){
+                    food.minusWeight(value);
+                    if(food.getStartingWeightEqualTooZero()){
+                        food.minusQuantity(1);
+                        food.resSetStartingWeight();
+                    }
+                }
+                else{
+                    menu.setSumPlus(false);
+                }
+            }
+            if(menu.getSumPlus()){
+                sum += menu.getPrice();
+            }
         }
         makeReceipt(resMenuItem, sum);        
     }

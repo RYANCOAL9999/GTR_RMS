@@ -218,6 +218,20 @@ public class Inventory {
     public void removeIngredients(Food foodItem){
         this.ingredients.remove(foodItem);
     }
+    
+    /*
+     *
+     * @param name
+     */
+    public Food getIngredientsByKey(String name){
+        Food food = null;
+        for(Food item:this.ingredients){
+            if(name.equals(item.getName())){
+                food = item;
+            }
+        }
+        return food;
+    }
 
     /**
      * 

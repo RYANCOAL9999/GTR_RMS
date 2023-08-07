@@ -17,138 +17,161 @@
                 "name": "rice",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "salt",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "sugar",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "garlic",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "ginger",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "mustard",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "wasabi",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "sesame oil",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "ponzu sauce",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "tabasco",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "soy sauce",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "worcester sauce",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "cooking wine",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "ketchup",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "sweet sake",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "vinegar",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "pepper",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
               "name": "flour",
               "quantity": 10,
               "weight": 10,
+              "startingWeight": 10,
               "noEffect": true
             },
             {
                 "name": "mayonnaise",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
                 "name": "potato starch",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true 
             },
             {
                 "name": "miso",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             },
             {
               "name": "oil",
               "quantity": 10,
               "weight": 10,
+              "startingWeight": 10,
               "noEffect": true
             },
             {
                 "name": "a Japanese soup base",
                 "quantity": 10,
                 "weight": 10,
+                "startingWeight": 10,
                 "noEffect": true
             }            
         ]
