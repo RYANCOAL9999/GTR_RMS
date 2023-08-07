@@ -32,24 +32,24 @@ public class Staff_GUI extends JFrame {
      */
     private void confirmEvent(Boolean staffIsNull) {
 
-        String userName = this.userName.getText();
-        String role = this.role.getText();
-        String contact = this.contact.getText();
+        String userNameText = this.userName.getText();
+        String roleText = this.role.getText();
+        String contactText = this.contact.getText();
 
         if(staffIsNull) {
             restaurant.addStaff(
                 new Staff(
-                    userName,
+                    userNameText,
                     "", 
-                    role, 
-                    contact,
+                    roleText, 
+                    contactText,
                     null
                 )
             );
         }
         else{
-            staff.setRole(role);
-            staff.setContact(contact);
+            staff.setRole(roleText);
+            staff.setContact(contactText);
         }
         this.dispose();
     }
@@ -69,7 +69,7 @@ public class Staff_GUI extends JFrame {
         JLabel labelShowName = new JLabel("UserName:");
         labelShowName.setPreferredSize(new Dimension( 120, 24 ));
 
-        Boolean staffIsNull = this.staff.equals(null);
+        Boolean staffIsNull = this.staff == null;
 
         userName = new JTextField(staffIsNull?"":this.staff.getUsername());
         userName.setPreferredSize(new Dimension( 120, 24 ));

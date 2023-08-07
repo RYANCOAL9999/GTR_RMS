@@ -11,10 +11,7 @@ import javax.swing.JTextField;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
@@ -129,7 +126,7 @@ public class Authentication_GUI extends JFrame{
 
     public HashMap<String, Object> getRestaurantBYCSV(){
 
-        HashMap<String, Object> result = new HashMap<String, Object>();
+        HashMap<String, Object> result = new HashMap<>();
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
         try {
@@ -171,10 +168,10 @@ public class Authentication_GUI extends JFrame{
             Element kitchenSuppliesElement = (Element) inventoryElement.getElementsByTagName("kitchenSupplies").item(0);
 
             
-            ArrayList<Food> ingredientList = new ArrayList<Food>();
+            ArrayList<Food> ingredientList = new ArrayList<>();
             NodeList ingredientNode = inventoryElement.getElementsByTagName("ingredientList");
             for (int i = 0; i < ingredientNode.getLength(); i++) {
-                HashMap<String, Object> ingredient = new HashMap<String, Object>();
+                HashMap<String, Object> ingredient = new HashMap<>();
                 Element ingredientListElement = (Element) ingredientNode.item(i);
 
                 // Get elements within ingredientList
@@ -186,7 +183,7 @@ public class Authentication_GUI extends JFrame{
                 ingredient.put("name", nameElement.getTextContent());
                 ingredient.put("quantity", Integer.parseInt(quantityElement.getTextContent()));
                 ingredient.put("weight", Double.parseDouble(weightElement.getTextContent()));
-                ingredient.put("noEffect", noEffectElement.getTextContent() == "true"?true:false);
+                ingredient.put("noEffect", ("true".equals(noEffectElement.getTextContent())));
 
                 Food newFood = new Food(
                     (String) ingredient.get("name"),
@@ -221,12 +218,12 @@ public class Authentication_GUI extends JFrame{
             /**
              * dishList
              */
-            ArrayList<MenuItem> dishList = new ArrayList<MenuItem>();
+            ArrayList<MenuItem> dishList = new ArrayList<>();
             NodeList distListNode = root.getElementsByTagName("dishList");
 
             for (int i = 0; i < distListNode.getLength(); i++) {
 
-                HashMap<String, Object> menu = new HashMap<String, Object>();
+                HashMap<String, Object> menu = new HashMap<>();
                 Element staffListElement = (Element) distListNode.item(i);
 
                 // Get elements within staffList
@@ -253,12 +250,12 @@ public class Authentication_GUI extends JFrame{
             /**
              * staffList
              */
-            ArrayList<Staff> staffList = new ArrayList<Staff>();
+            ArrayList<Staff> staffList = new ArrayList<>();
             NodeList staffListNode = root.getElementsByTagName("staffList");
 
             for (int i = 0; i < staffListNode.getLength(); i++) {
 
-                HashMap<String, Object> staff = new HashMap<String, Object>();
+                HashMap<String, Object> staff = new HashMap<>();
                 Element staffListElement = (Element) staffListNode.item(i);
 
                 // Get elements within staffList
@@ -269,13 +266,13 @@ public class Authentication_GUI extends JFrame{
                 Element workScheduleElement = (Element) staffListElement.getElementsByTagName("workSchedule").item(0);
 
                 // Get workSchedule entries
-                HashMap<String, Boolean> workSchedule = new HashMap<String, Boolean>();
+                HashMap<String, Boolean> workSchedule = new HashMap<>();
                 NodeList workScheduleEntries = workScheduleElement.getElementsByTagName("entry");
                 for (int j = 0; j < workScheduleEntries.getLength(); j++) {
                     Element entryElement = (Element) workScheduleEntries.item(j);
                     Element dateElement = (Element) entryElement.getElementsByTagName("date").item(0);
                     Element valueElement = (Element) entryElement.getElementsByTagName("value").item(0);
-                    workSchedule.put(dateElement.getTextContent(), valueElement.getTextContent() == "true" ? true:false);
+                    workSchedule.put(dateElement.getTextContent(), ("true".equals(valueElement.getTextContent())));
                 }
 
                 staff.put("username", usernameElement.getTextContent());

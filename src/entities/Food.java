@@ -57,6 +57,8 @@ public class Food extends MenuItem {
     /**
      * have Effect with MenuItem
      * @param name
+     * @param description
+     * @param price
      * @param quantity
      * @param weight
      */

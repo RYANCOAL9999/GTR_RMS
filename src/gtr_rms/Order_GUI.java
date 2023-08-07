@@ -48,9 +48,9 @@ public class Order_GUI extends JFrame{
      */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
         Order saveOrder = restaurant.getOrderList().get(restaurant.getOrderNumber()-1);
-        for(Object orderItems: orderItems.toArray()){
+        for(Object orderSingle: orderItems.toArray()){
             for(MenuItem item: resMenuItem){
-                if(orderItems == null ? item.getName().equals(null) : orderItems.equals(item.getName())){
+                if(orderSingle == null ? item.getName() == null : orderSingle.equals(item.getName())){
                     saveOrder.addItem(item);
                 }
             }
@@ -151,9 +151,7 @@ public class Order_GUI extends JFrame{
 
     private void addMenuItemWithSaved(){
         if(this.order != null){
-            List<MenuItem> menuItems = this.order.getMenuItems();
-            System.out.println(menuItems.size());
-            for(MenuItem menuSingleItem : menuItems){
+            for(MenuItem menuSingleItem : this.order.getMenuItems()){
                 orderItems.addElement(menuSingleItem.getName());
             }
         }

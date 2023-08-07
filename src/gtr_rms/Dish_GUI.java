@@ -75,7 +75,7 @@ public class Dish_GUI extends JFrame{
      */
     private void initializeGUI() {
 
-        foodItems = new ArrayList<JCheckBox>();
+        foodItems = new ArrayList<>();
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel tablePanel_North = new JPanel(new BorderLayout());

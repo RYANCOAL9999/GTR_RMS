@@ -46,7 +46,7 @@ public class StaffRecord_GUI extends JFrame{
      * 
      */
     private void initializeGUI() {
-        staffItem = new ArrayList<JButton>();
+        staffItem = new ArrayList<>();
 
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());

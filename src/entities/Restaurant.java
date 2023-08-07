@@ -174,7 +174,6 @@ public class Restaurant {
     
     /**
      * 
-     * @param tableNumber
      */
     public void addTodayWage(double todayWage){
         this.todayWage += todayWage;
@@ -182,7 +181,7 @@ public class Restaurant {
 
     /**
      * 
-     * @param tableNumber
+     * @param todayWage
      */
     public void minusTodayWage(double todayWage){
         this.todayWage -= todayWage;
@@ -194,9 +193,7 @@ public class Restaurant {
 
     /**
      * 
-     * @param name
-     * @param description
-     * @param price
+     * @param item
      */
     public void addMenuItem(MenuItem item) {
         this.menuItemList.add(item);

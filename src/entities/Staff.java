@@ -73,7 +73,7 @@ public class Staff {
 
     /**
      * 
-     * @param name
+     * @param contact
      */
     public void setContact(String contact) {
         this.contact = contact;
@@ -89,7 +89,8 @@ public class Staff {
 
     /**
      * 
-     * @param name
+     * @param date
+     * @param b
      */
     public void addWorkSchedule(String date, Boolean b) {
         this.workSchedule.put(date, b);

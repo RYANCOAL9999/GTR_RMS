@@ -52,7 +52,7 @@ public class SalesRecord_GUI extends JFrame{
          * record all sales transactions, including the date, time, table number, ordered items, and total amount.
          * generate reports summarizing daily, weekly, monthly, or custom periods of sales to analyze revenue performance.
          */
-        orderItem = new ArrayList<JButton>();
+        orderItem = new ArrayList<>();
 
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -116,6 +116,9 @@ public class SalesRecord_GUI extends JFrame{
 
     /**
      * 
+     * @param res
+     * @param date
+     * @param header
      */
     public SalesRecord_GUI(Restaurant res, Date date, String header){
         this.restaurant = res;

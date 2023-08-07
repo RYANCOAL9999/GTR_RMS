@@ -24,7 +24,7 @@ public class Restaurant_GUI extends JFrame{
      * print out 
      * food remainder, 
      * today's income, 
-     * and Tomorrow's Food ingrediention
+     * and Tomorrow's Food ingredients
      */
     private void printOutTodayEvent(){
         
@@ -61,7 +61,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void salesRecordGUIEvent() {
-        if(user.getRole() != "manager"){
+        if(!"manager".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not Manager !");
             return;
         }
@@ -73,7 +73,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void staffRecordGUIEvent() {
-        if(user.getRole() != "manager"){
+        if(!"manager".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not Manager !");
             return;
         }
@@ -105,7 +105,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void menuGUIEvent() {
-        if(user.getRole() == "staff"){
+        if("staff".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
             return;
         }
@@ -117,7 +117,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void initializeGUIEvent() {
-        if(user.getRole() == "staff"){
+        if("staff".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
             return;
         }
@@ -189,6 +189,8 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @param res
+     * @param userSession
      */
     public Restaurant_GUI(Restaurant res, Staff userSession){
         restaurant = res;
