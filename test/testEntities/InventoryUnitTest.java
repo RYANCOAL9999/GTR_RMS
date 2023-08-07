@@ -15,6 +15,7 @@ public class InventoryUnitTest extends TestCase {
 
     /**
      *
+     * @return 
      */
     public Inventory inventoryUnitTest() {
         return new Inventory(

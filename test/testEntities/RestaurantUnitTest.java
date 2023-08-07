@@ -16,6 +16,7 @@ public class RestaurantUnitTest extends TestCase {
 
     /**
      *
+     * @return 
      */
     public Restaurant restaurantUnitTest() {
         return new Restaurant(
