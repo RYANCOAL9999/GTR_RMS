@@ -2,17 +2,21 @@ package gtr_rms;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.Reader;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,7 +27,6 @@ import entities.Staff;
 import entities.MenuItem;
 import entities.Inventory;
 import entities.Food;
-import java.util.Map;
 
 /**
  *
@@ -119,7 +122,7 @@ public class Authentication_GUI extends JFrame{
         this.add(mainPanel);
     }
     
-    public HashMap<String, Object> getRestaurantBYJson(){
+    public final HashMap<String, Object> getRestaurantBYJson(){
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         

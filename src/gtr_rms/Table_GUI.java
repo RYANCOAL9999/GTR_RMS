@@ -4,13 +4,15 @@
  */
 package gtr_rms;
 
-import entities.Order;
-import entities.Restaurant;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import entities.Order;
+import entities.Restaurant;
 
 /**
  *
