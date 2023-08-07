@@ -3,7 +3,9 @@ package entities;
 public class Food extends MenuItem {
 
     private int quantity;
+    
     private double weight;
+    
     private Boolean noEffect;
 
     /**

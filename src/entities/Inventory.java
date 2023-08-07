@@ -14,15 +14,25 @@ import java.util.List;
 public class Inventory {
     
     private int chairs;
+    
     private int tables;
+    
     private int dishes;
+    
     private int glasses;
+    
     private int chopsticks;
+    
     private int spoons;
+    
     private int tablecloths;
+    
     private int napkins;
+    
     private int kitchenSupplies;
+    
     private List<Food> ingredients;
+    
     private Boolean ingredientsReady;
 
     /**

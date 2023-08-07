@@ -34,11 +34,12 @@ import entities.Food;
  */
 public class Authentication_GUI extends JFrame{
 
-    private static final String filePath = "restaurant.xml";
+    private static final String filePath = "restaurant.json";
 
     private static Restaurant restaurant;
 
     private JTextField userName;
+    
     private JTextField password;
 
     private void LoginEvent(){
@@ -129,7 +130,7 @@ public class Authentication_GUI extends JFrame{
         HashMap<String, Object> map = new HashMap<>();
         
         try{
-            Reader reader = new FileReader("restaurant.json");
+            Reader reader = new FileReader(filePath);
             map = (HashMap<String,Object>) gson.fromJson(reader, map.getClass()); 
         }
         catch(IOException e){
@@ -231,7 +232,8 @@ public class Authentication_GUI extends JFrame{
             (String) data.get("restaurntPhone"),
             menuItemList,
             staffList,
-            inventory
+            inventory,
+            filePath
         );
         this.initializeGUI();
     }

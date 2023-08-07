@@ -18,7 +18,9 @@ import entities.Staff;
 public class Restaurant_GUI extends JFrame{
 
     private static Restaurant restaurant;
+    
     private static Date today;
+    
     private static Staff user;
 
     /**

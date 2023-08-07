@@ -15,24 +15,28 @@ import java.util.List;
 public class Restaurant {
 
     private String name;
+    
     private String address;
+    
     private String phone;
     
-    private int OrderNumber;
-
     private Inventory inventory;
+    
+    private List<Order> orderList;
+    
+    private List<MenuItem> menuItemList;
+
+    private List<Staff> staffList;
+    
+    private String exportPath;
+    
+    private int OrderNumber;
 
     private double todayWage;
 
     private boolean menuReady;
 
     private boolean allReady;
-
-    private List<Order> orderList;
-    
-    private List<MenuItem> menuItemList;
-
-    private List<Staff> staffList;
     
     /**
      * 
@@ -188,6 +192,10 @@ public class Restaurant {
         this.todayWage -= todayWage;
     }
     
+    /**
+     * 
+     * @return 
+     */
     public List<MenuItem> getMenuItemList() {
         return menuItemList;
     }
@@ -211,7 +219,11 @@ public class Restaurant {
             }
         }
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public Inventory getInventory() {
         return this.inventory;
     }
@@ -232,14 +244,26 @@ public class Restaurant {
         this.inventory.getIngredients().remove(foodItem);
     }
 
+    /**
+     * 
+     * @return 
+     */
     public List<Staff> getStaffList(){
         return this.staffList;
     }
 
+    /**
+     * 
+     * @param staff
+     */
     public void addStaff(Staff staff){
         this.staffList.add(staff);
     }
 
+    /**
+     * 
+     * @param name
+     */
     public void deleteStaff(String name){
         for(Staff staff : this.staffList){
             if(staff.getUsername().equals(name)){
@@ -248,6 +272,11 @@ public class Restaurant {
         }
     }
 
+    /**
+     * 
+     * @param name
+     * @return 
+     */
     public Staff getStaff(String name){
         Staff staff = null;
         for(Staff staffSingle : this.staffList){
@@ -258,6 +287,11 @@ public class Restaurant {
         return staff;
     }
 
+    /**
+     * 
+     * @param name
+     * @return 
+     */
     public HashMap<String, Boolean> getStaffWorkScheduled(String name){
         HashMap<String, Boolean> scheduled = null;
         for(Staff staff : this.staffList){
@@ -268,6 +302,12 @@ public class Restaurant {
         return scheduled;
     }
 
+    /**
+     * 
+     * @param name
+     * @param date
+     * @param b
+     */
     public void addStaffWorkScheduled(String name, String date, boolean b){
         for(Staff staff : this.staffList){
             if(staff.getUsername().equals(name)){
@@ -276,6 +316,11 @@ public class Restaurant {
         }
     }
 
+    /**
+     * 
+     * @param name
+     * @param date
+     */
     public void deleteStaffWorkScheduled(String name, String date){
         for(Staff staff : this.staffList){
             if(staff.getUsername().equals(name)){
@@ -284,10 +329,22 @@ public class Restaurant {
         }
     }
 
+    /**
+     * 
+     * @param b
+     */
     public void setTodayFirstTimeLoginForAllStaff(boolean b){
         for(Staff staff : this.staffList){
             staff.setTodayFirstTimeLogin(b);
         }
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getExportPath() {
+        return exportPath;
     }
     
     /**
@@ -298,6 +355,7 @@ public class Restaurant {
      * @param menuItemList
      * @param staffList
      * @param inventory
+     * @param exportPath
      */
     public Restaurant(
         String name, 
@@ -305,20 +363,22 @@ public class Restaurant {
         String phone,
         ArrayList<MenuItem> menuItemList,
         ArrayList<Staff> staffList,
-        Inventory inventory
+        Inventory inventory,
+        String exportPath
     ){
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.menuItemList = menuItemList;
+        this.staffList = staffList;
+        this.inventory = inventory;
+        this.exportPath = exportPath;
         
         this.menuReady = false;
         this.allReady = false;
         this.OrderNumber = 0;
         this.todayWage = 0;
         this.orderList = new ArrayList<>();
-        this.menuItemList = menuItemList;
-        this.staffList = staffList;
-        this.inventory = inventory;
     }
 
 }

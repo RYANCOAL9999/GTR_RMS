@@ -13,8 +13,11 @@ import java.util.HashMap;
 public class MenuItem {
     
     private String name;
+    
     private String description;
+    
     private double price; 
+    
     private HashMap<String, Boolean> usedIngredients;
 
     /**

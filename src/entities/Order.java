@@ -13,12 +13,19 @@ import java.util.List;
 public class Order {
     
     private int orderId;
+    
     private String tableNumber;
+    
     private List<MenuItem> menuItems;
+    
     private double total;
+    
     private Boolean submitted;
+    
     private Date orderDate;
+    
     private Long orderTime;
+    
     private Long orderFinishedTime;
     
     /**

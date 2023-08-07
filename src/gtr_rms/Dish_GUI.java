@@ -26,11 +26,15 @@ import entities.Restaurant;
 public class Dish_GUI extends JFrame{
 
     private Restaurant restaurant;
+    
     private DefaultListModel<String> inventoryItems;
 
     private JTextField dishName;
+    
     private JTextField dishDescription;
+    
     private JTextField dishPrice;
+    
     private List<JCheckBox> foodItems;
 
     private final int constantsNumber = 3;

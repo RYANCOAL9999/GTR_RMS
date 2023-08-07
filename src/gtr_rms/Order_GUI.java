@@ -31,7 +31,9 @@ public class Order_GUI extends JFrame{
     private Order order;
     
     private JList<String> orderList;
+    
     private DefaultListModel<String> menuItems;
+    
     private DefaultListModel<String> orderItems;
     
     /**

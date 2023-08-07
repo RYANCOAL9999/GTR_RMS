@@ -26,6 +26,7 @@ public class Ingredients_GUI extends JFrame{
     private Restaurant restaurant;
     
     private JList<String> inventoryList;
+    
     private DefaultListModel<String> inventoryItems;
 
     /**

@@ -15,10 +15,13 @@ import entities.Staff;
 public class Staff_GUI extends JFrame {
 
     private Restaurant restaurant;
+    
     private Staff staff;
 
     private JTextField userName;
+    
     private JTextField role;
+    
     private JTextField contact;
 
     /**

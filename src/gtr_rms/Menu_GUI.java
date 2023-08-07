@@ -26,6 +26,7 @@ public class Menu_GUI extends JFrame{
     private Restaurant restaurant;
 
     private JList<String> menuList;
+    
     private DefaultListModel<String> menuItems;
 
     /**
