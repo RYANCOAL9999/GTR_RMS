@@ -2,15 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entities;
+package testEntities;
 
+import entities.Inventory;
 import junit.framework.TestCase;
 
 /**
  *
  * @author W22079254
  */
-public class MenuItemUnitTest extends TestCase {
+public class InventoryUnitTest extends TestCase {
+
+    /**
+     *
+     */
+    public Inventory inventoryUnitTest() {
+        return new Inventory(
+           0, 
+           0, 
+           0, 
+           0,
+           0,
+           0,
+           0,
+           0,
+           0,
+           null
+        );
+    }
     
     /**
      * Test of equal method, of class Vectors.

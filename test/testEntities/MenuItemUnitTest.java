@@ -2,15 +2,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entities;
+package testEntities;
 
 import junit.framework.TestCase;
+
+import entities.MenuItem;
 
 /**
  *
  * @author W22079254
  */
-public class FoodUnitTest extends TestCase {
+public class MenuItemUnitTest extends TestCase {
+
+    /**
+     *
+     */
+    public MenuItem menuItemUnitTest() {
+        return new MenuItem (
+            "",
+            "",
+            1.0                
+        );
+    }
     
     /**
      * Test of equal method, of class Vectors.
