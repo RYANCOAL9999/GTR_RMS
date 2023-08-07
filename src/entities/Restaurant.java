@@ -291,249 +291,24 @@ public class Restaurant {
             staff.setTodayFirstTimeLogin(b);
         }
     }
-
-    /**
-     * 
-     */
-    private void addDefaultIngredients(){
-        /**
-         * need to using json file with import
-         */
-        this.addInventoryByIngredients(new Food("rice", 10, 10, true));
-        this.addInventoryByIngredients(new Food("salt", 10, 10, true));
-        this.addInventoryByIngredients(new Food("sugar", 10, 10, true));
-        this.addInventoryByIngredients(new Food("garlic", 10, 10, true));
-        this.addInventoryByIngredients(new Food("ginger", 10, 10, true));
-        this.addInventoryByIngredients(new Food("mustard", 10, 10, true));
-        this.addInventoryByIngredients(new Food("wasabi", 10, 10, true));
-        this.addInventoryByIngredients(new Food("sesame oil", 10, 10, true));
-        this.addInventoryByIngredients(new Food("ponzu sauce", 10, 10, true));
-        this.addInventoryByIngredients(new Food("tabasco", 10, 10, true));
-        this.addInventoryByIngredients(new Food("soy sauce", 10, 10, true));
-        this.addInventoryByIngredients(new Food("worcester sauce", 10, 10, true));
-        this.addInventoryByIngredients(new Food("cooking wine", 10, 10, true));
-        this.addInventoryByIngredients(new Food("ketchup", 10, 10, true));
-        this.addInventoryByIngredients(new Food("sweet sake", 10, 10, true));
-        this.addInventoryByIngredients(new Food("vinegar", 10, 10, true));
-        this.addInventoryByIngredients(new Food("mayonnaise", 10, 10, true));
-        this.addInventoryByIngredients(new Food("pepper", 10, 10, true));
-        this.addInventoryByIngredients(new Food("flour", 10, 10, true));
-        this.addInventoryByIngredients(new Food("potato starch", 10, 10, true));
-        this.addInventoryByIngredients(new Food("miso", 10, 10, true));
-        this.addInventoryByIngredients(new Food("oil", 10, 10, true));
-        this.addInventoryByIngredients(new Food("a Japanese soup base", 10, 10, true));
-    }
-
-    /**
-     * 
-     */
-    private void addDefaultMenuItems(){
-        this.addMenuItem(new MenuItem("rice", "white rice", 1.0));
-    }
-
-    private void addDefaultStaff(){
-        /**
-         * need to using json file with import
-         */
-        this.addStaff(
-            new Staff(
-                "staff123", 
-                "123", 
-                "staff", 
-                "987654321", 
-                new HashMap<String, Boolean>(){{
-                    put("04/08/2023", false);
-                    put("05/08/2023", false);
-                    put("06/08/2023", false);
-                    put("07/08/2023", false);
-                    put("08/08/2023", false);
-                    put("09/08/2023", false);
-                    put("10/08/2023", false);
-                    put("11/08/2023", false);
-                    put("12/08/2023", false);
-                    put("13/08/2023", false);
-                    put("14/08/2023", false);
-                    put("15/08/2023", false);
-                    put("16/08/2023", false);
-                    put("17/08/2023", false);
-                    put("18/08/2023", false);
-                    put("19/08/2023", false);
-                    put("20/08/2023", false);
-                    put("21/08/2023", false);
-                    put("22/08/2023", false);
-                    put("23/08/2023", false);
-                    put("24/08/2023", false);
-                    put("25/08/2023", false);
-                    put("26/08/2023", false);
-                    put("27/08/2023", false);
-                    put("28/08/2023", false);
-                    put("29/08/2023", false);
-                    put("30/08/2023", false);
-                    put("31/08/2023", false);
-                }}
-            )
-        );
-        this.addStaff(
-            new Staff(
-                "staff456", 
-                "456", 
-                "staff", 
-                "987654321", 
-                new HashMap<String, Boolean>(){{
-                    put("04/08/2023", false);
-                    put("05/08/2023", false);
-                    put("06/08/2023", false);
-                    put("07/08/2023", false);
-                    put("08/08/2023", false);
-                    put("09/08/2023", false);
-                    put("10/08/2023", false);
-                    put("11/08/2023", false);
-                    put("12/08/2023", false);
-                    put("13/08/2023", false);
-                    put("14/08/2023", false);
-                    put("15/08/2023", false);
-                    put("16/08/2023", false);
-                    put("17/08/2023", false);
-                    put("18/08/2023", false);
-                    put("19/08/2023", false);
-                    put("20/08/2023", false);
-                    put("21/08/2023", false);
-                    put("22/08/2023", false);
-                    put("23/08/2023", false);
-                    put("24/08/2023", false);
-                    put("25/08/2023", false);
-                    put("26/08/2023", false);
-                    put("27/08/2023", false);
-                    put("28/08/2023", false);
-                    put("29/08/2023", false);
-                    put("30/08/2023", false);
-                    put("31/08/2023", false);
-                }}
-            )
-        );
-        this.addStaff(
-            new Staff(
-                "chef123", 
-                "123", 
-                "chef", 
-                "987654321", 
-                new HashMap<String, Boolean>(){{
-                    put("04/08/2023", false);
-                    put("05/08/2023", false);
-                    put("06/08/2023", false);
-                    put("07/08/2023", false);
-                    put("08/08/2023", false);
-                    put("09/08/2023", false);
-                    put("10/08/2023", false);
-                    put("11/08/2023", false);
-                    put("12/08/2023", false);
-                    put("13/08/2023", false);
-                    put("14/08/2023", false);
-                    put("15/08/2023", false);
-                    put("16/08/2023", false);
-                    put("17/08/2023", false);
-                    put("18/08/2023", false);
-                    put("19/08/2023", false);
-                    put("20/08/2023", false);
-                    put("21/08/2023", false);
-                    put("22/08/2023", false);
-                    put("23/08/2023", false);
-                    put("24/08/2023", false);
-                    put("25/08/2023", false);
-                    put("26/08/2023", false);
-                    put("27/08/2023", false);
-                    put("28/08/2023", false);
-                    put("29/08/2023", false);
-                    put("30/08/2023", false);
-                    put("31/08/2023", false);
-                }}
-            )
-        );
-        this.addStaff(
-            new Staff(
-                "chef456", 
-                "456", 
-                "chef", 
-                "987654321", 
-                new HashMap<String, Boolean>(){{
-                    put("04/08/2023", false);
-                    put("05/08/2023", false);
-                    put("06/08/2023", false);
-                    put("07/08/2023", false);
-                    put("08/08/2023", false);
-                    put("09/08/2023", false);
-                    put("10/08/2023", false);
-                    put("11/08/2023", false);
-                    put("12/08/2023", false);
-                    put("13/08/2023", false);
-                    put("14/08/2023", false);
-                    put("15/08/2023", false);
-                    put("16/08/2023", false);
-                    put("17/08/2023", false);
-                    put("18/08/2023", false);
-                    put("19/08/2023", false);
-                    put("20/08/2023", false);
-                    put("21/08/2023", false);
-                    put("22/08/2023", false);
-                    put("23/08/2023", false);
-                    put("24/08/2023", false);
-                    put("25/08/2023", false);
-                    put("26/08/2023", false);
-                    put("27/08/2023", false);
-                    put("28/08/2023", false);
-                    put("29/08/2023", false);
-                    put("30/08/2023", false);
-                    put("31/08/2023", false);
-                }}
-            )
-        );
-        this.addStaff(
-            new Staff(
-                "manager123", 
-                "123", 
-                "manager", 
-                "987654321", 
-                new HashMap<String, Boolean>(){{
-                    put("04/08/2023", false);
-                    put("05/08/2023", false);
-                    put("06/08/2023", false);
-                    put("07/08/2023", false);
-                    put("08/08/2023", false);
-                    put("09/08/2023", false);
-                    put("10/08/2023", false);
-                    put("11/08/2023", false);
-                    put("12/08/2023", false);
-                    put("13/08/2023", false);
-                    put("14/08/2023", false);
-                    put("15/08/2023", false);
-                    put("16/08/2023", false);
-                    put("17/08/2023", false);
-                    put("18/08/2023", false);
-                    put("19/08/2023", false);
-                    put("20/08/2023", false);
-                    put("21/08/2023", false);
-                    put("22/08/2023", false);
-                    put("23/08/2023", false);
-                    put("24/08/2023", false);
-                    put("25/08/2023", false);
-                    put("26/08/2023", false);
-                    put("27/08/2023", false);
-                    put("28/08/2023", false);
-                    put("29/08/2023", false);
-                    put("30/08/2023", false);
-                    put("31/08/2023", false);
-                }}
-            )
-        );
-    }
-
+    
     /**
      * 
      * @param name
      * @param address
      * @param phone
+     * @param menuItemList
+     * @param staffList
+     * @param inventory
      */
-    public Restaurant(String name, String address, String phone){
+    public Restaurant(
+        String name, 
+        String address, 
+        String phone,
+        ArrayList<MenuItem> menuItemList,
+        ArrayList<Staff> staffList,
+        Inventory inventory
+    ){
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -543,17 +318,9 @@ public class Restaurant {
         this.OrderNumber = 0;
         this.todayWage = 0;
         this.orderList = new ArrayList<Order>();
-        this.menuItemList = new ArrayList<MenuItem>();
-        this.staffList = new ArrayList<Staff>();
-        this.inventory = new Inventory();
-
-        /**
-         * add Default items with staff, food, and Menu
-         */
-        this.addDefaultStaff();
-        this.addDefaultIngredients();
-        this.addDefaultMenuItems();
-
+        this.menuItemList = menuItemList;
+        this.staffList = staffList;
+        this.inventory = inventory;
     }
 
 }

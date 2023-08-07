@@ -56,8 +56,11 @@ public class Food_GUI extends JFrame {
         restaurant.addInventoryByIngredients(
             new Food(
                 name,
+                "",
                 Integer.parseInt(quantity),
-                Double.parseDouble(weight)
+                0,
+                Double.parseDouble(weight),
+                false
             )   
         );
         inventoryItems.addElement(name);

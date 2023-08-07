@@ -39,9 +39,11 @@ public class Staff_GUI extends JFrame {
         if(staffIsNull) {
             restaurant.addStaff(
                 new Staff(
-                    userName, 
+                    userName,
+                    "", 
                     role, 
-                    contact
+                    contact,
+                    null
                 )
             );
         }

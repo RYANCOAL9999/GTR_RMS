@@ -157,19 +157,5 @@ public class Staff {
         this.todayFirstTimeLogin = false;
         this.backTowork = new ArrayList<Date>();
     }
-
-    public Staff(
-        String username,
-        String role,
-        String contact
-    ){
-        this.username = username;
-        this.password = "";
-        this.role = role;
-        this.contact = contact;
-        this.workSchedule = null;
-        this.todayFirstTimeLogin = false;
-        this.backTowork = new ArrayList<Date>();
-    }
     
 }

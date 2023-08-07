@@ -18,6 +18,8 @@ public class Order {
     private double total;
     private Boolean submitted;
     private Date orderDate;
+    private Long orderTime;
+    private Long orderFinishedTime;
     
     /**
      * 
@@ -112,7 +114,15 @@ public class Order {
      * @return
      */
     public Long getOrderTime() {
-        return orderDate.getTime();
+        return this.orderTime;
+    }
+
+    public Long getOrderFinishedTime(){
+        return this.orderFinishedTime;
+    }
+
+    public void setOrderFinishedTime() {
+        this.orderFinishedTime = new Date().getTime();
     }
 
     /**
@@ -127,6 +137,8 @@ public class Order {
         this.menuItems = new java.util.ArrayList<>();
         this.total = 0;
         this.orderDate = new Date();
+        this.orderTime = this.orderDate.getTime();
+        this.orderFinishedTime = 0L;
     }
     
 }
