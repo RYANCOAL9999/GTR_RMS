@@ -71,7 +71,7 @@ public class Order {
 
     /**
      * 
-     * @param submitted
+     * @param total
      */
     public void setTotal(double total) {
         this.total = total;
@@ -87,7 +87,7 @@ public class Order {
 
     /**
      * 
-     * @param total
+     * @param submitted
      */
     public void setSubmitted(Boolean submitted) {
         this.submitted = submitted;

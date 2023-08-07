@@ -156,7 +156,7 @@ public class Staff {
         this.contact = contact;
         this.workSchedule = workSchedule;
         this.todayFirstTimeLogin = false;
-        this.backTowork = new ArrayList<Date>();
+        this.backTowork = new ArrayList<>();
     }
     
 }

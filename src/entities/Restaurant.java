@@ -174,6 +174,7 @@ public class Restaurant {
     
     /**
      * 
+     * @param todayWage
      */
     public void addTodayWage(double todayWage){
         this.todayWage += todayWage;
@@ -314,7 +315,7 @@ public class Restaurant {
         this.allReady = false;
         this.OrderNumber = 0;
         this.todayWage = 0;
-        this.orderList = new ArrayList<Order>();
+        this.orderList = new ArrayList<>();
         this.menuItemList = menuItemList;
         this.staffList = staffList;
         this.inventory = inventory;

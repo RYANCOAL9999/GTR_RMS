@@ -61,6 +61,7 @@ public class Food extends MenuItem {
      * @param price
      * @param quantity
      * @param weight
+     * @param noEffect
      */
     public Food(
         String name, 
