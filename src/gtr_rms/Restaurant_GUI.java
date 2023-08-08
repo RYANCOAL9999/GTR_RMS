@@ -1,9 +1,11 @@
 package gtr_rms;
 
 import java.awt.BorderLayout;
-
-import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 
@@ -51,11 +53,15 @@ public class Restaurant_GUI extends JFrame{
      */
     public void exportTomorrowData(){
 
+        File file = new File("restaurant.json");;
+
         try{
             
-            Writer writer = new FileWriter(
-                restaurant.getExportPath(), 
-                StandardCharsets.UTF_8
+            Writer writer = new BufferedWriter(
+                new OutputStreamWriter(
+                    new FileOutputStream(file), 
+                    StandardCharsets.UTF_8
+                )
             );
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
