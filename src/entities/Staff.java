@@ -5,6 +5,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ *
+ * @author W22079254
+ */
 public class Staff {
 
     private String username;
@@ -122,6 +126,7 @@ public class Staff {
 
     /**
      * 
+     * @void
      */
     public void addBackTowork() {
         this.backTowork.add(new Date());
@@ -143,6 +148,14 @@ public class Staff {
         this.backTowork.remove(date);
     }
 
+    /**
+     * 
+     * @param username
+     * @param password
+     * @param role
+     * @param contact
+     * @param workSchedule
+     */
     public Staff(
         String username,
         String password,

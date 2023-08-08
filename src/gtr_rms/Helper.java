@@ -8,6 +8,11 @@ import java.awt.BorderLayout;
  */
 public class Helper {
 
+    /**
+     * 
+     * @param str
+     * @return
+     */
     public static Boolean checkStringIsNumber(String str) {
         return str.chars().allMatch(Character::isDigit);
     }

@@ -31,6 +31,7 @@ public class Menu_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void finishEvent(){
         JOptionPane.showMessageDialog(this, "Menu item action finished!");

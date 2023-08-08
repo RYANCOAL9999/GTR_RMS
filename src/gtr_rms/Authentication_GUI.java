@@ -63,6 +63,10 @@ public class Authentication_GUI extends JFrame{
         return map;
     }
 
+    /**
+     * 
+     * @void
+     */
     public void LoginEvent(){
         // getStaff
         String name = userName.getText();
@@ -146,6 +150,7 @@ public class Authentication_GUI extends JFrame{
     
     /**
      * 
+     * @void
      */
     public Authentication_GUI(){
         

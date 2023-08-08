@@ -40,6 +40,7 @@ public class Food_GUI extends JFrame {
 
     /**
      * 
+     * @void
      */
     public void cancelEvent() {
         JOptionPane.showMessageDialog(this, "add Food Event Cancel!");

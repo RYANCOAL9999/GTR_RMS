@@ -12,6 +12,10 @@ import javax.swing.JTextField;
 import entities.Restaurant;
 import entities.Staff;
 
+/**
+ *
+ * @author W22079254
+ */
 public class Staff_GUI extends JFrame {
 
     private Restaurant restaurant;
@@ -26,6 +30,7 @@ public class Staff_GUI extends JFrame {
 
     /**
      * 
+     * @void
      */
     public void cancelEvent() {
         this.dispose();

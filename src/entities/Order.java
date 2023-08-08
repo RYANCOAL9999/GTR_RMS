@@ -124,10 +124,18 @@ public class Order {
         return this.orderTime;
     }
 
+    /**
+     * 
+     * @return
+     */
     public Long getOrderFinishedTime(){
         return this.orderFinishedTime;
     }
 
+    /**
+     * 
+     * @void
+     */
     public void setOrderFinishedTime() {
         this.orderFinishedTime = new Date().getTime();
     }

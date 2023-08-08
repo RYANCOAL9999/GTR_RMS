@@ -36,6 +36,10 @@ public class Food extends MenuItem {
        return this.quantity;
     }
     
+    /**
+     * 
+     * @param number
+     */
     public void minusQuantity(int number){
         this.quantity -= number;
     }
@@ -64,6 +68,10 @@ public class Food extends MenuItem {
        return this.weight;
     }
     
+    /**
+     * 
+     * @param number
+     */
     public void minusWeight(double number){
         this.weight -= number;
     }
@@ -110,6 +118,7 @@ public class Food extends MenuItem {
     
     /**
      * 
+     * @void
      */
     public void resSetStartingWeight() {
         this.startingWeight = this.weight;

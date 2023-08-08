@@ -128,6 +128,7 @@ public class Restaurant {
 
     /**
      * 
+     * @void
      */
     public void addOrderNumber() {
         this.OrderNumber += 1;
@@ -135,6 +136,7 @@ public class Restaurant {
     
     /**
      * 
+     * @void
      */
     public void removeOrderNumber() {
         this.OrderNumber -= 1;

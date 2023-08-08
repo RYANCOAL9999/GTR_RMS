@@ -210,18 +210,19 @@ public class Inventory {
     public void addIngredients(Food foodItem) {
         this.ingredients.add(foodItem);
     }
-
-    /*
-    * 
-    * @param foodItem
-    */
+    
+    /**
+     * 
+     * @param foodItem
+     */
     public void removeIngredients(Food foodItem){
         this.ingredients.remove(foodItem);
     }
     
-    /*
-     *
+    /**
+     * 
      * @param name
+     * @return
      */
     public Food getIngredientsByKey(String name){
         Food food = null;

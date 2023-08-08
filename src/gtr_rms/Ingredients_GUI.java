@@ -31,6 +31,7 @@ public class Ingredients_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void finishEvent(){
         JOptionPane.showMessageDialog(this, "Ingredients food action finished!");

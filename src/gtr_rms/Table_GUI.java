@@ -33,6 +33,7 @@ public class Table_GUI extends JFrame{
     
     /**
      * 
+     * @param tableSeat
      */
     public void showOrderGUIWithSingleTable(String tableSeat){
         Order order = null;

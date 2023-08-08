@@ -29,6 +29,10 @@ public class SalesRecord_GUI extends JFrame{
 
     private final int constantsNumber = 3;
 
+    /**
+     * 
+     * @void
+     */
     public void cancelEvent(){
         JOptionPane.showMessageDialog(this, "Cancel Order Show");
         this.dispose();

@@ -45,6 +45,10 @@ public class Restaurant_GUI extends JFrame{
     
     private static Staff user;
 
+    /**
+     * 
+     * @void
+     */
     public void exportTomorrowData(){
 
         try{
@@ -226,6 +230,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void closeEvent() {
         restaurant.setTodayFirstTimeLoginForAllStaff(false);
@@ -239,6 +244,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void ReadyEvent() {
         if(
@@ -254,6 +260,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void salesRecordGUIEvent() {
         if(!"manager".equals(user.getRole())){
@@ -266,6 +273,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void staffRecordGUIEvent() {
         if(!"manager".equals(user.getRole())){
@@ -278,6 +286,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void tableGUIEvent() {
         if(!restaurant.getAllReady()){
@@ -290,6 +299,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void orderGUIEvent() {
         SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, today, "Orders:");
@@ -298,6 +308,7 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void menuGUIEvent() {
         if("staff".equals(user.getRole())){
@@ -308,6 +319,10 @@ public class Restaurant_GUI extends JFrame{
         gui.setVisible(true);
     }
 
+    /**
+     * 
+     * @void
+     */
     public void logoutEvent() {
         Authentication_GUI gui = new Authentication_GUI();
         gui.setVisible(true);
@@ -316,6 +331,7 @@ public class Restaurant_GUI extends JFrame{
     
     /**
      * 
+     * @void
      */
     public void initializeGUIEvent() {
         if("staff".equals(user.getRole())){

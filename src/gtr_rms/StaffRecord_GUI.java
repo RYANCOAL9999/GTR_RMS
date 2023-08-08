@@ -38,6 +38,7 @@ public class StaffRecord_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void addNewStaff() {
         Staff_GUI gui = new Staff_GUI(restaurant, null);

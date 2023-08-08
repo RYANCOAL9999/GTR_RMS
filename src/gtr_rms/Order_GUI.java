@@ -121,6 +121,7 @@ public class Order_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void clearOrder() {
         orderItems.clear();
@@ -129,6 +130,7 @@ public class Order_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void placeOrder() {
         // Logic to process the order and notify the kitchen, etc.
@@ -143,6 +145,7 @@ public class Order_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void paidEvent(){
         this.order.setTableNumber("paid");
@@ -166,6 +169,7 @@ public class Order_GUI extends JFrame{
 
     /**
      * 
+     * @void
      */
     public void addMenuItemWithSaved(){
         if(this.order != null){
