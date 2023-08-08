@@ -41,8 +41,29 @@ public class Authentication_GUI extends JFrame{
     private JTextField userName;
     
     private JTextField password;
+    
+    /**
+     * 
+     * @return 
+     */
+    public final HashMap<String, Object> getRestaurantBYJson(){
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        
+        HashMap<String, Object> map = new HashMap<>();
+        
+        try{
+            Reader reader = new FileReader(filePath);
+            map = (HashMap<String,Object>) gson.fromJson(reader, map.getClass()); 
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        return map;
+    }
 
-    private void LoginEvent(){
+    public void LoginEvent(){
         // getStaff
         String name = userName.getText();
         Staff user = restaurant.getStaff(name);
@@ -121,23 +142,6 @@ public class Authentication_GUI extends JFrame{
         this.setSize(270, 150);
         this.setLocationRelativeTo(null);
         this.add(mainPanel);
-    }
-    
-    public final HashMap<String, Object> getRestaurantBYJson(){
-        
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        
-        HashMap<String, Object> map = new HashMap<>();
-        
-        try{
-            Reader reader = new FileReader(filePath);
-            map = (HashMap<String,Object>) gson.fromJson(reader, map.getClass()); 
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-        
-        return map;
     }
     
     /**

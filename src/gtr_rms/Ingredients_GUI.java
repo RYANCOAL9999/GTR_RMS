@@ -32,7 +32,7 @@ public class Ingredients_GUI extends JFrame{
     /**
      * 
      */
-    private void finishEvent(){
+    public void finishEvent(){
         JOptionPane.showMessageDialog(this, "Ingredients food action finished!");
         restaurant.getInventory().setIngredientsReady(true);
         this.dispose();
@@ -42,7 +42,7 @@ public class Ingredients_GUI extends JFrame{
      * 
      * @param inventoryItems
      */
-    private void addFoodEvent(DefaultListModel<String> inventoryItems){
+    public void addFoodEvent(DefaultListModel<String> inventoryItems){
         Food_GUI gui = new Food_GUI(restaurant, inventoryItems);
         gui.setVisible(true);
     }

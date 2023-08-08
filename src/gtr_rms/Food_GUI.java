@@ -41,7 +41,7 @@ public class Food_GUI extends JFrame {
     /**
      * 
      */
-    private void cancelEvent() {
+    public void cancelEvent() {
         JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
         this.dispose();
     }
@@ -50,7 +50,7 @@ public class Food_GUI extends JFrame {
      * 
      * @param inventoryItems
      */
-    private void confirmEvent(DefaultListModel<String> inventoryItems) {
+    public void confirmEvent(DefaultListModel<String> inventoryItems) {
 
         String name = foodName.getText();
         String quantity = foodQuantity.getText();

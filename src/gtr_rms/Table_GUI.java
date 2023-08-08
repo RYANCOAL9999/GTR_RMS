@@ -24,8 +24,17 @@ public class Table_GUI extends JFrame{
     
     /**
      * 
+     * @param event
      */
-    private void showOrderGUIWithSingleTable(String tableSeat){
+    public void placeTable(ActionEvent event) {
+        String[] splited = event.getActionCommand().split(" ");
+        showOrderGUIWithSingleTable(splited[1]);
+    }
+    
+    /**
+     * 
+     */
+    public void showOrderGUIWithSingleTable(String tableSeat){
         Order order = null;
         for(Order item : restaurant.getOrderList()){
             if(item.getTableNumber().equals(tableSeat)){
@@ -42,15 +51,6 @@ public class Table_GUI extends JFrame{
         }
         Order_GUI gui = new Order_GUI(restaurant, order);
         gui.setVisible(true);
-    }
-    
-    /**
-     * 
-     * @param event
-     */
-    private void placeTable(ActionEvent event) {
-        String[] splited = event.getActionCommand().split(" ");
-        showOrderGUIWithSingleTable(splited[1]);
     }
 
     /**

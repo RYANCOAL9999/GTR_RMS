@@ -42,7 +42,7 @@ public class Dish_GUI extends JFrame{
     /**
      * 
      */
-    private void cancelEvent() {
+    public void cancelEvent() {
         JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
         this.dispose();
     }
@@ -51,7 +51,7 @@ public class Dish_GUI extends JFrame{
      * 
      * @param inventoryItems
      */
-    private void confirmEvent(DefaultListModel<String> inventoryItems) {
+    public void confirmEvent(DefaultListModel<String> inventoryItems) {
 
         String price = dishPrice.getText();
 

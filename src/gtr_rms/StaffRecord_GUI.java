@@ -30,7 +30,7 @@ public class StaffRecord_GUI extends JFrame{
      * 
      * @param text
      */
-    private void staffSingleItemClick(String text) {
+    public void staffSingleItemClick(String text) {
         Staff staffSingle = restaurant.getStaff(text);
         Staff_GUI gui = new Staff_GUI(restaurant, staffSingle);
         gui.setVisible(true);
@@ -39,7 +39,7 @@ public class StaffRecord_GUI extends JFrame{
     /**
      * 
      */
-    private void addNewStaff() {
+    public void addNewStaff() {
         Staff_GUI gui = new Staff_GUI(restaurant, null);
         gui.setVisible(true);
     }

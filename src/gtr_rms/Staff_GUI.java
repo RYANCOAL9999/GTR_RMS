@@ -27,14 +27,15 @@ public class Staff_GUI extends JFrame {
     /**
      * 
      */
-    private void cancelEvent() {
+    public void cancelEvent() {
         this.dispose();
     }
 
     /**
      * 
+     * @param staffIsNull
      */
-    private void confirmEvent(Boolean staffIsNull) {
+    public void confirmEvent(Boolean staffIsNull) {
 
         String userNameText = this.userName.getText();
         String roleText = this.role.getText();

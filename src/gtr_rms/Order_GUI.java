@@ -152,21 +152,10 @@ public class Order_GUI extends JFrame{
     
     /**
      * 
-     */
-    private void initializeMenu() {
-        menuItems = new DefaultListModel<>();
-        List<MenuItem> resMenuItem = restaurant.getMenuItemList();
-        for(MenuItem menu : resMenuItem){
-            menuItems.addElement(menu.getName());
-        }
-    }
-    
-    /**
-     * 
      * @param e
      * @param menuList
      */
-    private void menuListEventList(ListSelectionEvent e, JList<String> menuList){
+    public void menuListEventList(ListSelectionEvent e, JList<String> menuList){
         if (!e.getValueIsAdjusting()) {
             String selectedMenuItem = menuList.getSelectedValue();
             if (selectedMenuItem != null) {
@@ -175,11 +164,25 @@ public class Order_GUI extends JFrame{
         }
     }
 
-    private void addMenuItemWithSaved(){
+    /**
+     * 
+     */
+    public void addMenuItemWithSaved(){
         if(this.order != null){
             for(MenuItem menuSingleItem : this.order.getMenuItems()){
                 orderItems.addElement(menuSingleItem.getName());
             }
+        }
+    }
+    
+    /**
+     * 
+     */
+    private void initializeMenu() {
+        menuItems = new DefaultListModel<>();
+        List<MenuItem> resMenuItem = restaurant.getMenuItemList();
+        for(MenuItem menu : resMenuItem){
+            menuItems.addElement(menu.getName());
         }
     }
     

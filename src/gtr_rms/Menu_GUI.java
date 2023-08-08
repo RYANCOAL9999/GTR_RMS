@@ -32,7 +32,7 @@ public class Menu_GUI extends JFrame{
     /**
      * 
      */
-    private void finishEvent(){
+    public void finishEvent(){
         JOptionPane.showMessageDialog(this, "Menu item action finished!");
         restaurant.setMenuReady(true);
         this.dispose();
@@ -42,7 +42,7 @@ public class Menu_GUI extends JFrame{
      * 
      * @param inventoryItems
      */
-    private void addMenu(DefaultListModel<String> inventoryItems){
+    public void addMenu(DefaultListModel<String> inventoryItems){
         Dish_GUI gui = new Dish_GUI(restaurant, inventoryItems);
         gui.setVisible(true);
     }

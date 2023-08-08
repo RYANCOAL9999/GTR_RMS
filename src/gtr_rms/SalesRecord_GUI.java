@@ -29,7 +29,7 @@ public class SalesRecord_GUI extends JFrame{
 
     private final int constantsNumber = 3;
 
-    private void cancelEvent(){
+    public void cancelEvent(){
         JOptionPane.showMessageDialog(this, "Cancel Order Show");
         this.dispose();
     }
@@ -38,7 +38,7 @@ public class SalesRecord_GUI extends JFrame{
      * 
      * @param number
      */
-    private void orderSingleItemClick(int number) {
+    public void orderSingleItemClick(int number) {
        Order order = restaurant.getOrderList().get(number-1);
        Order_GUI gui = new Order_GUI(restaurant, order);
        gui.setVisible(true);
