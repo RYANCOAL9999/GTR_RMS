@@ -202,6 +202,7 @@ public class Restaurant {
 
     /**
      * 
+     * @param number
      * @return 
      */
     public MenuItem getMenuItem(int number) {
@@ -235,6 +236,14 @@ public class Restaurant {
     public Inventory getInventory() {
         return this.inventory;
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    public List<Food> getInventoryByIngredients(){
+        return this.inventory.getIngredients();
+    }
 
     /**
      * 
@@ -243,7 +252,7 @@ public class Restaurant {
     public void addInventoryByIngredients(Food foodItem){
         this.inventory.addIngredients(foodItem);
     }
-
+    
     /**
      * 
      * @param foodItem

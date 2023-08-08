@@ -168,7 +168,8 @@ public class Authentication_GUI extends JFrame{
                 Integer.parseInt(ingredientTreeMap.get("quantity").toString()),
                 Double.parseDouble(ingredientTreeMap.get("weight").toString()),
                 Double.parseDouble(ingredientTreeMap.get("startingWeight").toString()),
-                ingredientTreeMap.get("noEffect") == "true"
+                ingredientTreeMap.get("noEffect") == "true",
+                (String) ingredientTreeMap.get("type").toString()
             );
             foodList.add(new_Food);
         }

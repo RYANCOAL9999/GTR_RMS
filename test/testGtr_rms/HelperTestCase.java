@@ -2,40 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package testEntities;
+package testGtr_rms;
+
+import gtr_rms.Helper;
 
 import junit.framework.TestCase;
-
-import entities.Order;
 
 /**
  *
  * @author W22079254
  */
-public class OrderUnitTest extends TestCase {
-
+public class HelperTestCase extends TestCase {
+        
     /**
      *
-     * @return 
-     */
-    public Order orderUnitTest() {
-        return new Order(
-            0,
-            "0"
-        );
-    }
-    
-    /**
-     * 
      */
     public void testEqual() {
         
     }
     
     /**
-     * 
+     *
      */
-    public void testEntities(){
+    public void testHelper(){
+        
+        
+        //Helper.getCheckBoxConstraints()
         
     }
     

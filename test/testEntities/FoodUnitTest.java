@@ -26,19 +26,20 @@ public class FoodUnitTest extends TestCase {
             10,
             10.0,
             10.0,
-            true
+            true,
+            "raw"
         );
     }
     
     /**
-     * Test of equal method, of class Vectors.
+     * 
      */
     public void testEqual() {
         
     }
     
     /**
-     * Test of Entities method, of class Vectors.
+     * 
      */
     public void testEntities(){
         

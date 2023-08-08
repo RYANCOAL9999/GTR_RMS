@@ -9,6 +9,8 @@ public class Food extends MenuItem {
     private double startingWeight;
     
     private Boolean noEffect;
+    
+    private String type;
 
     /**
      * 
@@ -34,7 +36,7 @@ public class Food extends MenuItem {
      * 
      * @return
      */
-    public Boolean getQuantityWeightEqualTooZero(){
+    public Boolean getQuantityEqualTooZero(){
         return this.quantity == 0.0;
     }
 
@@ -104,7 +106,47 @@ public class Food extends MenuItem {
     public void resSetStartingWeight() {
         this.startingWeight = this.weight;
     }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getType() {
+        return type;
+    }
 
+    /**
+     * 
+     * @param type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Boolean getTypeIsRaw(){
+        return "raw".equals(this.type);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Boolean getTypeIsSashimi(){
+        return "sashimi".equals(this.type);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Boolean getTypeIsVegs(){
+        return "vegs".equals(this.type);
+    }
+    
     /**
      * have Effect with MenuItem
      * @param name
@@ -114,6 +156,7 @@ public class Food extends MenuItem {
      * @param weight
      * @param startingWeight
      * @param noEffect
+     * @param type
      */
     public Food(
         String name, 
@@ -122,13 +165,15 @@ public class Food extends MenuItem {
         int quantity,
         double weight,
         double startingWeight,
-        Boolean noEffect
+        Boolean noEffect,
+        String type
     ) {
         super(name, description, price);
         this.quantity = quantity;
         this.weight = weight;
         this.startingWeight = startingWeight;
         this.noEffect = noEffect;
+        this.type = type;
     }
     
 }

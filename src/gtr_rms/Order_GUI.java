@@ -81,9 +81,10 @@ public class Order_GUI extends JFrame{
         System.out.println("********************************");
         System.out.println("Description              Price");
         for (MenuItem menu : resMenuItem) {
-            System.out.println(menu.getName()+ "      " +menu.getPrice());   
+            System.out.println(menu.getName() + "      " + menu.getPrice());   
         }
-        System.out.println("Total"+ "      "+sum);    
+        System.out.println("Total" + "      " + sum);
+        System.out.println();
     }
     
     /**
@@ -100,7 +101,7 @@ public class Order_GUI extends JFrame{
             for(Map.Entry<String, Double> usedIngredient:menu.getUsedIngredients().entrySet()){
                 Double value = Double.parseDouble(usedIngredient.getValue().toString());
                 Food food = restaurant.getInventory().getIngredientsByKey(usedIngredient.getKey());
-                if(!food.getQuantityWeightEqualTooZero()){
+                if(!food.getQuantityEqualTooZero()){
                     food.minusWeight(value);
                     if(food.getStartingWeightEqualTooZero()){
                         food.minusQuantity(1);

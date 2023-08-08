@@ -33,14 +33,14 @@ public class InventoryUnitTest extends TestCase {
     }
     
     /**
-     * Test of equal method, of class Vectors.
+     * 
      */
     public void testEqual() {
         
     }
     
     /**
-     * Test of Entities method, of class Vectors.
+     * 
      */
     public void testEntities(){
         

@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 
+import java.sql.Timestamp;
+
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,8 +28,10 @@ import com.google.gson.GsonBuilder;
 import entities.Food;
 import entities.Inventory;
 import entities.MenuItem;
+import entities.Order;
 import entities.Restaurant;
 import entities.Staff;
+
 
 /**
  *
@@ -148,6 +154,74 @@ public class Restaurant_GUI extends JFrame{
      * and Tomorrow's Food ingredients
      */
     private void printOutTodayEvent(){
+        
+        final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        
+        List<Order> orderFinished = new ArrayList<>();
+        for(Order orderItem: restaurant.getOrderList()){
+            if(!"paid".equals(orderItem.getTableNumber())){
+                orderItem.setTableNumber("paid");
+                restaurant.addTodayWage(orderItem.getTotal());
+            }
+            orderFinished.add(orderItem); 
+        }
+        
+        List<Food> foodRemainer = new ArrayList<>();
+        // this one included raw, sashimi, and vegs
+        List<Food> ingredients = new ArrayList<>();
+        for(Food foodItem: restaurant.getInventoryByIngredients()){
+            if(
+                !foodItem.getTypeIsVegs() ||
+                foodItem.getQuantityEqualTooZero() ||
+                !foodItem.getTypeIsRaw() ||
+                !foodItem.getTypeIsSashimi()
+            ){
+                ingredients.add(foodItem);
+            }
+            else{
+                foodRemainer.add(foodItem);
+            }
+        }
+        
+        Double todayWage = restaurant.getTodayWage();
+        
+        System.out.println(restaurant.getName());
+        System.out.println(restaurant.getAddress());
+        System.out.println(restaurant.getPhone());
+        System.out.println();
+        System.out.println("********************************");
+        System.out.println("Today Order");
+        for(Order order: orderFinished){
+            System.out.println("********************************");
+            System.out.println("number" + "      " + order.getOrderId());
+            System.out.println("Date" + "      " + order.getOrderDate());
+            System.out.println("Time" + "      " + order.getOrderTime());
+            System.out.println("Total" + "      " + order.getTotal());
+        }
+        System.out.println("********************************");
+        System.out.println();
+        System.out.println("********************************");
+        System.out.println("Food Reminders");
+        for(Food remainer: foodRemainer){
+            System.out.println("********************************");
+            System.out.println("name" + "      " + remainer.getName());
+            System.out.println("name" + "      " + remainer.getQuantity());
+        }
+        System.out.println("********************************");
+        System.out.println();
+        System.out.println("********************************");
+        System.out.println("Tomorrow ingredients");
+        for(Food item: ingredients){
+            System.out.println("********************************");
+            System.out.println("name" + "      " + item.getName());
+            System.out.println("type" + "      " + item.getType());
+        }
+        System.out.println("********************************");
+        System.out.println();
+        System.out.println("Today" + "      " + sdf3.format(timestamp));      
+        System.out.println("Total" + "      " + todayWage);
+        System.out.println();
     }
 
     /**
