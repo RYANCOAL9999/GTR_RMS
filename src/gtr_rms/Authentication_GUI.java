@@ -43,7 +43,7 @@ public class Authentication_GUI extends JFrame{
     private JTextField password;
     
     /**
-     * 
+     * Get restaurant data By json
      * @return 
      */
     public final HashMap<String, Object> getRestaurantBYJson(){
@@ -64,7 +64,7 @@ public class Authentication_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Staff login with action listeners
      * @void
      */
     public void LoginEvent(){
@@ -88,7 +88,7 @@ public class Authentication_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the authentication GUI
      */
     private void initializeGUI(){
 
@@ -149,7 +149,7 @@ public class Authentication_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Authentication_GUI constructor
      * @void
      */
     public Authentication_GUI(){

@@ -21,7 +21,7 @@ public class Food extends MenuItem {
     private String type;
 
     /**
-     * 
+     * Set quantity with integer number
      * @param quantity
      */
     public void setQuantity(int quantity) {
@@ -29,7 +29,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Get quantity
      * @return
      */
     public int getQuantity() {
@@ -37,23 +37,23 @@ public class Food extends MenuItem {
     }
     
     /**
-     * 
-     * @param number
+     * minus quantity with integer number
+     * @param number 
      */
     public void minusQuantity(int number){
         this.quantity -= number;
     }
     
     /**
-     * 
+     * check quantity is equal to 0
      * @return
      */
-    public Boolean getQuantityEqualTooZero(){
+    public Boolean getQuantityEqualToZero(){
         return this.quantity == 0.0;
     }
 
     /**
-     * 
+     * Set weight with double number
      * @param weight
      */
     public void setWeight(double weight){
@@ -61,7 +61,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Get weight
      * @return
      */
     public double getWeight() {
@@ -69,7 +69,7 @@ public class Food extends MenuItem {
     }
     
     /**
-     * 
+     * minus weight with double number
      * @param number
      */
     public void minusWeight(double number){
@@ -77,7 +77,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Set noEffect with true or false
      * @param noEffect
      */
     public void setNoEffect(Boolean noEffect) {
@@ -85,7 +85,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Get noEffect
      * @return
      */
     public boolean getNoEffect() {
@@ -93,15 +93,15 @@ public class Food extends MenuItem {
     }
     
     /**
-     * 
+     * check startingWeight is Equal to 0
      * @return
      */
-    public Boolean getStartingWeightEqualTooZero(){
+    public Boolean getStartingWeightEqualToZero(){
         return this.startingWeight == 0.0;
     }
     
     /**
-     * 
+     * Get startingWeight
      * @return
      */
     public double getStartingWeight() {
@@ -109,7 +109,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Set startingWeight with double number
      * @param startingWeight
      */
     public void setStartingWeight(double startingWeight) {
@@ -117,7 +117,7 @@ public class Food extends MenuItem {
     }
     
     /**
-     * 
+     * Reset startingWeight equal to Weight
      * @void
      */
     public void resSetStartingWeight() {
@@ -125,7 +125,7 @@ public class Food extends MenuItem {
     }
     
     /**
-     * 
+     * Get type
      * @return 
      */
     public String getType() {
@@ -133,7 +133,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * Set type with string
      * @param type
      */
     public void setType(String type) {
@@ -141,7 +141,7 @@ public class Food extends MenuItem {
     }
 
     /**
-     * 
+     * check the type is equal to str
      * @param str
      * @return
      */
@@ -150,7 +150,7 @@ public class Food extends MenuItem {
     }
     
     /**
-     * have Effect with MenuItem
+     * Food constructor, it is inheritance with menuItem.
      * @param name
      * @param description
      * @param price

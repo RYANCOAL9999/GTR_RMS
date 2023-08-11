@@ -27,7 +27,7 @@ public class StaffRecord_GUI extends JFrame{
     private final int constantsNumber = 3;
 
     /**
-     * 
+     * Show staff in staff GUI with action listeners
      * @param text
      */
     public void staffSingleItemClick(String text) {
@@ -37,7 +37,7 @@ public class StaffRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Add new staff in staff GUI with action listeners
      * @void
      */
     public void addNewStaff() {
@@ -46,7 +46,8 @@ public class StaffRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the staff record GUI
+     * @void
      */
     private void initializeGUI() {
         staffItem = new ArrayList<>();
@@ -104,7 +105,7 @@ public class StaffRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * StaffRecord_GUI constructor
      * @param res
      */
     public StaffRecord_GUI(Restaurant res){

@@ -40,7 +40,7 @@ public class Order_GUI extends JFrame{
     private DefaultListModel<String> orderItems;
     
     /**
-     * 
+     * Add order item list with String
      * @param name
      */
     public void addMenuItem(String name) {
@@ -48,7 +48,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Prepare Food on menuItem
      * @param resMenuItem
      * @return
      */
@@ -65,7 +65,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Create receipt by the current menuItem and sum
      * @param resMenuItem
      * @param sum
      */
@@ -88,7 +88,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Create bill by the order
      * @param order
      */
     public void makeBill(Order order){
@@ -101,9 +101,9 @@ public class Order_GUI extends JFrame{
             for(Map.Entry<String, Double> usedIngredient:menu.getUsedIngredients().entrySet()){
                 Double value = Double.parseDouble(usedIngredient.getValue().toString());
                 Food food = restaurant.getInventory().getIngredientsByKey(usedIngredient.getKey());
-                if(!food.getQuantityEqualTooZero()){
+                if(!food.getQuantityEqualToZero()){
                     food.minusWeight(value);
-                    if(food.getStartingWeightEqualTooZero()){
+                    if(food.getStartingWeightEqualToZero()){
                         food.minusQuantity(1);
                         food.resSetStartingWeight();
                     }
@@ -120,7 +120,7 @@ public class Order_GUI extends JFrame{
     }
 
     /**
-     * 
+     * clear the order item list with action listeners
      * @void
      */
     public void clearOrder() {
@@ -129,7 +129,7 @@ public class Order_GUI extends JFrame{
     }
 
     /**
-     * 
+     * place menuItem to the order item list with action listeners
      * @void
      */
     public void placeOrder() {
@@ -144,7 +144,7 @@ public class Order_GUI extends JFrame{
     }
 
     /**
-     * 
+     * order paid event with action listeners
      * @void
      */
     public void paidEvent(){
@@ -154,7 +154,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Display the menu List with action listeners
      * @param e
      * @param menuList
      */
@@ -168,7 +168,7 @@ public class Order_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Add MenuItem if the order is saved in the restaurant.
      * @void
      */
     public void addMenuItemWithSaved(){
@@ -180,7 +180,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Initialize the menu list with the name.
      */
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
@@ -191,7 +191,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Create the order GUI
      */
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
@@ -241,7 +241,7 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Order_GUI constructor
      * @param res
      * @param order
      */

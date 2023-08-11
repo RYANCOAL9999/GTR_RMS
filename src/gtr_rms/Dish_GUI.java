@@ -40,7 +40,7 @@ public class Dish_GUI extends JFrame{
     private final int constantsNumber = 3;
 
     /**
-     * 
+     * Cancel add dish with action listeners
      * @void
      */
     public void cancelEvent() {
@@ -49,7 +49,7 @@ public class Dish_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Add dish with action listeners
      * @param inventoryItems
      */
     public void confirmEvent(DefaultListModel<String> inventoryItems) {
@@ -76,7 +76,7 @@ public class Dish_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the dish GUI
      */
     private void initializeGUI() {
 
@@ -162,7 +162,7 @@ public class Dish_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Dish_GUI constructor
      * @param res
      * @param inventoryItems
      */

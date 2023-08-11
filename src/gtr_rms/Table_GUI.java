@@ -23,7 +23,7 @@ public class Table_GUI extends JFrame{
     private Restaurant restaurant;
     
     /**
-     * 
+     * Add order to table with table number with action listeners
      * @param event
      */
     public void placeTable(ActionEvent event) {
@@ -32,7 +32,7 @@ public class Table_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Show order with table number with action listeners
      * @param tableSeat
      */
     public void showOrderGUIWithSingleTable(String tableSeat){
@@ -55,7 +55,7 @@ public class Table_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the table GUI
      */
     private void initializeGUI() {
         // GUI Components
@@ -115,7 +115,7 @@ public class Table_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Table_GUI constructor
      * @param res
      */
     public Table_GUI(Restaurant res){

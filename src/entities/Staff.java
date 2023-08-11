@@ -20,7 +20,7 @@ public class Staff {
     private boolean todayFirstTimeLogin;
 
     /**
-     * 
+     * Get user name
      * @return
      */
     public String getUsername() {
@@ -28,7 +28,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Set user name with string
      * @param name
      */
     public void setUserName(String name) {
@@ -36,7 +36,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get password
      * @return
      */
     public String getPassword() {
@@ -44,7 +44,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Set password with string
      * @param password
      */
     public void setPassword(String password) {
@@ -52,7 +52,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get role
      * @return
      */
     public String getRole() {
@@ -60,7 +60,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Set role with string
      * @param role
      */
     public void setRole(String role) {
@@ -68,7 +68,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get contact
      * @return
      */
     public String getContact() {
@@ -76,7 +76,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Set contact with string
      * @param contact
      */
     public void setContact(String contact) {
@@ -84,7 +84,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get work schedule
      * @return
      */
     public HashMap<String, Boolean> getWorkSchedule() {
@@ -92,7 +92,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Add work schedule by date, and true or false
      * @param date
      * @param b
      */
@@ -101,7 +101,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Delete work schedule by date
      * @param date
      */
     public void deleteWorkSchedule(String date) {
@@ -109,7 +109,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get today first time login
      * @return
      */
     public boolean getTodayFirstTimeLogin() {
@@ -117,7 +117,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Set today first time login by true or false
      * @param b
      */
     public void setTodayFirstTimeLogin(boolean b) {
@@ -125,7 +125,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Add back to work by today 
      * @void
      */
     public void addBackTowork() {
@@ -133,7 +133,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Get back to work
      * @return
      */
     public List<Date> getBackTowork() {
@@ -141,7 +141,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Delete back to work by date
      * @param date
      */
     public void deleteBackTowork(Date date) {
@@ -149,7 +149,7 @@ public class Staff {
     }
 
     /**
-     * 
+     * Staff constructor
      * @param username
      * @param password
      * @param role

@@ -36,7 +36,7 @@ public class Inventory {
     private Boolean ingredientsReady;
 
     /**
-     * 
+     * Get chairs
      * @return
      */
     public int getChairs() {
@@ -44,7 +44,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set chairs with integer number
      * @param chairs
      */
     public void setChairs(int chairs) {
@@ -52,7 +52,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get tables
      * @return
      */
     public int getTables() {
@@ -60,7 +60,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set tables with integer number
      * @param tables
      */
     public void setTables(int tables) {
@@ -68,7 +68,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get dishes
      * @return
      */
     public int getDishes() {
@@ -76,7 +76,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set dishes with integer number
      * @param dishes
      */
     public void setDishes(int dishes) {
@@ -84,7 +84,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get glasses
      * @return
      */
     public int getGlasses() {
@@ -92,7 +92,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set glasses with integer number
      * @param glasses
      */
     public void setGlasses(int glasses) {
@@ -100,7 +100,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get chopsticks
      * @return
      */
     public int getChopsticks() {
@@ -108,7 +108,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set chopsticks with integer number
      * @param chopsticks
      */
     public void setChopsticks(int chopsticks) {
@@ -116,7 +116,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set spoons
      * @return
      */
     public int getSpoons() {
@@ -124,7 +124,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set spoons with integer number
      * @param spoons
      */
     public void setSpoons(int spoons) {
@@ -132,7 +132,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get tableCloths
      * @return
      */
     public int getTablecloths() {
@@ -140,7 +140,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set tableCloths with integer number
      * @param tablecloths
      */
     public void setTablecloths(int tablecloths) {
@@ -148,15 +148,15 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get napkins
      * @return
      */
-    public int getNapkin() {
+    public int getNapkins() {
         return napkins;
     }
 
     /**
-     * 
+     * Set napkins with integer number
      * @param napkins
      */
     public void setNapkin(int napkins) {
@@ -164,7 +164,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get kitchenSupplies
      * @return
      */
     public int getKitchenSupplies() {
@@ -172,7 +172,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set kitchenSupplies with integer number
      * @param kitchenSupplies
      */
     public void setKitchenSupplies(int kitchenSupplies) {
@@ -180,7 +180,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Set ingredientsReady with true or false for today is ready
      * @param ready
      */
     public void setIngredientsReady(Boolean ready) {
@@ -188,7 +188,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get ingredientsReady
      * @return
      */
     public boolean getIngredientsReady(){
@@ -196,7 +196,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Get ingredients
      * @return
      */
     public List<Food> getIngredients() {
@@ -204,7 +204,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Add ingredients with food
      * @param foodItem
      */
     public void addIngredients(Food foodItem) {
@@ -212,7 +212,7 @@ public class Inventory {
     }
     
     /**
-     * 
+     * Remove ingredients with food
      * @param foodItem
      */
     public void removeIngredients(Food foodItem){
@@ -220,7 +220,7 @@ public class Inventory {
     }
     
     /**
-     * 
+     * Find ingredients by name
      * @param name
      * @return
      */
@@ -235,7 +235,7 @@ public class Inventory {
     }
 
     /**
-     * 
+     * Inventory constructor
      * @param chairs
      * @param tables
      * @param dishes

@@ -30,7 +30,7 @@ public class Menu_GUI extends JFrame{
     private DefaultListModel<String> menuItems;
 
     /**
-     * 
+     * Finish add dish with action listeners
      * @void
      */
     public void finishEvent(){
@@ -40,7 +40,7 @@ public class Menu_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the dish GUI initialize 
      * @param inventoryItems
      */
     public void addMenu(DefaultListModel<String> inventoryItems){
@@ -49,7 +49,7 @@ public class Menu_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the menu GUI
      */
     private void initializeGUI() {
         menuItems = new DefaultListModel<>();
@@ -87,7 +87,7 @@ public class Menu_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Menu_GUI constructor
      * @param res
      */
     Menu_GUI(Restaurant res){
