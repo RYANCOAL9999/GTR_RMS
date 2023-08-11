@@ -9,7 +9,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  *
@@ -240,42 +241,15 @@ public class FoodTest {
     }
 
     /**
-     * Test of getTypeIsRaw method, of class Food.
+     * Test of getTypeWithStr method, of class Food.
      */
     @Test
-    public void testGetTypeIsRaw() {
-        System.out.println("getTypeIsRaw");
+    public void testGetTypeWithStr() {
+        System.out.println("getTypeWithStr");
         Food instance = null;
         Boolean expResult = null;
-        Boolean result = instance.getTypeIsRaw();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTypeIsSashimi method, of class Food.
-     */
-    @Test
-    public void testGetTypeIsSashimi() {
-        System.out.println("getTypeIsSashimi");
-        Food instance = null;
-        Boolean expResult = null;
-        Boolean result = instance.getTypeIsSashimi();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTypeIsVegs method, of class Food.
-     */
-    @Test
-    public void testGetTypeIsVegs() {
-        System.out.println("getTypeIsVegs");
-        Food instance = null;
-        Boolean expResult = null;
-        Boolean result = instance.getTypeIsVegs();
+        String type = "";
+        Boolean result = instance.getTypeWithStr(type);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
