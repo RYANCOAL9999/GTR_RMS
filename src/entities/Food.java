@@ -139,29 +139,14 @@ public class Food extends MenuItem {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     /**
      * 
-     * @return 
+     * @param str
+     * @return
      */
-    public Boolean getTypeIsRaw(){
-        return "raw".equals(this.type);
-    }
-    
-    /**
-     * 
-     * @return 
-     */
-    public Boolean getTypeIsSashimi(){
-        return "sashimi".equals(this.type);
-    }
-    
-    /**
-     * 
-     * @return 
-     */
-    public Boolean getTypeIsVegs(){
-        return "vegs".equals(this.type);
+    public Boolean getTypeWithStr(String str){
+        return str.equals(this.type);
     }
     
     /**

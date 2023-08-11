@@ -182,10 +182,10 @@ public class Restaurant_GUI extends JFrame{
         List<Food> ingredients = new ArrayList<>();
         for(Food foodItem: restaurant.getInventoryByIngredients()){
             if(
-                !foodItem.getTypeIsVegs() ||
+                !foodItem.getTypeWithStr("vegs") ||
                 foodItem.getQuantityEqualTooZero() ||
-                !foodItem.getTypeIsRaw() ||
-                !foodItem.getTypeIsSashimi()
+                !foodItem.getTypeWithStr("raw") ||
+                !foodItem.getTypeWithStr("sashimi")
             ){
                 ingredients.add(foodItem);
             }
