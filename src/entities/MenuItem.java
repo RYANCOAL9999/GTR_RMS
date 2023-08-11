@@ -23,7 +23,7 @@ public class MenuItem {
     private Boolean sumPlus; 
 
     /**
-     * 
+     * Get name
      * @return
      */
     public String getName() {
@@ -31,7 +31,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Set name with string
      * @param name
      */
     public void setName(String name) {
@@ -39,7 +39,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Get description
      * @return
      */
     public String getDescription() {
@@ -47,7 +47,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * set description with string
      * @param description
      */
     public void setDescription(String description) {
@@ -55,7 +55,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Get price
      * @return
      */
     public double getPrice() {
@@ -63,7 +63,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Set price with double number
      * @param price
      */
     public void setPrice(double price) {
@@ -71,7 +71,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Get ingredients which used
      * @return
      */
     public HashMap<String, Double> getUsedIngredients() {
@@ -79,7 +79,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Add ingredients
      * @param key
      * @param value
      */
@@ -88,7 +88,7 @@ public class MenuItem {
     }
     
     /**
-     * 
+     * Remove ingredients
      * @param key
      */
     public void removeIngredients(String key) {
@@ -96,7 +96,7 @@ public class MenuItem {
     }
     
     /**
-     * 
+     * Get order is paid or not
      * @return 
      */
     public Boolean getSumPlus() {
@@ -104,7 +104,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * Set order paid is true or false
      * @param sumPlus
      */
     public void setSumPlus(Boolean sumPlus) {
@@ -112,7 +112,7 @@ public class MenuItem {
     }
 
     /**
-     * 
+     * MenuItem constructor
      * @param name
      * @param description
      * @param price

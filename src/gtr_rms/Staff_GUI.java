@@ -29,7 +29,7 @@ public class Staff_GUI extends JFrame {
     private JTextField contact;
 
     /**
-     * 
+     * Cancel add staff with action listeners
      * @void
      */
     public void cancelEvent() {
@@ -37,7 +37,7 @@ public class Staff_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Add staff with action listeners
      * @param staffIsNull
      */
     public void confirmEvent(Boolean staffIsNull) {
@@ -65,7 +65,7 @@ public class Staff_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Create the adding staff GUI
      */
     private void initializeGUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -129,7 +129,7 @@ public class Staff_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Staff_GUI constructor
      * @param res
      * @param staff
      */

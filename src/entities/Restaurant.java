@@ -39,7 +39,7 @@ public class Restaurant {
     private boolean allReady;
     
     /**
-     * 
+     * Get name
      * @return
      */
     public String getName() {
@@ -47,7 +47,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set name with string
      * @param name
      */
     public void setName(String name) {
@@ -55,7 +55,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get address
      * @return
      */
     public String getAddress() {
@@ -63,7 +63,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set address with string
      * @param address
      */
     public void setAddress(String address) {
@@ -71,7 +71,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get phone 
      * @return
      */
     public String getPhone() {
@@ -79,7 +79,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set phone with string
      * @param phone
      */
     public void setPhone(String phone) {
@@ -87,7 +87,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set menuItem is ready or not
      * @param ready
      */
     public void setMenuReady(Boolean ready) {
@@ -95,7 +95,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get menuItem is ready
      * @return
      */
     public boolean getMenuReady(){
@@ -103,7 +103,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set resturant is ready for today
      * @param ready
      */
     public void setAllReady(Boolean ready) {
@@ -111,7 +111,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get resturant is ready or not
      * @return
      */
     public boolean getAllReady(){
@@ -119,7 +119,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get order number
      * @return
      */
     public int getOrderNumber() {
@@ -127,7 +127,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Add order number
      * @void
      */
     public void addOrderNumber() {
@@ -135,7 +135,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Minus order number
      * @void
      */
     public void removeOrderNumber() {
@@ -143,7 +143,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get order list
      * @return
      */
     public List<Order> getOrderList() {
@@ -151,15 +151,15 @@ public class Restaurant {
     }
     
     /**
-     * 
-     * @param tableNumber
+     * Add order
+     * @param tableNumber with table number
      */
     public void addOrder(String tableNumber){
         this.orderList.add(new Order(this.OrderNumber, tableNumber));
     }
 
     /**
-     * 
+     * Remove order with order number
      * @param orderId
      */
     public void removeOrder(int orderId) {
@@ -171,7 +171,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get today Wage
      * @return
      */
     public double getTodayWage() {
@@ -179,7 +179,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Add today Wage with double value
      * @param todayWage
      */
     public void addTodayWage(double todayWage){
@@ -187,7 +187,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Minus today Wage with double value
      * @param todayWage
      */
     public void minusTodayWage(double todayWage){
@@ -195,7 +195,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get menuItem List with today 
      * @return 
      */
     public List<MenuItem> getMenuItemList() {
@@ -203,7 +203,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get menuItem with integer number ID
      * @param number
      * @return 
      */
@@ -212,7 +212,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Add menuItem on menuItem list
      * @param item
      */
     public void addMenuItem(MenuItem item) {
@@ -220,7 +220,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Remove menuItem on menuItem list
      * @param name
      */
     public void removeMenuItem(String name) {
@@ -232,7 +232,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get inventory
      * @return 
      */
     public Inventory getInventory() {
@@ -240,7 +240,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get ingredient list
      * @return 
      */
     public List<Food> getInventoryByIngredients(){
@@ -248,7 +248,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Add food to ingredient list
      * @param foodItem
      */
     public void addInventoryByIngredients(Food foodItem){
@@ -256,7 +256,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Delete food on ingredient list
      * @param foodItem
      */
     public void deleteInventoryByIngredients(Food foodItem){
@@ -264,7 +264,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get staff list
      * @return 
      */
     public List<Staff> getStaffList(){
@@ -272,7 +272,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Add staff to staff list
      * @param staff
      */
     public void addStaff(Staff staff){
@@ -280,7 +280,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Remove staff on staff list
      * @param name
      */
     public void deleteStaff(String name){
@@ -292,7 +292,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get staff on staff list by the string
      * @param name
      * @return 
      */
@@ -307,7 +307,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Get staff work scheduled by String
      * @param name
      * @return 
      */
@@ -322,7 +322,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Add staff work scheduled by name, date, and true or false
      * @param name
      * @param date
      * @param b
@@ -336,7 +336,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Delete staff work scheduled by name and date
      * @param name
      * @param date
      */
@@ -349,7 +349,7 @@ public class Restaurant {
     }
 
     /**
-     * 
+     * Set TodayFirstTimeLoginForAllStaff with true or false
      * @param b
      */
     public void setTodayFirstTimeLoginForAllStaff(boolean b){
@@ -359,7 +359,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Get export path for export file
      * @return 
      */
     public String getExportPath() {
@@ -367,7 +367,7 @@ public class Restaurant {
     }
     
     /**
-     * 
+     * Restaurant constructor
      * @param name
      * @param address
      * @param phone

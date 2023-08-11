@@ -48,7 +48,7 @@ public class Restaurant_GUI extends JFrame{
     private static Staff user;
 
     /**
-     * 
+     * Export today Data for tomorrow usage.
      * @void
      */
     public void exportTomorrowData(){
@@ -183,7 +183,7 @@ public class Restaurant_GUI extends JFrame{
         for(Food foodItem: restaurant.getInventoryByIngredients()){
             if(
                 !foodItem.getTypeWithStr("vegs") ||
-                foodItem.getQuantityEqualTooZero() ||
+                foodItem.getQuantityEqualToZero() ||
                 !foodItem.getTypeWithStr("raw") ||
                 !foodItem.getTypeWithStr("sashimi")
             ){
@@ -235,7 +235,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Close the restaurant
      * @void
      */
     public void closeEvent() {
@@ -249,7 +249,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Set restaurant today is ready to serve.
      * @void
      */
     public void ReadyEvent() {
@@ -265,7 +265,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the sale Record GUI initialize 
      * @void
      */
     public void salesRecordGUIEvent() {
@@ -278,7 +278,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the staff Record GUI initialize 
      * @void
      */
     public void staffRecordGUIEvent() {
@@ -291,7 +291,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the table GUI initialize 
      * @void
      */
     public void tableGUIEvent() {
@@ -304,7 +304,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the order GUI initialize 
      * @void
      */
     public void orderGUIEvent() {
@@ -313,7 +313,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the menu GUI initialize 
      * @void
      */
     public void menuGUIEvent() {
@@ -326,7 +326,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Call the authenication GUI initialize with user is Log out
      * @void
      */
     public void logoutEvent() {
@@ -336,10 +336,10 @@ public class Restaurant_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Call the ingredients GUI initialize 
      * @void
      */
-    public void initializeGUIEvent() {
+    public void ingredientsGUIEvent() {
         if("staff".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
             return;
@@ -349,7 +349,7 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the Restaurant GUI
      */
     private void initializeGUI(){
 
@@ -388,7 +388,7 @@ public class Restaurant_GUI extends JFrame{
         mainPanel.add(tablePanel_South, BorderLayout.SOUTH);
 
         // Action Listeners
-        ingredientsGUIControl.addActionListener(e -> initializeGUIEvent());    
+        ingredientsGUIControl.addActionListener(e -> ingredientsGUIEvent());    
         menuGUIControl.addActionListener(e -> menuGUIEvent());
         orderGUIControl.addActionListener(e -> orderGUIEvent());    
         tableGUIControl.addActionListener(e -> tableGUIEvent());

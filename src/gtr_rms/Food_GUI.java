@@ -39,7 +39,7 @@ public class Food_GUI extends JFrame {
     private JTextField foodType;
 
     /**
-     * 
+     * Cancel add food with action listeners
      * @void
      */
     public void cancelEvent() {
@@ -48,7 +48,7 @@ public class Food_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Add food with action listeners
      * @param inventoryItems
      */
     public void confirmEvent(DefaultListModel<String> inventoryItems) {
@@ -90,7 +90,7 @@ public class Food_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Create the food GUI
      */
     private void initializeGUI() {
 
@@ -191,7 +191,7 @@ public class Food_GUI extends JFrame {
     }
 
     /**
-     * 
+     * Food_GUI constructor
      * @param res
      * @param inventoryItems
      */

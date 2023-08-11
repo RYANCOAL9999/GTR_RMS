@@ -30,7 +30,7 @@ public class SalesRecord_GUI extends JFrame{
     private final int constantsNumber = 3;
 
     /**
-     * 
+     * Cancel show order with action listeners
      * @void
      */
     public void cancelEvent(){
@@ -39,7 +39,7 @@ public class SalesRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Show order in order GUI with action listeners
      * @param number
      */
     public void orderSingleItemClick(int number) {
@@ -49,7 +49,7 @@ public class SalesRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the SalesRecord GUI
      */
     private void initializeGUI(String header) {
         /**
@@ -120,7 +120,7 @@ public class SalesRecord_GUI extends JFrame{
     }
 
     /**
-     * 
+     * SalesRecord_GUI constructor
      * @param res
      * @param date
      * @param header

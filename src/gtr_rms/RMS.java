@@ -11,7 +11,7 @@ package gtr_rms;
 public class RMS {
     
     /**
-     * 
+     * Project starting
      * @param args
      */
     public static void main(String[] args) {

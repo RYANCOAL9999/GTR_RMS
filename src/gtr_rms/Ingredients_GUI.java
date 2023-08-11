@@ -30,7 +30,7 @@ public class Ingredients_GUI extends JFrame{
     private DefaultListModel<String> inventoryItems;
 
     /**
-     * 
+     * Finish add food with action listeners
      * @void
      */
     public void finishEvent(){
@@ -40,7 +40,7 @@ public class Ingredients_GUI extends JFrame{
     }
 
     /**
-     * 
+     * call the Food GUI initialize 
      * @param inventoryItems
      */
     public void addFoodEvent(DefaultListModel<String> inventoryItems){
@@ -49,7 +49,7 @@ public class Ingredients_GUI extends JFrame{
     }
 
     /**
-     * 
+     * Create the ingredients GUI
      */
     private void initializeGUI() {
         inventoryItems = new DefaultListModel<>();
@@ -87,7 +87,7 @@ public class Ingredients_GUI extends JFrame{
     }
     
     /**
-     * 
+     * Ingredients_GUI constructor
      * @param res
      */
     Ingredients_GUI(Restaurant res){

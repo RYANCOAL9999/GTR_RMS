@@ -29,7 +29,7 @@ public class Order {
     private Long orderFinishedTime;
     
     /**
-     * 
+     * Add menuItem
      * @param item
      */
     public void addItem(MenuItem item) {
@@ -37,7 +37,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get order number
      * @return
      */
     public int getOrderId() {
@@ -45,7 +45,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Set order number with integer number 
      * @param orderId
      */
     public void setOrderId(int orderId) {
@@ -53,7 +53,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get table number
      * @return
      */
     public String getTableNumber() {
@@ -61,7 +61,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Set table number with integer number
      * @param tableNumber
      */
     public void setTableNumber(String tableNumber) {
@@ -69,7 +69,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get menuItem
      * @return
      */
     public List<MenuItem> getMenuItems() {
@@ -77,7 +77,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Set total with double number
      * @param total
      */
     public void setTotal(double total) {
@@ -85,7 +85,7 @@ public class Order {
     }
 
     /**
-     * 
+     * get total
      * @return
      */
     public double getTotal() {
@@ -93,7 +93,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Set the true or false to know this order has placed to the kitchen
      * @param submitted
      */
     public void setSubmitted(Boolean submitted) {
@@ -101,7 +101,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get submitted to know this order is placed to the kitchen
      * @return
      */
     public Boolean getSubmitted() {
@@ -109,7 +109,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get order date
      * @return
      */
     public Date getOrderDate() {
@@ -117,7 +117,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get order time
      * @return
      */
     public Long getOrderTime() {
@@ -125,7 +125,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Get order finished time
      * @return
      */
     public Long getOrderFinishedTime(){
@@ -133,7 +133,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Set order finished time with new Date get time
      * @void
      */
     public void setOrderFinishedTime() {
@@ -141,7 +141,7 @@ public class Order {
     }
 
     /**
-     * 
+     * Order constructor
      * @param orderId
      * @param tableNumber
      */

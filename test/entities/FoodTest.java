@@ -87,7 +87,7 @@ public class FoodTest {
         System.out.println("getQuantityEqualTooZero");
         Food instance = null;
         Boolean expResult = null;
-        Boolean result = instance.getQuantityEqualTooZero();
+        Boolean result = instance.getQuantityEqualToZero();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -168,7 +168,7 @@ public class FoodTest {
         System.out.println("getStartingWeightEqualTooZero");
         Food instance = null;
         Boolean expResult = null;
-        Boolean result = instance.getStartingWeightEqualTooZero();
+        Boolean result = instance.getStartingWeightEqualToZero();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

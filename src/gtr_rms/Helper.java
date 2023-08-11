@@ -9,7 +9,7 @@ import java.awt.BorderLayout;
 public class Helper {
 
     /**
-     * 
+     * Check string is number 
      * @param str
      * @return
      */
@@ -18,7 +18,7 @@ public class Helper {
     }
 
     /**
-     * 
+     * Get box constraints is west, center, or east.
      * @param i
      * @param number
      * @return
