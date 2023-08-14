@@ -24,98 +24,49 @@ public class MenuItem {
 
     /**
      * Get name
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Set name with string
-     * @param name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * Get description
-     * @return
+     * @return String
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * set description with string
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
      * Get price
-     * @return
+     * @return Double
      */
     public double getPrice() {
         return price;
     }
 
     /**
-     * Set price with double number
-     * @param price
-     */
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    /**
      * Get ingredients which used
-     * @return
+     * @return HashMap
      */
     public HashMap<String, Double> getUsedIngredients() {
         return this.usedIngredients;
     }
-
-    /**
-     * Add ingredients
-     * @param key
-     * @param value
-     */
-    public void addIngredients(String key, Double value) {
-        this.usedIngredients.put(key, value);
-    }
-    
-    /**
-     * Remove ingredients
-     * @param key
-     */
-    public void removeIngredients(String key) {
-        this.usedIngredients.remove(key);
-    }
     
     /**
      * Get order is paid or not
-     * @return 
+     * @return Boolean
      */
-    public Boolean getSumPlus() {
+    public boolean getSumPlus() {
         return sumPlus;
     }
 
     /**
-     * Set order paid is true or false
-     * @param sumPlus
-     */
-    public void setSumPlus(Boolean sumPlus) {
-        this.sumPlus = sumPlus;
-    }
-
-    /**
      * MenuItem constructor
-     * @param name
-     * @param description
-     * @param price
+     * @param name String
+     * @param description String
+     * @param price Double
      */
     public MenuItem(String name, String description, double price) {
         this.name = name;

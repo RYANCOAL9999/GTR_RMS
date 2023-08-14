@@ -28,89 +28,50 @@ public class Order {
     
     private Long orderFinishedTime;
     
-    /**
-     * Add menuItem
-     * @param item
-     */
-    public void addItem(MenuItem item) {
-        menuItems.add(item);
-    }
 
     /**
      * Get order number
-     * @return
+     * @return Integer
      */
     public int getOrderId() {
         return orderId;
     }
 
     /**
-     * Set order number with integer number 
-     * @param orderId
-     */
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    /**
      * Get table number
-     * @return
+     * @return String
      */
     public String getTableNumber() {
         return tableNumber;
     }
 
     /**
-     * Set table number with integer number
-     * @param tableNumber
-     */
-    public void setTableNumber(String tableNumber) {
-        this.tableNumber = tableNumber;
-    }
-
-    /**
      * Get menuItem
-     * @return
+     * @return MenuItem with List
      */
     public List<MenuItem> getMenuItems() {
         return menuItems;
     }
 
     /**
-     * Set total with double number
-     * @param total
-     */
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    /**
      * get total
-     * @return
+     * @return Double
      */
     public double getTotal() {
         return total;
     }
 
     /**
-     * Set the true or false to know this order has placed to the kitchen
-     * @param submitted
-     */
-    public void setSubmitted(Boolean submitted) {
-        this.submitted = submitted;
-    }
-
-    /**
      * Get submitted to know this order is placed to the kitchen
-     * @return
+     * @return Boolean
      */
-    public Boolean getSubmitted() {
+    public boolean getSubmitted() {
         return this.submitted;
     }
 
     /**
      * Get order date
-     * @return
+     * @return Date
      */
     public Date getOrderDate() {
         return orderDate;
@@ -118,7 +79,7 @@ public class Order {
 
     /**
      * Get order time
-     * @return
+     * @return Long
      */
     public Long getOrderTime() {
         return this.orderTime;
@@ -126,24 +87,16 @@ public class Order {
 
     /**
      * Get order finished time
-     * @return
+     * @return Long
      */
     public Long getOrderFinishedTime(){
         return this.orderFinishedTime;
     }
 
     /**
-     * Set order finished time with new Date get time
-     * @void
-     */
-    public void setOrderFinishedTime() {
-        this.orderFinishedTime = new Date().getTime();
-    }
-
-    /**
      * Order constructor
-     * @param orderId
-     * @param tableNumber
+     * @param orderId Integer
+     * @param tableNumber String
      */
     public Order(int orderId, String tableNumber) {
         this.orderId = orderId;
