@@ -99,7 +99,7 @@ public class MenuItem {
      * Get order is paid or not
      * @return Boolean
      */
-    public Boolean getSumPlus() {
+    public boolean getSumPlus() {
         return sumPlus;
     }
 
