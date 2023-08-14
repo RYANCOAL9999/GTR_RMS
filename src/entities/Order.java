@@ -105,7 +105,7 @@ public class Order {
      * Get submitted to know this order is placed to the kitchen
      * @return Boolean
      */
-    public Boolean getSubmitted() {
+    public boolean getSubmitted() {
         return this.submitted;
     }
 
