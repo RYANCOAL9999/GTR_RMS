@@ -6,11 +6,18 @@ package entities;
 
 import java.util.HashMap;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
- *
+ * MenuItem class
  * @author W22079254
  */
+@Document("MenuItem")
 public class MenuItem {
+    
+    @Id
+    private String id;
     
     private String name;
     
@@ -31,11 +38,27 @@ public class MenuItem {
     }
 
     /**
+     * Set name with string
+     * @param name String
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Get description
      * @return String
      */
     public String getDescription() {
         return description;
+    }
+
+    /**
+     * set description with string
+     * @param description String
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /**
@@ -47,11 +70,36 @@ public class MenuItem {
     }
 
     /**
+     * Set price with double number
+     * @param price Double
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
      * Get ingredients which used
      * @return HashMap
      */
     public HashMap<String, Double> getUsedIngredients() {
         return this.usedIngredients;
+    }
+
+    /**
+     * Add ingredients
+     * @param key String
+     * @param value Double
+     */
+    public void addIngredients(String key, Double value) {
+        this.usedIngredients.put(key, value);
+    }
+    
+    /**
+     * Remove ingredients
+     * @param key String
+     */
+    public void removeIngredients(String key) {
+        this.usedIngredients.remove(key);
     }
     
     /**
@@ -60,6 +108,14 @@ public class MenuItem {
      */
     public boolean getSumPlus() {
         return sumPlus;
+    }
+
+    /**
+     * Set order paid is true or false
+     * @param sumPlus Boolean
+     */
+    public void setSumPlus(Boolean sumPlus) {
+        this.sumPlus = sumPlus;
     }
 
     /**

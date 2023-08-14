@@ -4,11 +4,18 @@
  */
 package entities;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
- *
+ * Food Class
  * @author W22079254
  */
+@Document("Food")
 public class Food extends MenuItem {
+    
+    @Id
+    private String id;
 
     private int quantity;
     
@@ -21,11 +28,43 @@ public class Food extends MenuItem {
     private String type;
 
     /**
+     * Set quantity with integer number
+     * @param quantity Integer
+     */
+    public void setQuantity(int quantity) {
+       this.quantity = quantity;
+    }
+
+    /**
      * Get quantity
      * @return Integer
      */
     public int getQuantity() {
        return this.quantity;
+    }
+    
+    /**
+     * minus quantity with integer number
+     * @param number Integer
+     */
+    public void minusQuantity(int number){
+        this.quantity -= number;
+    }
+    
+    /**
+     * check quantity is equal to 0
+     * @return Double
+     */
+    public Boolean getQuantityEqualToZero(){
+        return this.quantity == 0.0;
+    }
+
+    /**
+     * Set weight with double number
+     * @param weight Double
+     */
+    public void setWeight(double weight){
+       this.weight = weight;
     }
 
     /**
@@ -34,6 +73,22 @@ public class Food extends MenuItem {
      */
     public double getWeight() {
        return this.weight;
+    }
+    
+    /**
+     * minus weight with double number
+     * @param number Double
+     */
+    public void minusWeight(double number){
+        this.weight -= number;
+    }
+
+    /**
+     * Set noEffect with true or false
+     * @param noEffect Boolean
+     */
+    public void setNoEffect(Boolean noEffect) {
+        this.noEffect = noEffect;
     }
 
     /**
@@ -45,11 +100,36 @@ public class Food extends MenuItem {
     }
     
     /**
+     * check startingWeight is Equal to 0
+     * @return Boolean
+     */
+    public Boolean getStartingWeightEqualToZero(){
+        return this.startingWeight == 0.0;
+    }
+    
+    /**
      * Get startingWeight
      * @return Double
      */
     public double getStartingWeight() {
         return startingWeight;
+    }
+
+    /**
+     * Set startingWeight with double number
+     * @param startingWeight Double
+     */
+    public void setStartingWeight(double startingWeight) {
+        this.startingWeight = startingWeight;
+    }
+    
+    /**
+     * 
+     * Reset startingWeight equal to Weight
+     * 
+     */
+    public void resSetStartingWeight() {
+        this.startingWeight = this.weight;
     }
     
     /**
@@ -58,6 +138,23 @@ public class Food extends MenuItem {
      */
     public String getType() {
         return type;
+    }
+
+    /**
+     * Set type with string
+     * @param type String
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * check the type is equal to str
+     * @param str String
+     * @return Boolean
+     */
+    public Boolean getTypeWithStr(String str){
+        return str.equals(this.type);
     }
     
     /**

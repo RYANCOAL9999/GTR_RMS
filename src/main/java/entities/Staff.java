@@ -5,18 +5,31 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
- *
+ * Staff class
  * @author W22079254
  */
+@Document("Staff")
 public class Staff {
+    
+    @Id
+    private String id;
 
     private String username;
+    
     private String password;
+    
     private String role;
+    
     private String contact;
+    
     private HashMap<String, Boolean> workSchedule;
+    
     private List<Date> backTowork;
+    
     private boolean todayFirstTimeLogin;
 
     /**
@@ -28,11 +41,27 @@ public class Staff {
     }
 
     /**
+     * Set user name with string
+     * @param name String
+     */
+    public void setUserName(String name) {
+        this.username = name;
+    }
+
+    /**
      * Get password
      * @return String
      */
     public String getPassword() {
         return password;
+    }
+
+    /**
+     * Set password with string
+     * @param password String
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
@@ -44,11 +73,27 @@ public class Staff {
     }
 
     /**
+     * Set role with string
+     * @param role String
+     */
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    /**
      * Get contact
      * @return String
      */
     public String getContact() {
         return contact;
+    }
+
+    /**
+     * Set contact with string
+     * @param contact String
+     */
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     /**
@@ -60,6 +105,23 @@ public class Staff {
     }
 
     /**
+     * Add work schedule by date, and true or false
+     * @param date String
+     * @param b Boolean
+     */
+    public void addWorkSchedule(String date, Boolean b) {
+        this.workSchedule.put(date, b);
+    }
+
+    /**
+     * Delete work schedule by date
+     * @param date String
+     */
+    public void deleteWorkSchedule(String date) {
+        this.workSchedule.remove(date);
+    }
+
+    /**
      * Get today first time login
      * @return Boolean
      */
@@ -68,11 +130,36 @@ public class Staff {
     }
 
     /**
+     * Set today first time login by true or false
+     * @param b Boolean
+     */
+    public void setTodayFirstTimeLogin(boolean b) {
+        this.todayFirstTimeLogin = b;
+    }
+
+    /**
+     * 
+     * Add back to work by today 
+     *
+     */
+    public void addBackTowork() {
+        this.backTowork.add(new Date());
+    }
+
+    /**
      * Get back to work
      * @return Date with List
      */
     public List<Date> getBackTowork() {
         return this.backTowork;
+    }
+
+    /**
+     * Delete back to work by date
+     * @param date Date
+     */
+    public void deleteBackTowork(Date date) {
+        this.backTowork.remove(date);
     }
 
     /**

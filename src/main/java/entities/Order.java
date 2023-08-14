@@ -6,11 +6,19 @@ package entities;
 
 import java.util.Date;
 import java.util.List;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
- *
+ * Order class
  * @author W22079254
  */
+@Document("Order")
 public class Order {
+    
+    @Id
+    private String id;
     
     private int orderId;
     
@@ -28,6 +36,13 @@ public class Order {
     
     private Long orderFinishedTime;
     
+    /**
+     * Add menuItem
+     * @param item MenuItem
+     */
+    public void addItem(MenuItem item) {
+        menuItems.add(item);
+    }
 
     /**
      * Get order number
@@ -35,6 +50,14 @@ public class Order {
      */
     public int getOrderId() {
         return orderId;
+    }
+
+    /**
+     * Set order number with integer number 
+     * @param orderId Integer
+     */
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     /**
@@ -46,6 +69,14 @@ public class Order {
     }
 
     /**
+     * Set table number with integer number
+     * @param tableNumber String
+     */
+    public void setTableNumber(String tableNumber) {
+        this.tableNumber = tableNumber;
+    }
+
+    /**
      * Get menuItem
      * @return MenuItem with List
      */
@@ -54,11 +85,27 @@ public class Order {
     }
 
     /**
+     * Set total with double number
+     * @param total Double
+     */
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    /**
      * get total
      * @return Double
      */
     public double getTotal() {
         return total;
+    }
+
+    /**
+     * Set the true or false to know this order has placed to the kitchen
+     * @param submitted Boolean
+     */
+    public void setSubmitted(Boolean submitted) {
+        this.submitted = submitted;
     }
 
     /**
@@ -91,6 +138,15 @@ public class Order {
      */
     public Long getOrderFinishedTime(){
         return this.orderFinishedTime;
+    }
+
+    /**
+     * 
+     * Set order finished time with new Date get time
+     * 
+     */
+    public void setOrderFinishedTime() {
+        this.orderFinishedTime = new Date().getTime();
     }
 
     /**

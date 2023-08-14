@@ -6,13 +6,21 @@ package entities;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  *
  * @author W22079254
  */
+@Document("Kitchen")
 public class Kitchen {
     
+    @Id
+    private String id;
+    
     private int kitchenSupplies;
+
     
     private List<Food> ingredients;
     
@@ -20,29 +28,60 @@ public class Kitchen {
     
     private List<MenuItem> menuItemList;
     
+    /**
+     * Set kitchenSupplies with integer number
+     * @param kitchenSupplies integer
+     */
+    public void setKitchenSupplies(int kitchenSupplies) {
+        this.kitchenSupplies = kitchenSupplies;
+    }
     
     /**
      * Get kitchenSupplies
-     * @return
+     * @return integer
      */
     public int getKitchenSupplies() {
         return kitchenSupplies;
     }
     
     /**
+     * Get menuItem List with today 
+     * @param ingredients Food
+     */
+    public void setIngredients(List<Food> ingredients) {
+        this.ingredients = ingredients;
+    }
+    
+    /**
      * Get ingredientsReady
-     * @return
+     * @return Boolean
      */
     public boolean getIngredientsReady(){
         return this.ingredientsReady;
     }
     
     /**
-     * Get ingredients
-     * @return
+     * Get menuItem List with today 
+     * @param ingredientsReady Boolean
+     */
+    public void setIngredientsReady(Boolean ingredientsReady) {
+        this.ingredientsReady = ingredientsReady;
+    }
+    
+    /**
+     * Get ingredients 
+     * @return Food
      */
     public List<Food> getIngredients() {
         return ingredients;
+    }
+    
+    /**
+     * Set menuItemList with list object  
+     * @param menuItemList MenuItem with List
+     */
+    public void setMenuItemList(List<MenuItem> menuItemList) {
+        this.menuItemList = menuItemList;
     }
     
     /**
@@ -64,6 +103,7 @@ public class Kitchen {
         List<Food> ingredients,
         List<MenuItem> menuItemList
     ){
+        super();
         this.kitchenSupplies = kitchenSupplies;
         this.ingredients = ingredients;
         this.menuItemList = menuItemList;
