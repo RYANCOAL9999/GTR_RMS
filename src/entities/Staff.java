@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
+ * Staff class
  * @author W22079254
  */
 public class Staff {
@@ -21,7 +21,7 @@ public class Staff {
 
     /**
      * Get user name
-     * @return
+     * @return String
      */
     public String getUsername() {
         return username;
@@ -29,7 +29,7 @@ public class Staff {
 
     /**
      * Set user name with string
-     * @param name
+     * @param name String
      */
     public void setUserName(String name) {
         this.username = name;
@@ -37,7 +37,7 @@ public class Staff {
 
     /**
      * Get password
-     * @return
+     * @return String
      */
     public String getPassword() {
         return password;
@@ -45,7 +45,7 @@ public class Staff {
 
     /**
      * Set password with string
-     * @param password
+     * @param password String
      */
     public void setPassword(String password) {
         this.password = password;
@@ -53,7 +53,7 @@ public class Staff {
 
     /**
      * Get role
-     * @return
+     * @return String
      */
     public String getRole() {
         return role;
@@ -61,7 +61,7 @@ public class Staff {
 
     /**
      * Set role with string
-     * @param role
+     * @param role String
      */
     public void setRole(String role) {
         this.role = role;
@@ -69,7 +69,7 @@ public class Staff {
 
     /**
      * Get contact
-     * @return
+     * @return String
      */
     public String getContact() {
         return contact;
@@ -77,7 +77,7 @@ public class Staff {
 
     /**
      * Set contact with string
-     * @param contact
+     * @param contact String
      */
     public void setContact(String contact) {
         this.contact = contact;
@@ -85,7 +85,7 @@ public class Staff {
 
     /**
      * Get work schedule
-     * @return
+     * @return HashMap
      */
     public HashMap<String, Boolean> getWorkSchedule() {
         return workSchedule;
@@ -93,8 +93,8 @@ public class Staff {
 
     /**
      * Add work schedule by date, and true or false
-     * @param date
-     * @param b
+     * @param date String
+     * @param b Boolean
      */
     public void addWorkSchedule(String date, Boolean b) {
         this.workSchedule.put(date, b);
@@ -102,7 +102,7 @@ public class Staff {
 
     /**
      * Delete work schedule by date
-     * @param date
+     * @param date String
      */
     public void deleteWorkSchedule(String date) {
         this.workSchedule.remove(date);
@@ -110,7 +110,7 @@ public class Staff {
 
     /**
      * Get today first time login
-     * @return
+     * @return Boolean
      */
     public boolean getTodayFirstTimeLogin() {
         return todayFirstTimeLogin;
@@ -118,15 +118,16 @@ public class Staff {
 
     /**
      * Set today first time login by true or false
-     * @param b
+     * @param b Boolean
      */
     public void setTodayFirstTimeLogin(boolean b) {
         this.todayFirstTimeLogin = b;
     }
 
     /**
+     * 
      * Add back to work by today 
-     * @void
+     *
      */
     public void addBackTowork() {
         this.backTowork.add(new Date());
@@ -134,7 +135,7 @@ public class Staff {
 
     /**
      * Get back to work
-     * @return
+     * @return Date with List
      */
     public List<Date> getBackTowork() {
         return this.backTowork;
@@ -142,7 +143,7 @@ public class Staff {
 
     /**
      * Delete back to work by date
-     * @param date
+     * @param date Date
      */
     public void deleteBackTowork(Date date) {
         this.backTowork.remove(date);
@@ -150,11 +151,11 @@ public class Staff {
 
     /**
      * Staff constructor
-     * @param username
-     * @param password
-     * @param role
-     * @param contact
-     * @param workSchedule
+     * @param username String
+     * @param password String
+     * @param role String
+     * @param contact String
+     * @param workSchedule HashMap 
      */
     public Staff(
         String username,

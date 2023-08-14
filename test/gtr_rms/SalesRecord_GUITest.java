@@ -9,7 +9,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -36,27 +36,8 @@ public class SalesRecord_GUITest {
     public void tearDown() {
     }
 
-    /**
-     * Test of cancelEvent method, of class SalesRecord_GUI.
-     */
     @Test
-    public void testCancelEvent() {
-        System.out.println("cancelEvent");
-        SalesRecord_GUI instance = null;
-        instance.cancelEvent();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of orderSingleItemClick method, of class SalesRecord_GUI.
-     */
-    @Test
-    public void testOrderSingleItemClick() {
-        System.out.println("orderSingleItemClick");
-        int number = 0;
-        SalesRecord_GUI instance = null;
-        instance.orderSingleItemClick(number);
+    public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

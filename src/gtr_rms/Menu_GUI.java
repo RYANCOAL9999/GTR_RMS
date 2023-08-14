@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
 import entities.Restaurant;
 
 /**
- *
+ * Menu_GUI class
  * @author W22079254
  */
 public class Menu_GUI extends JFrame{
@@ -30,10 +30,11 @@ public class Menu_GUI extends JFrame{
     private DefaultListModel<String> menuItems;
 
     /**
+     * 
      * Finish add dish with action listeners
-     * @void
+     * 
      */
-    public void finishEvent(){
+    private void finishEvent(){
         JOptionPane.showMessageDialog(this, "Menu item action finished!");
         restaurant.setMenuReady(true);
         this.dispose();
@@ -43,13 +44,15 @@ public class Menu_GUI extends JFrame{
      * Call the dish GUI initialize 
      * @param inventoryItems
      */
-    public void addMenu(DefaultListModel<String> inventoryItems){
+    private void addMenu(DefaultListModel<String> inventoryItems){
         Dish_GUI gui = new Dish_GUI(restaurant, inventoryItems);
         gui.setVisible(true);
     }
 
     /**
+     * 
      * Create the menu GUI
+     * 
      */
     private void initializeGUI() {
         menuItems = new DefaultListModel<>();
@@ -88,7 +91,7 @@ public class Menu_GUI extends JFrame{
     
     /**
      * Menu_GUI constructor
-     * @param res
+     * @param res Restaurant
      */
     Menu_GUI(Restaurant res){
         super("Restaurant Management System Menu");

@@ -4,13 +4,12 @@
  */
 package gtr_rms;
 
-import javax.swing.DefaultListModel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -38,26 +37,22 @@ public class Food_GUITest {
     }
 
     /**
-     * Test of cancelEvent method, of class Food_GUI.
+     * Test of addIngredientsWithReturnName method, of class Food_GUI.
      */
     @Test
-    public void testCancelEvent() {
-        System.out.println("cancelEvent");
+    public void testAddIngredientsWithReturnName() {
+        System.out.println("addIngredientsWithReturnName");
+        String name = "";
+        String quantity = "";
+        String weight = "";
+        String startWeight = "";
+        String description = "";
+        String price = "";
+        String iType = "";
         Food_GUI instance = null;
-        instance.cancelEvent();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of confirmEvent method, of class Food_GUI.
-     */
-    @Test
-    public void testConfirmEvent() {
-        System.out.println("confirmEvent");
-        DefaultListModel<String> inventoryItems = null;
-        Food_GUI instance = null;
-        instance.confirmEvent(inventoryItems);
+        String expResult = "";
+        String result = instance.addIngredientsWithReturnName(name, quantity, weight, startWeight, description, price, iType);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

@@ -20,7 +20,7 @@ import entities.MenuItem;
 import entities.Restaurant;
 
 /**
- *
+ * Dish_GUI class
  * @author W22079254
  */
 public class Dish_GUI extends JFrame{
@@ -36,47 +36,66 @@ public class Dish_GUI extends JFrame{
     private JTextField dishPrice;
     
     private List<JCheckBox> foodItems;
-
+    
     private final int constantsNumber = 3;
-
+    
     /**
-     * Cancel add dish with action listeners
-     * @void
+     * add MenuItem with name and price, after return the name
+     * @param name String
+     * @param price String
+     * @param dishDescription String
+     * @return String
      */
-    public void cancelEvent() {
-        JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
-        this.dispose();
-    }
-
-    /**
-     * Add dish with action listeners
-     * @param inventoryItems
-     */
-    public void confirmEvent(DefaultListModel<String> inventoryItems) {
-
-        String price = dishPrice.getText();
+    public String addMenuItemWithReturnName(String name, String price, String dishDescription){
 
         if(!Helper.checkStringIsNumber(price)){
-            JOptionPane.showMessageDialog(this, "Your Dish is setting error");
-            return;
+            return null;
         }
-
-        String name = dishName.getText();
+        
+        if(name == null){
+            JOptionPane.showMessageDialog(this, "Your Dish is setting error");
+            return null;
+        }
 
         restaurant.addMenuItem(
             new MenuItem(
                 name, 
-                dishDescription.getText(), 
+                dishDescription, 
                 Double.parseDouble(price)
             )
         );
+        return name;
+    }
+    
+    /**
+     * 
+     * Cancel add dish with action listeners
+     * 
+     */
+    private void cancelEvent() {
+        JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
+        this.dispose();
+    }
+    
+    /**
+     * Add dish with action listeners
+     * @param inventoryItems String with DefaultListModel
+     */
+    private void confirmEvent(DefaultListModel<String> inventoryItems) {
 
+        String name = addMenuItemWithReturnName(dishName.getText(), dishPrice.getText(), dishDescription.getText());
+        if(name == null){
+            JOptionPane.showMessageDialog(this, "Your Dish is setting error");
+            return;
+        }
         inventoryItems.addElement(name);
         this.dispose();
     }
 
     /**
+     * 
      * Create the dish GUI
+     * 
      */
     private void initializeGUI() {
 
@@ -163,8 +182,8 @@ public class Dish_GUI extends JFrame{
 
     /**
      * Dish_GUI constructor
-     * @param res
-     * @param inventoryItems
+     * @param res Restaurant
+     * @param inventoryItems String with DefaultListModel
      */
     Dish_GUI(Restaurant res, DefaultListModel<String> inventoryItems){
         super("Restaurant Management System Food");

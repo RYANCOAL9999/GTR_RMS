@@ -9,7 +9,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -37,26 +37,17 @@ public class Staff_GUITest {
     }
 
     /**
-     * Test of cancelEvent method, of class Staff_GUI.
+     * Test of addStaffWithText method, of class Staff_GUI.
      */
     @Test
-    public void testCancelEvent() {
-        System.out.println("cancelEvent");
-        Staff_GUI instance = null;
-        instance.cancelEvent();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of confirmEvent method, of class Staff_GUI.
-     */
-    @Test
-    public void testConfirmEvent() {
-        System.out.println("confirmEvent");
+    public void testAddStaffWithText() {
+        System.out.println("addStaffWithText");
+        String userNameText = "";
+        String roleText = "";
+        String contactText = "";
         Boolean staffIsNull = null;
         Staff_GUI instance = null;
-        instance.confirmEvent(staffIsNull);
+        instance.addStaffWithText(userNameText, roleText, contactText, staffIsNull);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

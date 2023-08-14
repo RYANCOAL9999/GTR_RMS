@@ -15,7 +15,7 @@ import entities.Food;
 import entities.Restaurant;
 
 /**
- *
+ * Food_GUI class
  * @author W22079254
  */
 public class Food_GUI extends JFrame {
@@ -37,39 +37,27 @@ public class Food_GUI extends JFrame {
     private JTextField foodPrice;
     
     private JTextField foodType;
-
+    
     /**
-     * Cancel add food with action listeners
-     * @void
+     * add Ingredients with name, quantity, weight, startWeight, description, and price, after return the name
+     * @param name String
+     * @param quantity String
+     * @param weight String
+     * @param startWeight String
+     * @param description String
+     * @param price String
+     * @param iType String
+     * @return String
      */
-    public void cancelEvent() {
-        JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
-        this.dispose();
-    }
-
-    /**
-     * Add food with action listeners
-     * @param inventoryItems
-     */
-    public void confirmEvent(DefaultListModel<String> inventoryItems) {
-
-        String name = foodName.getText();
-        String quantity = foodQuantity.getText();
-        String weight = foodWeight.getText();
-        
-        String startWeight = foodStartWeight.getText();
-        String description = foodDescription.getText();
-        String price = foodPrice.getText();
-        String type = foodType.getText() == null ? "raw" : foodType.getText();
-
+    public String addIngredientsWithReturnName(String name, String quantity, String weight, String startWeight, String description, String price, String iType){
+        String type = iType == null ? "raw" : foodType.getText();
         if(
             !Helper.checkStringIsNumber(quantity) ||
             !Helper.checkStringIsNumber(weight) ||
             !Helper.checkStringIsNumber(startWeight) ||
             !Helper.checkStringIsNumber(price)
         ){
-            JOptionPane.showMessageDialog(this, "Your food is setting error");
-            return;
+            return null;
         }
         
         /* add to inventory */
@@ -85,12 +73,47 @@ public class Food_GUI extends JFrame {
                 type
             )   
         );
+        return name;
+    }
+
+    /**
+     * 
+     * Cancel add food with action listeners
+     * 
+     */
+    private void cancelEvent() {
+        JOptionPane.showMessageDialog(this, "add Food Event Cancel!");
+        this.dispose();
+    }
+
+    /**
+     * Add food with action listeners
+     * @param inventoryItems
+     */
+    private void confirmEvent(DefaultListModel<String> inventoryItems) {        
+        String name = addIngredientsWithReturnName(
+            foodName.getText(),
+            foodQuantity.getText(),
+            foodWeight.getText(),
+            foodStartWeight.getText(),
+            foodDescription.getText(),
+            foodPrice.getText(),
+            foodType.getText()
+        );
+        
+        if(name == null){
+            JOptionPane.showMessageDialog(this, "add Food Event is setting error");
+            return;
+        }
+        
         inventoryItems.addElement(name);
         this.dispose();
     }
 
     /**
+     * 
      * Create the food GUI
+     * 
      */
     private void initializeGUI() {
 
@@ -192,8 +215,8 @@ public class Food_GUI extends JFrame {
 
     /**
      * Food_GUI constructor
-     * @param res
-     * @param inventoryItems
+     * @param res Restaurant
+     * @param inventoryItems String with DefaultListModel
      */
     Food_GUI(Restaurant res, DefaultListModel<String> inventoryItems){
         super("Restaurant Management System Food");

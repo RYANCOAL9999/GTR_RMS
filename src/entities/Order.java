@@ -6,8 +6,9 @@ package entities;
 
 import java.util.Date;
 import java.util.List;
+
 /**
- *
+ * Order class
  * @author W22079254
  */
 public class Order {
@@ -30,7 +31,7 @@ public class Order {
     
     /**
      * Add menuItem
-     * @param item
+     * @param item MenuItem
      */
     public void addItem(MenuItem item) {
         menuItems.add(item);
@@ -38,7 +39,7 @@ public class Order {
 
     /**
      * Get order number
-     * @return
+     * @return Integer
      */
     public int getOrderId() {
         return orderId;
@@ -46,7 +47,7 @@ public class Order {
 
     /**
      * Set order number with integer number 
-     * @param orderId
+     * @param orderId Integer
      */
     public void setOrderId(int orderId) {
         this.orderId = orderId;
@@ -54,7 +55,7 @@ public class Order {
 
     /**
      * Get table number
-     * @return
+     * @return String
      */
     public String getTableNumber() {
         return tableNumber;
@@ -62,7 +63,7 @@ public class Order {
 
     /**
      * Set table number with integer number
-     * @param tableNumber
+     * @param tableNumber String
      */
     public void setTableNumber(String tableNumber) {
         this.tableNumber = tableNumber;
@@ -70,7 +71,7 @@ public class Order {
 
     /**
      * Get menuItem
-     * @return
+     * @return MenuItem with List
      */
     public List<MenuItem> getMenuItems() {
         return menuItems;
@@ -78,7 +79,7 @@ public class Order {
 
     /**
      * Set total with double number
-     * @param total
+     * @param total Double
      */
     public void setTotal(double total) {
         this.total = total;
@@ -86,7 +87,7 @@ public class Order {
 
     /**
      * get total
-     * @return
+     * @return Double
      */
     public double getTotal() {
         return total;
@@ -94,7 +95,7 @@ public class Order {
 
     /**
      * Set the true or false to know this order has placed to the kitchen
-     * @param submitted
+     * @param submitted Boolean
      */
     public void setSubmitted(Boolean submitted) {
         this.submitted = submitted;
@@ -102,7 +103,7 @@ public class Order {
 
     /**
      * Get submitted to know this order is placed to the kitchen
-     * @return
+     * @return Boolean
      */
     public Boolean getSubmitted() {
         return this.submitted;
@@ -110,7 +111,7 @@ public class Order {
 
     /**
      * Get order date
-     * @return
+     * @return Date
      */
     public Date getOrderDate() {
         return orderDate;
@@ -118,7 +119,7 @@ public class Order {
 
     /**
      * Get order time
-     * @return
+     * @return Long
      */
     public Long getOrderTime() {
         return this.orderTime;
@@ -126,15 +127,16 @@ public class Order {
 
     /**
      * Get order finished time
-     * @return
+     * @return Long
      */
     public Long getOrderFinishedTime(){
         return this.orderFinishedTime;
     }
 
     /**
+     * 
      * Set order finished time with new Date get time
-     * @void
+     * 
      */
     public void setOrderFinishedTime() {
         this.orderFinishedTime = new Date().getTime();
@@ -142,8 +144,8 @@ public class Order {
 
     /**
      * Order constructor
-     * @param orderId
-     * @param tableNumber
+     * @param orderId Integer
+     * @param tableNumber String
      */
     public Order(int orderId, String tableNumber) {
         this.orderId = orderId;

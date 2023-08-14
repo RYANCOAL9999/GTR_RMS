@@ -15,7 +15,7 @@ import entities.Restaurant;
 import entities.Staff;
 
 /**
- *
+ * StaffRecord_GUI class
  * @author W22079254
  */
 public class StaffRecord_GUI extends JFrame{
@@ -30,24 +30,26 @@ public class StaffRecord_GUI extends JFrame{
      * Show staff in staff GUI with action listeners
      * @param text
      */
-    public void staffSingleItemClick(String text) {
+    private void staffSingleItemClick(String text) {
         Staff staffSingle = restaurant.getStaff(text);
         Staff_GUI gui = new Staff_GUI(restaurant, staffSingle);
         gui.setVisible(true);
     }
 
     /**
+     * 
      * Add new staff in staff GUI with action listeners
-     * @void
+     * 
      */
-    public void addNewStaff() {
+    private void addNewStaff() {
         Staff_GUI gui = new Staff_GUI(restaurant, null);
         gui.setVisible(true);
     }
 
     /**
+     * 
      * Create the staff record GUI
-     * @void
+     * 
      */
     private void initializeGUI() {
         staffItem = new ArrayList<>();
@@ -106,7 +108,7 @@ public class StaffRecord_GUI extends JFrame{
 
     /**
      * StaffRecord_GUI constructor
-     * @param res
+     * @param res Restaurant
      */
     public StaffRecord_GUI(Restaurant res){
         this.restaurant = res;

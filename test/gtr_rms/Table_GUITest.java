@@ -4,13 +4,13 @@
  */
 package gtr_rms;
 
-import java.awt.event.ActionEvent;
+import entities.Order;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -38,27 +38,16 @@ public class Table_GUITest {
     }
 
     /**
-     * Test of placeTable method, of class Table_GUI.
+     * Test of genOrder method, of class Table_GUI.
      */
     @Test
-    public void testPlaceTable() {
-        System.out.println("placeTable");
-        ActionEvent event = null;
-        Table_GUI instance = null;
-        instance.placeTable(event);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of showOrderGUIWithSingleTable method, of class Table_GUI.
-     */
-    @Test
-    public void testShowOrderGUIWithSingleTable() {
-        System.out.println("showOrderGUIWithSingleTable");
+    public void testGenOrder() {
+        System.out.println("genOrder");
         String tableSeat = "";
         Table_GUI instance = null;
-        instance.showOrderGUIWithSingleTable(tableSeat);
+        Order expResult = null;
+        Order result = instance.genOrder(tableSeat);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

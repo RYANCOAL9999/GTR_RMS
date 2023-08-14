@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Inventory class
  * @author W22079254
  */
 public class Inventory {
@@ -37,7 +37,7 @@ public class Inventory {
 
     /**
      * Get chairs
-     * @return
+     * @return Integer
      */
     public int getChairs() {
         return chairs;
@@ -45,7 +45,7 @@ public class Inventory {
 
     /**
      * Set chairs with integer number
-     * @param chairs
+     * @param chairs Integer
      */
     public void setChairs(int chairs) {
         this.chairs = chairs;
@@ -53,7 +53,7 @@ public class Inventory {
 
     /**
      * Get tables
-     * @return
+     * @return Integer
      */
     public int getTables() {
         return tables;
@@ -61,7 +61,7 @@ public class Inventory {
 
     /**
      * Set tables with integer number
-     * @param tables
+     * @param tables Integer
      */
     public void setTables(int tables) {
         this.tables = tables;
@@ -69,7 +69,7 @@ public class Inventory {
 
     /**
      * Get dishes
-     * @return
+     * @return Integer
      */
     public int getDishes() {
         return dishes;
@@ -77,7 +77,7 @@ public class Inventory {
 
     /**
      * Set dishes with integer number
-     * @param dishes
+     * @param dishes integer
      */
     public void setDishes(int dishes) {
         this.dishes = dishes;
@@ -85,7 +85,7 @@ public class Inventory {
 
     /**
      * Get glasses
-     * @return
+     * @return Integer
      */
     public int getGlasses() {
         return glasses;
@@ -93,7 +93,7 @@ public class Inventory {
 
     /**
      * Set glasses with integer number
-     * @param glasses
+     * @param glasses Integer
      */
     public void setGlasses(int glasses) {
         this.glasses = glasses;
@@ -101,7 +101,7 @@ public class Inventory {
 
     /**
      * Get chopsticks
-     * @return
+     * @return integer
      */
     public int getChopsticks() {
         return chopsticks;
@@ -109,7 +109,7 @@ public class Inventory {
 
     /**
      * Set chopsticks with integer number
-     * @param chopsticks
+     * @param chopsticks Integer
      */
     public void setChopsticks(int chopsticks) {
         this.chopsticks = chopsticks;
@@ -117,7 +117,7 @@ public class Inventory {
 
     /**
      * Set spoons
-     * @return
+     * @return Integer
      */
     public int getSpoons() {
         return spoons;
@@ -125,7 +125,7 @@ public class Inventory {
 
     /**
      * Set spoons with integer number
-     * @param spoons
+     * @param spoons Integer
      */
     public void setSpoons(int spoons) {
         this.spoons = spoons;
@@ -133,7 +133,7 @@ public class Inventory {
 
     /**
      * Get tableCloths
-     * @return
+     * @return Integer
      */
     public int getTablecloths() {
         return tablecloths;
@@ -141,7 +141,7 @@ public class Inventory {
 
     /**
      * Set tableCloths with integer number
-     * @param tablecloths
+     * @param tablecloths Integer
      */
     public void setTablecloths(int tablecloths) {
         this.tablecloths = tablecloths;
@@ -149,7 +149,7 @@ public class Inventory {
 
     /**
      * Get napkins
-     * @return
+     * @return Integer
      */
     public int getNapkins() {
         return napkins;
@@ -157,7 +157,7 @@ public class Inventory {
 
     /**
      * Set napkins with integer number
-     * @param napkins
+     * @param napkins Integer
      */
     public void setNapkin(int napkins) {
         this.napkins = napkins;
@@ -165,7 +165,7 @@ public class Inventory {
 
     /**
      * Get kitchenSupplies
-     * @return
+     * @return Integer
      */
     public int getKitchenSupplies() {
         return kitchenSupplies;
@@ -173,7 +173,7 @@ public class Inventory {
 
     /**
      * Set kitchenSupplies with integer number
-     * @param kitchenSupplies
+     * @param kitchenSupplies Integer
      */
     public void setKitchenSupplies(int kitchenSupplies) {
         this.kitchenSupplies = kitchenSupplies;
@@ -181,7 +181,7 @@ public class Inventory {
 
     /**
      * Set ingredientsReady with true or false for today is ready
-     * @param ready
+     * @param ready Boolean
      */
     public void setIngredientsReady(Boolean ready) {
         this.ingredientsReady = ready;
@@ -189,7 +189,7 @@ public class Inventory {
 
     /**
      * Get ingredientsReady
-     * @return
+     * @return Boolean
      */
     public boolean getIngredientsReady(){
         return this.ingredientsReady;
@@ -197,7 +197,7 @@ public class Inventory {
 
     /**
      * Get ingredients
-     * @return
+     * @return food with List
      */
     public List<Food> getIngredients() {
         return ingredients;
@@ -205,7 +205,7 @@ public class Inventory {
 
     /**
      * Add ingredients with food
-     * @param foodItem
+     * @param foodItem Food
      */
     public void addIngredients(Food foodItem) {
         this.ingredients.add(foodItem);
@@ -213,7 +213,7 @@ public class Inventory {
     
     /**
      * Remove ingredients with food
-     * @param foodItem
+     * @param foodItem Food
      */
     public void removeIngredients(Food foodItem){
         this.ingredients.remove(foodItem);
@@ -221,8 +221,8 @@ public class Inventory {
     
     /**
      * Find ingredients by name
-     * @param name
-     * @return
+     * @param name String
+     * @return Food
      */
     public Food getIngredientsByKey(String name){
         Food food = null;
@@ -236,16 +236,16 @@ public class Inventory {
 
     /**
      * Inventory constructor
-     * @param chairs
-     * @param tables
-     * @param dishes
-     * @param glasses
-     * @param chopsticks
-     * @param spoons
-     * @param tablecloths
-     * @param napkins
-     * @param kitchenSupplies
-     * @param foodList
+     * @param chairs Integer
+     * @param tables Integer
+     * @param dishes Integer
+     * @param glasses Integer
+     * @param chopsticks Integer
+     * @param spoons Integer
+     * @param tablecloths Integer
+     * @param napkins Integer
+     * @param kitchenSupplies Integer
+     * @param foodList Food with List 
      */
     public Inventory(
            int chairs, 

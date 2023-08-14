@@ -4,6 +4,7 @@
  */
 package gtr_rms;
 
+import java.util.HashMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -60,6 +61,20 @@ public class HelperTest {
         int number = 0;
         String expResult = "";
         String result = Helper.getCheckBoxConstraints(i, number);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getRestaurantBYJson method, of class Helper.
+     */
+    @Test
+    public void testGetRestaurantBYJson() {
+        System.out.println("getRestaurantBYJson");
+        String filePath = "";
+        HashMap<String, Object> expResult = null;
+        HashMap<String, Object> result = Helper.getRestaurantBYJson(filePath);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

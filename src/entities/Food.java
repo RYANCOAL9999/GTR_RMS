@@ -5,7 +5,7 @@
 package entities;
 
 /**
- *
+ * Food Class
  * @author W22079254
  */
 public class Food extends MenuItem {
@@ -22,7 +22,7 @@ public class Food extends MenuItem {
 
     /**
      * Set quantity with integer number
-     * @param quantity
+     * @param quantity Integer
      */
     public void setQuantity(int quantity) {
        this.quantity = quantity;
@@ -30,7 +30,7 @@ public class Food extends MenuItem {
 
     /**
      * Get quantity
-     * @return
+     * @return Integer
      */
     public int getQuantity() {
        return this.quantity;
@@ -38,7 +38,7 @@ public class Food extends MenuItem {
     
     /**
      * minus quantity with integer number
-     * @param number 
+     * @param number Integer
      */
     public void minusQuantity(int number){
         this.quantity -= number;
@@ -46,7 +46,7 @@ public class Food extends MenuItem {
     
     /**
      * check quantity is equal to 0
-     * @return
+     * @return Double
      */
     public Boolean getQuantityEqualToZero(){
         return this.quantity == 0.0;
@@ -54,7 +54,7 @@ public class Food extends MenuItem {
 
     /**
      * Set weight with double number
-     * @param weight
+     * @param weight Double
      */
     public void setWeight(double weight){
        this.weight = weight;
@@ -62,7 +62,7 @@ public class Food extends MenuItem {
 
     /**
      * Get weight
-     * @return
+     * @return Double
      */
     public double getWeight() {
        return this.weight;
@@ -70,7 +70,7 @@ public class Food extends MenuItem {
     
     /**
      * minus weight with double number
-     * @param number
+     * @param number Double
      */
     public void minusWeight(double number){
         this.weight -= number;
@@ -78,7 +78,7 @@ public class Food extends MenuItem {
 
     /**
      * Set noEffect with true or false
-     * @param noEffect
+     * @param noEffect Boolean
      */
     public void setNoEffect(Boolean noEffect) {
         this.noEffect = noEffect;
@@ -86,7 +86,7 @@ public class Food extends MenuItem {
 
     /**
      * Get noEffect
-     * @return
+     * @return Boolean
      */
     public boolean getNoEffect() {
         return this.noEffect;
@@ -94,7 +94,7 @@ public class Food extends MenuItem {
     
     /**
      * check startingWeight is Equal to 0
-     * @return
+     * @return Boolean
      */
     public Boolean getStartingWeightEqualToZero(){
         return this.startingWeight == 0.0;
@@ -102,7 +102,7 @@ public class Food extends MenuItem {
     
     /**
      * Get startingWeight
-     * @return
+     * @return Double
      */
     public double getStartingWeight() {
         return startingWeight;
@@ -110,15 +110,16 @@ public class Food extends MenuItem {
 
     /**
      * Set startingWeight with double number
-     * @param startingWeight
+     * @param startingWeight Double
      */
     public void setStartingWeight(double startingWeight) {
         this.startingWeight = startingWeight;
     }
     
     /**
+     * 
      * Reset startingWeight equal to Weight
-     * @void
+     * 
      */
     public void resSetStartingWeight() {
         this.startingWeight = this.weight;
@@ -126,7 +127,7 @@ public class Food extends MenuItem {
     
     /**
      * Get type
-     * @return 
+     * @return String
      */
     public String getType() {
         return type;
@@ -134,7 +135,7 @@ public class Food extends MenuItem {
 
     /**
      * Set type with string
-     * @param type
+     * @param type String
      */
     public void setType(String type) {
         this.type = type;
@@ -142,8 +143,8 @@ public class Food extends MenuItem {
 
     /**
      * check the type is equal to str
-     * @param str
-     * @return
+     * @param str String
+     * @return Boolean
      */
     public Boolean getTypeWithStr(String str){
         return str.equals(this.type);
@@ -151,14 +152,14 @@ public class Food extends MenuItem {
     
     /**
      * Food constructor, it is inheritance with menuItem.
-     * @param name
-     * @param description
-     * @param price
-     * @param quantity
-     * @param weight
-     * @param startingWeight
-     * @param noEffect
-     * @param type
+     * @param name String
+     * @param description String
+     * @param price Double
+     * @param quantity Integer
+     * @param weight Double
+     * @param startingWeight Double
+     * @param noEffect Boolean
+     * @param type String
      */
     public Food(
         String name, 

@@ -7,15 +7,12 @@ package gtr_rms;
 import entities.MenuItem;
 import entities.Order;
 import java.util.List;
-import javax.swing.JList;
-import javax.swing.event.ListSelectionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -93,56 +90,6 @@ public class Order_GUITest {
         Order order = null;
         Order_GUI instance = null;
         instance.makeBill(order);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of clearOrder method, of class Order_GUI.
-     */
-    @Test
-    public void testClearOrder() {
-        System.out.println("clearOrder");
-        Order_GUI instance = null;
-        instance.clearOrder();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of placeOrder method, of class Order_GUI.
-     */
-    @Test
-    public void testPlaceOrder() {
-        System.out.println("placeOrder");
-        Order_GUI instance = null;
-        instance.placeOrder();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of paidEvent method, of class Order_GUI.
-     */
-    @Test
-    public void testPaidEvent() {
-        System.out.println("paidEvent");
-        Order_GUI instance = null;
-        instance.paidEvent();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of menuListEventList method, of class Order_GUI.
-     */
-    @Test
-    public void testMenuListEventList() {
-        System.out.println("menuListEventList");
-        ListSelectionEvent e = null;
-        JList<String> menuList = null;
-        Order_GUI instance = null;
-        instance.menuListEventList(e, menuList);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

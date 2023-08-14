@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
+ * Restaurant class
  * @author W22079254
  */
 public class Restaurant {
@@ -40,7 +40,7 @@ public class Restaurant {
     
     /**
      * Get name
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -48,7 +48,7 @@ public class Restaurant {
 
     /**
      * Set name with string
-     * @param name
+     * @param name String
      */
     public void setName(String name) {
         this.name = name;
@@ -56,7 +56,7 @@ public class Restaurant {
 
     /**
      * Get address
-     * @return
+     * @return String
      */
     public String getAddress() {
         return address;
@@ -64,7 +64,7 @@ public class Restaurant {
 
     /**
      * Set address with string
-     * @param address
+     * @param address String
      */
     public void setAddress(String address) {
         this.address = address;
@@ -72,7 +72,7 @@ public class Restaurant {
 
     /**
      * Get phone 
-     * @return
+     * @return String
      */
     public String getPhone() {
         return phone;
@@ -80,7 +80,7 @@ public class Restaurant {
 
     /**
      * Set phone with string
-     * @param phone
+     * @param phone String
      */
     public void setPhone(String phone) {
         this.phone = phone;
@@ -88,7 +88,7 @@ public class Restaurant {
 
     /**
      * Set menuItem is ready or not
-     * @param ready
+     * @param ready Boolean
      */
     public void setMenuReady(Boolean ready) {
         this.menuReady = ready;
@@ -96,23 +96,23 @@ public class Restaurant {
 
     /**
      * Get menuItem is ready
-     * @return
+     * @return Boolean
      */
     public boolean getMenuReady(){
         return this.menuReady;
     }
 
     /**
-     * Set resturant is ready for today
-     * @param ready
+     * Set restaurant is ready for today
+     * @param ready Boolean
      */
     public void setAllReady(Boolean ready) {
         this.allReady = ready;
     }
 
     /**
-     * Get resturant is ready or not
-     * @return
+     * Get restaurant is ready or not
+     * @return Boolean
      */
     public boolean getAllReady(){
         return this.allReady;
@@ -120,23 +120,25 @@ public class Restaurant {
     
     /**
      * Get order number
-     * @return
+     * @return Integer
      */
     public int getOrderNumber() {
         return OrderNumber;
     }
 
     /**
+     * 
      * Add order number
-     * @void
+     * 
      */
     public void addOrderNumber() {
         this.OrderNumber += 1;
     }
     
     /**
+     * 
      * Minus order number
-     * @void
+     * 
      */
     public void removeOrderNumber() {
         this.OrderNumber -= 1;
@@ -144,7 +146,7 @@ public class Restaurant {
     
     /**
      * Get order list
-     * @return
+     * @return Order with List
      */
     public List<Order> getOrderList() {
         return orderList;
@@ -152,7 +154,7 @@ public class Restaurant {
     
     /**
      * Add order
-     * @param tableNumber with table number
+     * @param tableNumber String
      */
     public void addOrder(String tableNumber){
         this.orderList.add(new Order(this.OrderNumber, tableNumber));
@@ -160,7 +162,7 @@ public class Restaurant {
 
     /**
      * Remove order with order number
-     * @param orderId
+     * @param orderId Integer
      */
     public void removeOrder(int orderId) {
         for(Order orderItem : this.orderList){
@@ -172,7 +174,7 @@ public class Restaurant {
 
     /**
      * Get today Wage
-     * @return
+     * @return Double
      */
     public double getTodayWage() {
         return todayWage;
@@ -180,7 +182,7 @@ public class Restaurant {
     
     /**
      * Add today Wage with double value
-     * @param todayWage
+     * @param todayWage Double
      */
     public void addTodayWage(double todayWage){
         this.todayWage += todayWage;
@@ -188,7 +190,7 @@ public class Restaurant {
 
     /**
      * Minus today Wage with double value
-     * @param todayWage
+     * @param todayWage Double
      */
     public void minusTodayWage(double todayWage){
         this.todayWage -= todayWage;
@@ -196,7 +198,7 @@ public class Restaurant {
     
     /**
      * Get menuItem List with today 
-     * @return 
+     * @return MenuItem with List 
      */
     public List<MenuItem> getMenuItemList() {
         return menuItemList;
@@ -204,8 +206,8 @@ public class Restaurant {
 
     /**
      * Get menuItem with integer number ID
-     * @param number
-     * @return 
+     * @param number Integer
+     * @return MenuItem
      */
     public MenuItem getMenuItem(int number) {
         return this.menuItemList.get(number);
@@ -213,7 +215,7 @@ public class Restaurant {
 
     /**
      * Add menuItem on menuItem list
-     * @param item
+     * @param item MenuItem
      */
     public void addMenuItem(MenuItem item) {
         this.menuItemList.add(item);
@@ -221,7 +223,7 @@ public class Restaurant {
     
     /**
      * Remove menuItem on menuItem list
-     * @param name
+     * @param name String
      */
     public void removeMenuItem(String name) {
         for(MenuItem menu : this.menuItemList){
@@ -233,7 +235,7 @@ public class Restaurant {
     
     /**
      * Get inventory
-     * @return 
+     * @return Inventory
      */
     public Inventory getInventory() {
         return this.inventory;
@@ -241,7 +243,7 @@ public class Restaurant {
     
     /**
      * Get ingredient list
-     * @return 
+     * @return Food with List
      */
     public List<Food> getInventoryByIngredients(){
         return this.inventory.getIngredients();
@@ -249,7 +251,7 @@ public class Restaurant {
 
     /**
      * Add food to ingredient list
-     * @param foodItem
+     * @param foodItem Food
      */
     public void addInventoryByIngredients(Food foodItem){
         this.inventory.addIngredients(foodItem);
@@ -257,7 +259,7 @@ public class Restaurant {
     
     /**
      * Delete food on ingredient list
-     * @param foodItem
+     * @param foodItem Food
      */
     public void deleteInventoryByIngredients(Food foodItem){
         this.inventory.getIngredients().remove(foodItem);
@@ -265,7 +267,7 @@ public class Restaurant {
 
     /**
      * Get staff list
-     * @return 
+     * @return Staff with List
      */
     public List<Staff> getStaffList(){
         return this.staffList;
@@ -273,7 +275,7 @@ public class Restaurant {
 
     /**
      * Add staff to staff list
-     * @param staff
+     * @param staff Staff
      */
     public void addStaff(Staff staff){
         this.staffList.add(staff);
@@ -281,7 +283,7 @@ public class Restaurant {
 
     /**
      * Remove staff on staff list
-     * @param name
+     * @param name String
      */
     public void deleteStaff(String name){
         for(Staff staff : this.staffList){
@@ -293,8 +295,8 @@ public class Restaurant {
 
     /**
      * Get staff on staff list by the string
-     * @param name
-     * @return 
+     * @param name String
+     * @return Staff
      */
     public Staff getStaff(String name){
         Staff staff = null;
@@ -308,8 +310,8 @@ public class Restaurant {
 
     /**
      * Get staff work scheduled by String
-     * @param name
-     * @return 
+     * @param name String
+     * @return HashMap
      */
     public HashMap<String, Boolean> getStaffWorkScheduled(String name){
         HashMap<String, Boolean> scheduled = null;
@@ -323,9 +325,9 @@ public class Restaurant {
 
     /**
      * Add staff work scheduled by name, date, and true or false
-     * @param name
-     * @param date
-     * @param b
+     * @param name String
+     * @param date String
+     * @param b Boolean
      */
     public void addStaffWorkScheduled(String name, String date, boolean b){
         for(Staff staff : this.staffList){
@@ -337,8 +339,8 @@ public class Restaurant {
 
     /**
      * Delete staff work scheduled by name and date
-     * @param name
-     * @param date
+     * @param name String
+     * @param date String
      */
     public void deleteStaffWorkScheduled(String name, String date){
         for(Staff staff : this.staffList){
@@ -350,7 +352,7 @@ public class Restaurant {
 
     /**
      * Set TodayFirstTimeLoginForAllStaff with true or false
-     * @param b
+     * @param b Boolean
      */
     public void setTodayFirstTimeLoginForAllStaff(boolean b){
         for(Staff staff : this.staffList){
@@ -360,7 +362,7 @@ public class Restaurant {
     
     /**
      * Get export path for export file
-     * @return 
+     * @return String
      */
     public String getExportPath() {
         return exportPath;
@@ -368,13 +370,13 @@ public class Restaurant {
     
     /**
      * Restaurant constructor
-     * @param name
-     * @param address
-     * @param phone
-     * @param menuItemList
-     * @param staffList
-     * @param inventory
-     * @param exportPath
+     * @param name String
+     * @param address String
+     * @param phone String
+     * @param menuItemList MenuItem with ArrayList
+     * @param staffList  Staff with ArrayList
+     * @param inventory Inventory
+     * @param exportPath String
      */
     public Restaurant(
         String name, 

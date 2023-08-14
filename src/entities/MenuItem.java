@@ -7,7 +7,7 @@ package entities;
 import java.util.HashMap;
 
 /**
- *
+ * MenuItem class
  * @author W22079254
  */
 public class MenuItem {
@@ -24,7 +24,7 @@ public class MenuItem {
 
     /**
      * Get name
-     * @return
+     * @return String
      */
     public String getName() {
         return name;
@@ -32,7 +32,7 @@ public class MenuItem {
 
     /**
      * Set name with string
-     * @param name
+     * @param name String
      */
     public void setName(String name) {
         this.name = name;
@@ -40,7 +40,7 @@ public class MenuItem {
 
     /**
      * Get description
-     * @return
+     * @return String
      */
     public String getDescription() {
         return description;
@@ -48,7 +48,7 @@ public class MenuItem {
 
     /**
      * set description with string
-     * @param description
+     * @param description String
      */
     public void setDescription(String description) {
         this.description = description;
@@ -56,7 +56,7 @@ public class MenuItem {
 
     /**
      * Get price
-     * @return
+     * @return Double
      */
     public double getPrice() {
         return price;
@@ -64,7 +64,7 @@ public class MenuItem {
 
     /**
      * Set price with double number
-     * @param price
+     * @param price Double
      */
     public void setPrice(double price) {
         this.price = price;
@@ -72,7 +72,7 @@ public class MenuItem {
 
     /**
      * Get ingredients which used
-     * @return
+     * @return HashMap
      */
     public HashMap<String, Double> getUsedIngredients() {
         return this.usedIngredients;
@@ -80,8 +80,8 @@ public class MenuItem {
 
     /**
      * Add ingredients
-     * @param key
-     * @param value
+     * @param key String
+     * @param value Double
      */
     public void addIngredients(String key, Double value) {
         this.usedIngredients.put(key, value);
@@ -89,7 +89,7 @@ public class MenuItem {
     
     /**
      * Remove ingredients
-     * @param key
+     * @param key String
      */
     public void removeIngredients(String key) {
         this.usedIngredients.remove(key);
@@ -97,7 +97,7 @@ public class MenuItem {
     
     /**
      * Get order is paid or not
-     * @return 
+     * @return Boolean
      */
     public Boolean getSumPlus() {
         return sumPlus;
@@ -105,7 +105,7 @@ public class MenuItem {
 
     /**
      * Set order paid is true or false
-     * @param sumPlus
+     * @param sumPlus Boolean
      */
     public void setSumPlus(Boolean sumPlus) {
         this.sumPlus = sumPlus;
@@ -113,9 +113,9 @@ public class MenuItem {
 
     /**
      * MenuItem constructor
-     * @param name
-     * @param description
-     * @param price
+     * @param name String
+     * @param description String
+     * @param price Double
      */
     public MenuItem(String name, String description, double price) {
         this.name = name;

@@ -24,7 +24,7 @@ import entities.MenuItem;
 import entities.Food;
 
 /**
- *
+ * Order_GUI class
  * @author W22079254
  */
 public class Order_GUI extends JFrame{
@@ -41,7 +41,7 @@ public class Order_GUI extends JFrame{
     
     /**
      * Add order item list with String
-     * @param name
+     * @param name String
      */
     public void addMenuItem(String name) {
         orderItems.addElement(name);
@@ -49,8 +49,8 @@ public class Order_GUI extends JFrame{
     
     /**
      * Prepare Food on menuItem
-     * @param resMenuItem
-     * @return
+     * @param resMenuItem MenuItem with List
+     * @return Order 
      */
     public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
         Order saveOrder = restaurant.getOrderList().get(restaurant.getOrderNumber()-1);
@@ -66,8 +66,8 @@ public class Order_GUI extends JFrame{
     
     /**
      * Create receipt by the current menuItem and sum
-     * @param resMenuItem
-     * @param sum
+     * @param resMenuItem MenuItem with List
+     * @param sum Double
      */
     public void makeReceipt(List<MenuItem> resMenuItem, double sum){
         this.order.setTotal(sum);
@@ -89,7 +89,7 @@ public class Order_GUI extends JFrame{
     
     /**
      * Create bill by the order
-     * @param order
+     * @param order Order
      */
     public void makeBill(Order order){
         List<MenuItem> resMenuItem = order.getMenuItems();
@@ -118,21 +118,36 @@ public class Order_GUI extends JFrame{
         }
         makeReceipt(resMenuItem, sum);        
     }
+    
+    /**
+     * 
+     * Add MenuItem if the order is saved in the restaurant.
+     * 
+     */
+    public void addMenuItemWithSaved(){
+        if(this.order != null){
+            for(MenuItem menuSingleItem : this.order.getMenuItems()){
+                orderItems.addElement(menuSingleItem.getName());
+            }
+        }
+    }
 
     /**
+     * 
      * clear the order item list with action listeners
-     * @void
+     * 
      */
-    public void clearOrder() {
+    private void clearOrder() {
         orderItems.clear();
         this.dispose();
     }
 
     /**
+     * 
      * place menuItem to the order item list with action listeners
-     * @void
+     * 
      */
-    public void placeOrder() {
+    private void placeOrder() {
         // Logic to process the order and notify the kitchen, etc.
         JOptionPane.showMessageDialog(this, "Order placed successfully!");
         if(order == null){
@@ -144,10 +159,11 @@ public class Order_GUI extends JFrame{
     }
 
     /**
+     * 
      * order paid event with action listeners
-     * @void
+     * 
      */
-    public void paidEvent(){
+    private void paidEvent(){
         this.order.setTableNumber("paid");
         restaurant.addTodayWage(this.order.getTotal());
         this.dispose();
@@ -155,10 +171,10 @@ public class Order_GUI extends JFrame{
     
     /**
      * Display the menu List with action listeners
-     * @param e
-     * @param menuList
+     * @param e ListSelectionEvent
+     * @param menuList String with JList
      */
-    public void menuListEventList(ListSelectionEvent e, JList<String> menuList){
+    private void menuListEventList(ListSelectionEvent e, JList<String> menuList){
         if (!e.getValueIsAdjusting()) {
             String selectedMenuItem = menuList.getSelectedValue();
             if (selectedMenuItem != null) {
@@ -166,21 +182,11 @@ public class Order_GUI extends JFrame{
             }
         }
     }
-
-    /**
-     * Add MenuItem if the order is saved in the restaurant.
-     * @void
-     */
-    public void addMenuItemWithSaved(){
-        if(this.order != null){
-            for(MenuItem menuSingleItem : this.order.getMenuItems()){
-                orderItems.addElement(menuSingleItem.getName());
-            }
-        }
-    }
     
     /**
+     * 
      * Initialize the menu list with the name.
+     * 
      */
     private void initializeMenu() {
         menuItems = new DefaultListModel<>();
@@ -191,7 +197,9 @@ public class Order_GUI extends JFrame{
     }
     
     /**
+     * 
      * Create the order GUI
+     * 
      */
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
@@ -242,8 +250,8 @@ public class Order_GUI extends JFrame{
     
     /**
      * Order_GUI constructor
-     * @param res
-     * @param order
+     * @param res Restaurant
+     * @param order Order
      */
     public Order_GUI(Restaurant res, Order order) {
         super("Restaurant Management System Order");

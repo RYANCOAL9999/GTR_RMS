@@ -3,10 +3,6 @@ package gtr_rms;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.Reader;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,8 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
 
 import entities.Restaurant;
@@ -29,7 +23,7 @@ import entities.Inventory;
 import entities.Food;
 
 /**
- *
+ * Authentication_GUI class 
  * @author W22079254
  */
 public class Authentication_GUI extends JFrame{
@@ -37,58 +31,59 @@ public class Authentication_GUI extends JFrame{
     private static final String filePath = "restaurant.json";
 
     private static Restaurant restaurant;
-
-    private JTextField userName;
     
+    private JTextField userName;
+
     private JTextField password;
     
     /**
-     * Get restaurant data By json
-     * @return 
+     * return User
+     * @param name String 
+     * @param password String
+     * @return Staff
      */
-    public final HashMap<String, Object> getRestaurantBYJson(){
+    public Staff getUser(String name, String password){
         
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        
-        HashMap<String, Object> map = new HashMap<>();
-        
-        try{
-            Reader reader = new FileReader(filePath);
-            map = (HashMap<String,Object>) gson.fromJson(reader, map.getClass()); 
-        }
-        catch(IOException e){
-            e.printStackTrace();
+        if(name == null || password == null){
+            return null;
         }
         
-        return map;
-    }
-
-    /**
-     * Staff login with action listeners
-     * @void
-     */
-    public void LoginEvent(){
-        // getStaff
-        String name = userName.getText();
         Staff user = restaurant.getStaff(name);
-
-        if(user == null || !user.getPassword().equals(password.getText())){
-            JOptionPane.showMessageDialog(this, "Authentication Error");
-            return;
+        
+        if(user == null || !user.getPassword().equals(password)){
+            return null;
         }
-
+        
         if(!user.getTodayFirstTimeLogin()){
             user.setTodayFirstTimeLogin(true);
             user.addBackTowork();
         }
+        
+        return user;
+        
+    }
 
+    /**
+     * 
+     * Staff login with action listeners
+     * 
+     */
+    private void LoginEvent(){
+        // getStaff
+        Staff user = getUser(userName.getText(), password.getText());
+        if(user == null){
+            JOptionPane.showMessageDialog(this, "Authentication Error");
+            return;
+        }
         Restaurant_GUI gui = new Restaurant_GUI(restaurant, user);
         gui.setVisible(true);
         this.dispose();
     }
 
     /**
+     * 
      * Create the authentication GUI
+     * 
      */
     private void initializeGUI(){
 
@@ -149,12 +144,13 @@ public class Authentication_GUI extends JFrame{
     }
     
     /**
+     * 
      * Authentication_GUI constructor
-     * @void
+     * 
      */
     public Authentication_GUI(){
         
-        HashMap<String, Object> data = this.getRestaurantBYJson();
+        HashMap<String, Object> data = Helper.getRestaurantBYJson(filePath);
                 
         if(data == null){
             return;

@@ -5,14 +5,14 @@
 package gtr_rms;
 
 /**
- *
+ * GTR_RMS start Project
  * @author W22079254
  */
 public class RMS {
     
     /**
      * Project starting
-     * @param args
+     * @param args String with array
      */
     public static void main(String[] args) {
         // TODO code application logic here

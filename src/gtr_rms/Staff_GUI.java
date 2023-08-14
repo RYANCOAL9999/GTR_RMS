@@ -13,7 +13,7 @@ import entities.Restaurant;
 import entities.Staff;
 
 /**
- *
+ * Staff_GUI class
  * @author W22079254
  */
 public class Staff_GUI extends JFrame {
@@ -27,25 +27,15 @@ public class Staff_GUI extends JFrame {
     private JTextField role;
     
     private JTextField contact;
-
+    
     /**
-     * Cancel add staff with action listeners
-     * @void
+     * add staff with Text and staffIsNull
+     * @param userNameText String
+     * @param roleText String
+     * @param contactText String
+     * @param staffIsNull Boolean
      */
-    public void cancelEvent() {
-        this.dispose();
-    }
-
-    /**
-     * Add staff with action listeners
-     * @param staffIsNull
-     */
-    public void confirmEvent(Boolean staffIsNull) {
-
-        String userNameText = this.userName.getText();
-        String roleText = this.role.getText();
-        String contactText = this.contact.getText();
-
+    public void addStaffWithText(String userNameText, String roleText, String contactText, Boolean staffIsNull){
         if(staffIsNull) {
             restaurant.addStaff(
                 new Staff(
@@ -61,11 +51,30 @@ public class Staff_GUI extends JFrame {
             staff.setRole(roleText);
             staff.setContact(contactText);
         }
+    }
+
+    /**
+     * 
+     * Cancel add staff with action listeners
+     * 
+     */
+    private void cancelEvent() {
         this.dispose();
     }
 
     /**
+     * Add staff with action listeners
+     * @param staffIsNull Boolean
+     */
+    private void confirmEvent(Boolean staffIsNull) {
+        this.addStaffWithText(userName.getText(), role.getText(), contact.getText(), staffIsNull);
+        this.dispose();
+    }
+
+    /**
+     * 
      * Create the adding staff GUI
+     * 
      */
     private void initializeGUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -130,8 +139,8 @@ public class Staff_GUI extends JFrame {
 
     /**
      * Staff_GUI constructor
-     * @param res
-     * @param staff
+     * @param res Restaurant
+     * @param staff Staff
      */
     public Staff_GUI(Restaurant res, Staff staff) {
         super("Restaurant Management System Staff");

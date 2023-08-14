@@ -13,9 +13,10 @@ import javax.swing.JPanel;
 
 import entities.Order;
 import entities.Restaurant;
+import javax.swing.JOptionPane;
 
 /**
- *
+ * Table_GUI class
  * @author W22079254
  */
 public class Table_GUI extends JFrame{
@@ -23,19 +24,11 @@ public class Table_GUI extends JFrame{
     private Restaurant restaurant;
     
     /**
-     * Add order to table with table number with action listeners
-     * @param event
+     * Generation the order with tableSeat
+     * @param tableSeat String
+     * @return Order
      */
-    public void placeTable(ActionEvent event) {
-        String[] splited = event.getActionCommand().split(" ");
-        showOrderGUIWithSingleTable(splited[1]);
-    }
-    
-    /**
-     * Show order with table number with action listeners
-     * @param tableSeat
-     */
-    public void showOrderGUIWithSingleTable(String tableSeat){
+    public Order genOrder(String tableSeat){
         Order order = null;
         for(Order item : restaurant.getOrderList()){
             if(item.getTableNumber().equals(tableSeat)){
@@ -49,6 +42,28 @@ public class Table_GUI extends JFrame{
         if(order == null){
             restaurant.addOrderNumber();
             restaurant.addOrder(tableSeat);
+        }
+        return order;
+    }
+    
+    /**
+     * Add order to table with table number with action listeners
+     * @param event ActionEvent
+     */
+    private void placeTable(ActionEvent event) {
+        String[] splited = event.getActionCommand().split(" ");
+        showOrderGUIWithSingleTable(splited[1]);
+    }
+    
+    /**
+     * Show order with table number with action listeners
+     * @param tableSeat String
+     */
+    private void showOrderGUIWithSingleTable(String tableSeat){
+        Order order = this.genOrder(tableSeat);
+        if(order == null){
+            JOptionPane.showMessageDialog(this, "Order has problem");
+            return;
         }
         Order_GUI gui = new Order_GUI(restaurant, order);
         gui.setVisible(true);
@@ -116,7 +131,7 @@ public class Table_GUI extends JFrame{
     
     /**
      * Table_GUI constructor
-     * @param res
+     * @param res Restaurant
      */
     public Table_GUI(Restaurant res){
         super("Restaurant Management System Table");

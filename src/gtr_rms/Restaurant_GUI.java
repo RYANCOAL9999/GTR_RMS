@@ -36,7 +36,7 @@ import entities.Staff;
 
 
 /**
- *
+ * Restaurant_GUI class
  * @author W22079254
  */
 public class Restaurant_GUI extends JFrame{
@@ -48,12 +48,13 @@ public class Restaurant_GUI extends JFrame{
     private static Staff user;
 
     /**
+     * 
      * Export today Data for tomorrow usage.
-     * @void
+     * 
      */
     public void exportTomorrowData(){
 
-        File file = new File("restaurant.json");;
+        File file = new File("restaurant.json");
 
         try{
             
@@ -233,12 +234,13 @@ public class Restaurant_GUI extends JFrame{
         System.out.println("Total" + "      " + todayWage);
         System.out.println();
     }
-
+    
     /**
+     * 
      * Close the restaurant
-     * @void
+     * 
      */
-    public void closeEvent() {
+    private void closeEvent() {
         restaurant.setTodayFirstTimeLoginForAllStaff(false);
         restaurant.getInventory().setIngredientsReady(false);
         restaurant.setMenuReady(false);
@@ -249,10 +251,11 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
+     * 
      * Set restaurant today is ready to serve.
-     * @void
+     * 
      */
-    public void ReadyEvent() {
+    private void ReadyEvent() {
         if(
             !restaurant.getInventory().getIngredientsReady() &&
             !restaurant.getMenuReady()
@@ -265,10 +268,11 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
+     * 
      * Call the sale Record GUI initialize 
-     * @void
+     * 
      */
-    public void salesRecordGUIEvent() {
+    private void salesRecordGUIEvent() {
         if(!"manager".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not Manager !");
             return;
@@ -278,10 +282,11 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * Call the staff Record GUI initialize 
-     * @void
+     * 
+     * Call the staff Record GUI initialize
+     * 
      */
-    public void staffRecordGUIEvent() {
+    private void staffRecordGUIEvent() {
         if(!"manager".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not Manager !");
             return;
@@ -291,10 +296,11 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * Call the table GUI initialize 
-     * @void
+     * 
+     * Call the table GUI initialize
+     * 
      */
-    public void tableGUIEvent() {
+    private void tableGUIEvent() {
         if(!restaurant.getAllReady()){
             JOptionPane.showMessageDialog(this, "Restaurant is not ready, and it cannot serve customer !");
             return;
@@ -304,19 +310,21 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * Call the order GUI initialize 
-     * @void
+     * 
+     * Call the order GUI initialize
+     * 
      */
-    public void orderGUIEvent() {
+    private void orderGUIEvent() {
         SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, today, "Orders:");
         gui.setVisible(true);
     }
 
     /**
-     * Call the menu GUI initialize 
-     * @void
+     * 
+     * Call the menu GUI initialize
+     * 
      */
-    public void menuGUIEvent() {
+    private void menuGUIEvent() {
         if("staff".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
             return;
@@ -326,20 +334,22 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
-     * Call the authenication GUI initialize with user is Log out
-     * @void
+     * 
+     * Call the Authentication GUI initialize with user is Log out
+     * 
      */
-    public void logoutEvent() {
+    private void logoutEvent() {
         Authentication_GUI gui = new Authentication_GUI();
         gui.setVisible(true);
         this.dispose();
     }
     
     /**
+     * 
      * Call the ingredients GUI initialize 
-     * @void
+     * 
      */
-    public void ingredientsGUIEvent() {
+    private void ingredientsGUIEvent() {
         if("staff".equals(user.getRole())){
             JOptionPane.showMessageDialog(this, "Your role is not chef or Manager !");
             return;
@@ -349,7 +359,9 @@ public class Restaurant_GUI extends JFrame{
     }
 
     /**
+     * 
      * Create the Restaurant GUI
+     * 
      */
     private void initializeGUI(){
 
@@ -406,8 +418,8 @@ public class Restaurant_GUI extends JFrame{
 
     /**
      * 
-     * @param res
-     * @param userSession
+     * @param res Restaurant
+     * @param userSession Staff
      */
     public Restaurant_GUI(Restaurant res, Staff userSession){
         restaurant = res;

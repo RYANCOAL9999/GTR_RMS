@@ -4,14 +4,13 @@
  */
 package gtr_rms;
 
-import java.util.HashMap;
+import entities.Staff;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -39,27 +38,17 @@ public class Authentication_GUITest {
     }
 
     /**
-     * Test of getRestaurantBYJson method, of class Authentication_GUI.
+     * Test of getUser method, of class Authentication_GUI.
      */
     @Test
-    public void testGetRestaurantBYJson() {
-        System.out.println("getRestaurantBYJson");
+    public void testGetUser() {
+        System.out.println("getUser");
+        String name = "";
+        String password = "";
         Authentication_GUI instance = new Authentication_GUI();
-        HashMap<String, Object> expResult = null;
-        HashMap<String, Object> result = instance.getRestaurantBYJson();
+        Staff expResult = null;
+        Staff result = instance.getUser(name, password);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of LoginEvent method, of class Authentication_GUI.
-     */
-    @Test
-    public void testLoginEvent() {
-        System.out.println("LoginEvent");
-        Authentication_GUI instance = new Authentication_GUI();
-        instance.LoginEvent();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

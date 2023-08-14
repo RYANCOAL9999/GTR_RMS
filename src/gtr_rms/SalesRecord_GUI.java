@@ -16,7 +16,7 @@ import entities.Order;
 import entities.Restaurant;
 
 /**
- *
+ * SalesRecord_GUI class
  * @author W22079254
  */
 public class SalesRecord_GUI extends JFrame{
@@ -30,10 +30,11 @@ public class SalesRecord_GUI extends JFrame{
     private final int constantsNumber = 3;
 
     /**
+     * 
      * Cancel show order with action listeners
-     * @void
+     * 
      */
-    public void cancelEvent(){
+    private void cancelEvent(){
         JOptionPane.showMessageDialog(this, "Cancel Order Show");
         this.dispose();
     }
@@ -42,14 +43,16 @@ public class SalesRecord_GUI extends JFrame{
      * Show order in order GUI with action listeners
      * @param number
      */
-    public void orderSingleItemClick(int number) {
+    private void orderSingleItemClick(int number) {
        Order order = restaurant.getOrderList().get(number-1);
        Order_GUI gui = new Order_GUI(restaurant, order);
        gui.setVisible(true);
     }
 
     /**
+     * 
      * Create the SalesRecord GUI
+     * 
      */
     private void initializeGUI(String header) {
         /**
@@ -121,9 +124,9 @@ public class SalesRecord_GUI extends JFrame{
 
     /**
      * SalesRecord_GUI constructor
-     * @param res
-     * @param date
-     * @param header
+     * @param res Restaurant
+     * @param date Date
+     * @param header String
      */
     public SalesRecord_GUI(Restaurant res, Date date, String header){
         this.restaurant = res;
