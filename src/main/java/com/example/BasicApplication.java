@@ -1,9 +1,5 @@
 package com.example;
-/**
- *
- * https://www.mongodb.com/compatibility/spring-boot
- * 
- */
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

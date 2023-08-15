@@ -15,7 +15,7 @@ import respository.StaffRepository;
  * @author W22079254
  */
 @EnableMongoRepositories
-public class StaffDataRequest implements CommandLineRunner{
+public class StaffController implements CommandLineRunner{
     
     @Autowired
     StaffRepository staffRepo;

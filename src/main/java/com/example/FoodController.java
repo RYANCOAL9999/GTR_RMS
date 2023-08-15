@@ -20,7 +20,7 @@ import respository.FoodRepository;
  */
 
 @EnableMongoRepositories
-public class FoodDataRequest implements CommandLineRunner{
+public class FoodController implements CommandLineRunner{
     
     @Autowired
     FoodRepository foodRepo;
