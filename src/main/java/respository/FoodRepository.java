@@ -25,7 +25,5 @@ public interface FoodRepository extends MongoRepository<Food, String>{
     
     @Override
     public long count();
-   
-    
     
 }
