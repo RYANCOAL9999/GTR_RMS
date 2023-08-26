@@ -92,11 +92,11 @@ public class SalesRecord_GUI extends JFrame{
 
         tablePanel_North.add(labelShowName, BorderLayout.WEST);
 
-        // /*
-        //  * Center
-        //  * add item with forEach with orderItem to tablePanel_Center
-        //  * need to think about how to make it with 2d array without adding tablePanel
-        //  */  
+        /*
+        * Center
+        * add item with forEach with orderItem to tablePanel_Center
+        * need to think about how to make it with 2d array without adding tablePanel
+        */  
         for(int i=0; i<orderItem.size(); i++){
             JButton item = orderItem.get(i);
             tablePanel_Center.add(item, Helper.getCheckBoxConstraints(i, constantsNumber));
@@ -135,6 +135,4 @@ public class SalesRecord_GUI extends JFrame{
         }
         this.initializeGUI(header);
     }
-
-    
 }

@@ -43,8 +43,6 @@ public class Restaurant_GUI extends JFrame{
 
     private static Restaurant restaurant;
     
-    private static Date today;
-    
     private static Staff user;
 
     /**
@@ -315,7 +313,7 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void orderGUIEvent() {
-        SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, today, "Orders:");
+        SalesRecord_GUI gui = new SalesRecord_GUI(restaurant, new Date(), "Orders:");
         gui.setVisible(true);
     }
 
@@ -339,7 +337,8 @@ public class Restaurant_GUI extends JFrame{
      * 
      */
     private void logoutEvent() {
-        Authentication_GUI gui = new Authentication_GUI();
+        user = null;
+        General_GUI gui = new General_GUI(restaurant);
         gui.setVisible(true);
         this.dispose();
     }
@@ -424,7 +423,6 @@ public class Restaurant_GUI extends JFrame{
     public Restaurant_GUI(Restaurant res, Staff userSession){
         restaurant = res;
         user = userSession;
-        today = new Date();
         this.initializeGUI();
     }
 

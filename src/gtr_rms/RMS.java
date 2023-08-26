@@ -4,20 +4,33 @@
  */
 package gtr_rms;
 
+import entities.Restaurant;
+
 /**
  * GTR_RMS start Project
  * @author W22079254
  */
 public class RMS {
     
+    private static final String filePath = "restaurant.json";
+
+    private static Restaurant restaurant;
+
     /**
      * Project starting
      * @param args String with array
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        restaurant = Helper.loadRestaurantData(filePath);
+
+        if(restaurant == null){
+            System.out.println("Error Loading Cache data");
+            return;
+        }
+
         javax.swing.SwingUtilities.invokeLater(()->{
-            Authentication_GUI gui = new Authentication_GUI();
+            General_GUI gui = new General_GUI(restaurant);
             gui.setVisible(true);
         });
     }    
