@@ -8,7 +8,7 @@ package entities;
  * Food Class
  * @author W22079254
  */
-public class Food extends MenuItem {
+public class Food extends Menu {
 
     private int quantity;
     
@@ -151,7 +151,7 @@ public class Food extends MenuItem {
     }
     
     /**
-     * Food constructor, it is inheritance with menuItem.
+     * Food constructor, it is inheritance with menu.
      * @param name String
      * @param description String
      * @param price Double

@@ -14,7 +14,7 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import entities.Food;
 import entities.Inventory;
-import entities.MenuItem;
+import entities.Menu;
 import entities.Restaurant;
 import entities.Staff;
 
@@ -127,15 +127,15 @@ public class Helper {
         */
         ArrayList<LinkedTreeMap> dishListArrayList = (ArrayList<LinkedTreeMap>) data.get("dishList");
         
-        ArrayList<MenuItem> menuItemList = new ArrayList<>();
+        ArrayList<Menu> menuList = new ArrayList<>();
         
         for(LinkedTreeMap dishTreeMap :dishListArrayList){
-            MenuItem new_Menu = new MenuItem(
+            Menu new_Menu = new Menu(
                (String) dishTreeMap.get("name"),
                (String) dishTreeMap.get("description"),
                Double.parseDouble(dishTreeMap.get("price").toString())
             );
-            menuItemList.add(new_Menu);
+            menuList.add(new_Menu);
         }
         
         /*
@@ -166,7 +166,7 @@ public class Helper {
             (String) data.get("restaurntName"),
             (String) data.get("restaurntAddress"), 
             (String) data.get("restaurntPhone"),
-            menuItemList,
+            menuList,
             staffList,
             inventory,
             file

@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionEvent;
 
 import entities.Restaurant;
 import entities.Order;
-import entities.MenuItem;
+import entities.Menu;
 import entities.Food;
 
 /**
@@ -35,7 +35,7 @@ public class Order_GUI extends JFrame{
     
     private JList<String> orderList;
     
-    private DefaultListModel<String> menuItems;
+    private DefaultListModel<String> menus;
     
     private DefaultListModel<String> orderItems;
     
@@ -43,19 +43,19 @@ public class Order_GUI extends JFrame{
      * Add order item list with String
      * @param name String
      */
-    public void addMenuItem(String name) {
+    public void addMenu(String name) {
         orderItems.addElement(name);
     }
     
     /**
-     * Prepare Food on menuItem
-     * @param resMenuItem MenuItem with List
+     * Prepare food on menu
+     * @param resMenu Menu with List
      * @return Order 
      */
-    public Order prepareFoodOrder(List<MenuItem> resMenuItem) {
+    public Order prepareFoodOrder(List<Menu> resMenu) {
         Order saveOrder = restaurant.getOrderList().get(restaurant.getOrderNumber()-1);
         for(Object orderSingle: orderItems.toArray()){
-            for(MenuItem item: resMenuItem){
+            for(Menu item: resMenu){
                 if(orderSingle == null ? item.getName() == null : orderSingle.equals(item.getName())){
                     saveOrder.addItem(item);
                 }
@@ -65,11 +65,11 @@ public class Order_GUI extends JFrame{
     }
     
     /**
-     * Create receipt by the current menuItem and sum
-     * @param resMenuItem MenuItem with List
+     * Create receipt by the current menu and sum
+     * @param resMenu Menu with list
      * @param sum Double
      */
-    public void makeReceipt(List<MenuItem> resMenuItem, double sum){
+    public void makeReceipt(List<Menu> resMenu, double sum){
         this.order.setTotal(sum);
         this.order.setSubmitted(true);
         System.out.println(restaurant.getName());
@@ -80,7 +80,7 @@ public class Order_GUI extends JFrame{
         System.out.println("Cash RECEIPT");
         System.out.println("********************************");
         System.out.println("Description              Price");
-        for (MenuItem menu : resMenuItem) {
+        for (Menu menu : resMenu) {
             System.out.println(menu.getName() + "      " + menu.getPrice());   
         }
         System.out.println("Total" + "      " + sum);
@@ -92,12 +92,12 @@ public class Order_GUI extends JFrame{
      * @param order Order
      */
     public void makeBill(Order order){
-        List<MenuItem> resMenuItem = order.getMenuItems();
+        List<Menu> resMenus = order.getMenus();
         double sum = 0;
         /*
          * need to think about ingredients have or have not
          */
-        for(MenuItem menu : resMenuItem){ 
+        for(Menu menu : resMenus){ 
             for(Map.Entry<String, Double> usedIngredient:menu.getUsedIngredients().entrySet()){
                 Double value = Double.parseDouble(usedIngredient.getValue().toString());
                 Food food = restaurant.getInventory().getIngredientsByKey(usedIngredient.getKey());
@@ -116,17 +116,17 @@ public class Order_GUI extends JFrame{
                 sum += menu.getPrice();
             }
         }
-        makeReceipt(resMenuItem, sum);        
+        makeReceipt(resMenus, sum);        
     }
     
     /**
      * 
-     * Add MenuItem if the order is saved in the restaurant.
+     * Add Menu if the order is saved in the restaurant.
      * 
      */
-    public void addMenuItemWithSaved(){
+    public void addMenuWithSaved(){
         if(this.order != null){
-            for(MenuItem menuSingleItem : this.order.getMenuItems()){
+            for(Menu menuSingleItem : this.order.getMenus()){
                 orderItems.addElement(menuSingleItem.getName());
             }
         }
@@ -144,14 +144,14 @@ public class Order_GUI extends JFrame{
 
     /**
      * 
-     * place menuItem to the order item list with action listeners
+     * place menu to the order item list with action listeners
      * 
      */
     private void placeOrder() {
         // Logic to process the order and notify the kitchen, etc.
         JOptionPane.showMessageDialog(this, "Order placed successfully!");
         if(order == null){
-            order = prepareFoodOrder(restaurant.getMenuItemList());
+            order = prepareFoodOrder(restaurant.getMenuList());
         }
         //bill & receipt printing
         makeBill(order);
@@ -176,9 +176,9 @@ public class Order_GUI extends JFrame{
      */
     private void menuListEventList(ListSelectionEvent e, JList<String> menuList){
         if (!e.getValueIsAdjusting()) {
-            String selectedMenuItem = menuList.getSelectedValue();
-            if (selectedMenuItem != null) {
-                addMenuItem(selectedMenuItem);
+            String selectedMenu = menuList.getSelectedValue();
+            if (selectedMenu != null) {
+                addMenu(selectedMenu);
             }
         }
     }
@@ -189,10 +189,10 @@ public class Order_GUI extends JFrame{
      * 
      */
     private void initializeMenu() {
-        menuItems = new DefaultListModel<>();
-        List<MenuItem> resMenuItem = restaurant.getMenuItemList();
-        for(MenuItem menu : resMenuItem){
-            menuItems.addElement(menu.getName());
+        menus = new DefaultListModel<>();
+        List<Menu> resMenus = restaurant.getMenuList();
+        for(Menu menu : resMenus){
+            menus.addElement(menu.getName());
         }
     }
     
@@ -203,7 +203,7 @@ public class Order_GUI extends JFrame{
      */
     private void initializeGUI() {
         orderItems = new DefaultListModel<>();
-        addMenuItemWithSaved();
+        addMenuWithSaved();
 
         // GUI Components
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -227,7 +227,7 @@ public class Order_GUI extends JFrame{
             orderPanel.add(clearOrderBtn, BorderLayout.NORTH);
         }
         // Menu List
-        JList<String> menuList = new JList<>(menuItems);
+        JList<String> menuList = new JList<>(menus);
         JScrollPane menuScrollPane = new JScrollPane(menuList);
         menuPanel.add(menuScrollPane, BorderLayout.CENTER);
 

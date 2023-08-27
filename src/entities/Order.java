@@ -17,7 +17,7 @@ public class Order {
     
     private String tableNumber;
     
-    private List<MenuItem> menuItems;
+    private List<Menu> menus;
     
     private double total;
     
@@ -30,11 +30,11 @@ public class Order {
     private Long orderFinishedTime;
     
     /**
-     * Add menuItem
-     * @param item MenuItem
+     * Add menu
+     * @param item Menu
      */
-    public void addItem(MenuItem item) {
-        menuItems.add(item);
+    public void addItem(Menu item) {
+        menus.add(item);
     }
 
     /**
@@ -70,11 +70,11 @@ public class Order {
     }
 
     /**
-     * Get menuItem
-     * @return MenuItem with List
+     * Get menu
+     * @return Menu with List
      */
-    public List<MenuItem> getMenuItems() {
-        return menuItems;
+    public List<Menu> getMenus() {
+        return menus;
     }
 
     /**
@@ -151,7 +151,7 @@ public class Order {
         this.orderId = orderId;
         this.tableNumber = tableNumber;
         this.submitted = false;
-        this.menuItems = new java.util.ArrayList<>();
+        this.menus = new java.util.ArrayList<>();
         this.total = 0;
         this.orderDate = new Date();
         this.orderTime = this.orderDate.getTime();

@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import entities.Food;
-import entities.MenuItem;
+import entities.Menu;
 import entities.Restaurant;
 
 /**
@@ -40,13 +40,13 @@ public class Dish_GUI extends JFrame{
     private final int constantsNumber = 3;
     
     /**
-     * add MenuItem with name and price, after return the name
+     * add Menu with name and price, after return the name
      * @param name String
      * @param price String
      * @param dishDescription String
      * @return String
      */
-    public String addMenuItemWithReturnName(String name, String price, String dishDescription){
+    public String addMenuWithReturnName(String name, String price, String dishDescription){
 
         if(!Helper.checkStringIsNumber(price)){
             return null;
@@ -57,8 +57,8 @@ public class Dish_GUI extends JFrame{
             return null;
         }
 
-        restaurant.addMenuItem(
-            new MenuItem(
+        restaurant.addMenu(
+            new Menu(
                 name, 
                 dishDescription, 
                 Double.parseDouble(price)
@@ -83,7 +83,7 @@ public class Dish_GUI extends JFrame{
      */
     private void confirmEvent(DefaultListModel<String> inventoryItems) {
 
-        String name = addMenuItemWithReturnName(dishName.getText(), dishPrice.getText(), dishDescription.getText());
+        String name = addMenuWithReturnName(dishName.getText(), dishPrice.getText(), dishDescription.getText());
         if(name == null){
             JOptionPane.showMessageDialog(this, "Your Dish is setting error");
             return;

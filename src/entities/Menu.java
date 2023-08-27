@@ -7,10 +7,10 @@ package entities;
 import java.util.HashMap;
 
 /**
- * MenuItem class
+ * Menu class
  * @author W22079254
  */
-public class MenuItem {
+public class Menu {
     
     private String name;
     
@@ -112,12 +112,12 @@ public class MenuItem {
     }
 
     /**
-     * MenuItem constructor
+     * Menu constructor
      * @param name String
      * @param description String
      * @param price Double
      */
-    public MenuItem(String name, String description, double price) {
+    public Menu(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.price = price;

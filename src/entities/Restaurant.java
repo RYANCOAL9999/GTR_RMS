@@ -24,7 +24,7 @@ public class Restaurant {
     
     private List<Order> orderList;
     
-    private List<MenuItem> menuItemList;
+    private List<Menu> menuList;
 
     private List<Staff> staffList;
     
@@ -87,7 +87,7 @@ public class Restaurant {
     }
 
     /**
-     * Set menuItem is ready or not
+     * Set menu is ready or not
      * @param ready Boolean
      */
     public void setMenuReady(Boolean ready) {
@@ -95,7 +95,7 @@ public class Restaurant {
     }
 
     /**
-     * Get menuItem is ready
+     * Get menu is ready
      * @return Boolean
      */
     public boolean getMenuReady(){
@@ -197,38 +197,38 @@ public class Restaurant {
     }
     
     /**
-     * Get menuItem List with today 
-     * @return MenuItem with List 
+     * Get menu List with today 
+     * @return Menu with List 
      */
-    public List<MenuItem> getMenuItemList() {
-        return menuItemList;
+    public List<Menu> getMenuList() {
+        return menuList;
     }
 
     /**
-     * Get menuItem with integer number ID
+     * Get menu with integer number ID
      * @param number Integer
-     * @return MenuItem
+     * @return Menu
      */
-    public MenuItem getMenuItem(int number) {
-        return this.menuItemList.get(number);
+    public Menu getMenu(int number) {
+        return this.menuList.get(number);
     }
 
     /**
-     * Add menuItem on menuItem list
-     * @param item MenuItem
+     * Add menu on menu list
+     * @param item Menu
      */
-    public void addMenuItem(MenuItem item) {
-        this.menuItemList.add(item);
+    public void addMenu(Menu item) {
+        this.menuList.add(item);
     }
     
     /**
-     * Remove menuItem on menuItem list
+     * Remove menu on menu list
      * @param name String
      */
-    public void removeMenuItem(String name) {
-        for(MenuItem menu : this.menuItemList){
+    public void removeMenu(String name) {
+        for(Menu menu : this.menuList){
             if(menu.getName().equals(name)){
-                this.menuItemList.remove(menu);
+                this.menuList.remove(menu);
             }
         }
     }
@@ -373,7 +373,7 @@ public class Restaurant {
      * @param name String
      * @param address String
      * @param phone String
-     * @param menuItemList MenuItem with ArrayList
+     * @param menuList Menu with ArrayList
      * @param staffList  Staff with ArrayList
      * @param inventory Inventory
      * @param exportPath String
@@ -382,7 +382,7 @@ public class Restaurant {
         String name, 
         String address, 
         String phone,
-        ArrayList<MenuItem> menuItemList,
+        ArrayList<Menu> menuList,
         ArrayList<Staff> staffList,
         Inventory inventory,
         String exportPath
@@ -390,7 +390,7 @@ public class Restaurant {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.menuItemList = menuItemList;
+        this.menuList = menuList;
         this.staffList = staffList;
         this.inventory = inventory;
         this.exportPath = exportPath;

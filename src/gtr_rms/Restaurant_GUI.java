@@ -29,7 +29,7 @@ import com.google.gson.GsonBuilder;
 
 import entities.Food;
 import entities.Inventory;
-import entities.MenuItem;
+import entities.Menu;
 import entities.Order;
 import entities.Restaurant;
 import entities.Staff;
@@ -106,17 +106,17 @@ public class Restaurant_GUI extends JFrame{
             /**
              * only get the first one
              */
-            List<HashMap<String, Object>> newMenuItemList = new ArrayList<>();
-            MenuItem menuItem = restaurant.getMenuItem(0);
-            // for (MenuItem menuItemSingle : restaurant.getMenuItemList()){
-            HashMap<String, Object> menuItemMap = new HashMap<>();
-            menuItemMap.put("name", menuItem.getName());
-            menuItemMap.put("description", menuItem.getDescription());
-            menuItemMap.put("price", menuItem.getPrice());
-            newMenuItemList.add(menuItemMap);
+            List<HashMap<String, Object>> newMenuList = new ArrayList<>();
+            Menu menuSingle = restaurant.getMenu(0);
+            // for (Menu menuSingle : restaurant.getMenuList()){
+            HashMap<String, Object> menuMap = new HashMap<>();
+            menuMap.put("name", menuSingle.getName());
+            menuMap.put("description", menuSingle.getDescription());
+            menuMap.put("price", menuSingle.getPrice());
+            newMenuList.add(menuMap);
             // }
 
-            data.put("dishList", newMenuItemList);
+            data.put("dishList", newMenuList);
 
             /**
              * 

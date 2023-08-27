@@ -27,7 +27,7 @@ public class Menu_GUI extends JFrame{
 
     private JList<String> menuList;
     
-    private DefaultListModel<String> menuItems;
+    private DefaultListModel<String> menus;
 
     /**
      * 
@@ -55,7 +55,7 @@ public class Menu_GUI extends JFrame{
      * 
      */
     private void initializeGUI() {
-        menuItems = new DefaultListModel<>();
+        menus = new DefaultListModel<>();
         
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel tablePanel_North = new JPanel(new BorderLayout());
@@ -68,7 +68,7 @@ public class Menu_GUI extends JFrame{
         tablePanel_North.add(labelShowHeader, BorderLayout.WEST);
         tablePanel_North.add(add_menu, BorderLayout.EAST);
 
-        menuList = new JList<>(menuItems);
+        menuList = new JList<>(menus);
         JScrollPane orderScrollPane = new JScrollPane(menuList);
         tablePanel_Center.add(orderScrollPane, BorderLayout.CENTER);
         
@@ -80,7 +80,7 @@ public class Menu_GUI extends JFrame{
         mainPanel.add(tablePanel_South, BorderLayout.SOUTH);
 
         // Action Listeners
-        add_menu.addActionListener(e -> addMenu(menuItems));    
+        add_menu.addActionListener(e -> addMenu(menus));    
         finish.addActionListener(e -> finishEvent());
         
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
