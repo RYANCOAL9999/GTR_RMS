@@ -151,6 +151,14 @@ public class Restaurant {
     public List<Order> getOrderList() {
         return orderList;
     }
+
+    /**
+     * Get order
+     * @return Order
+     */
+    public Order getOrder(int orderNumber) {
+        return orderList.get(orderNumber);
+    }
     
     /**
      * Add order
@@ -206,11 +214,17 @@ public class Restaurant {
 
     /**
      * Get menu with integer number ID
-     * @param number Integer
+     * @param name String
      * @return Menu
      */
-    public Menu getMenu(int number) {
-        return this.menuList.get(number);
+    public Menu getMenu(String name) {
+        Menu menuItem = null;
+        for(Menu menu : this.menuList){
+            if(menu.getName() == name){
+                menuItem = menu;
+            }
+        }
+        return menuItem;
     }
 
     /**
@@ -239,6 +253,20 @@ public class Restaurant {
      */
     public Inventory getInventory() {
         return this.inventory;
+    }
+
+    /**
+     * Get ingredient with Single 
+     * @return Food 
+     */
+    public Food getInventoryByIngredientsByName(String name) {
+        Food newFood = null;
+        for(Food food : this.inventory.getIngredients()){
+            if(food.getName() == name){
+                newFood = food;
+            }
+        }
+        return newFood;
     }
     
     /**

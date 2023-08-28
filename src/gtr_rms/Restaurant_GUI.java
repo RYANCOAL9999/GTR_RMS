@@ -107,7 +107,7 @@ public class Restaurant_GUI extends JFrame{
              * only get the first one
              */
             List<HashMap<String, Object>> newMenuList = new ArrayList<>();
-            Menu menuSingle = restaurant.getMenu(0);
+            Menu menuSingle = restaurant.getMenu("rice");
             // for (Menu menuSingle : restaurant.getMenuList()){
             HashMap<String, Object> menuMap = new HashMap<>();
             menuMap.put("name", menuSingle.getName());

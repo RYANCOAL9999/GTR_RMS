@@ -71,6 +71,14 @@ public class Menu {
     }
 
     /**
+     * Get ingredients which used by key
+     * @return HashMap
+     */
+    public Double getUsedIngredientsbyKey(String name) {
+        return this.usedIngredients.get(name);
+    }
+
+    /**
      * Get ingredients which used
      * @return HashMap
      */

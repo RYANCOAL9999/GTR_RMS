@@ -70,6 +70,21 @@ public class Order {
     }
 
     /**
+     * Get menu string names
+     * @return Menu with String name
+     */
+    public Menu getMenusByName(String name) {
+        Menu menu = null;
+        for(Menu item : menus) {
+            if(item.getName() == name){
+                menu = item;
+            }
+        }
+        return menu;
+    }
+
+
+    /**
      * Get menu
      * @return Menu with List
      */
@@ -145,11 +160,11 @@ public class Order {
     /**
      * Order constructor
      * @param orderId Integer
-     * @param tableNumber String
+     * @param i String
      */
-    public Order(int orderId, String tableNumber) {
+    public Order(int orderId, String i) {
         this.orderId = orderId;
-        this.tableNumber = tableNumber;
+        this.tableNumber = i;
         this.submitted = false;
         this.menus = new java.util.ArrayList<>();
         this.total = 0;
